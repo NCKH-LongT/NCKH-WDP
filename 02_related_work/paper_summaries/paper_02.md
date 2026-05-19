@@ -1,125 +1,43 @@
 # Paper 02 Summary
 
-## Citation
+### Citation
+- **Tên bài:** TRACE: AI-Assisted Assessment of Collaborative Projects in Computer Science Education
+- **Tác giả:** Yu & Zagula
+- **Năm:** 2026
+- **Nguồn:** arXiv preprint
+- **DOI/Link:** Link trong Google Sheet
 
-Tên bài:
-TRACE: AI-Assisted Assessment of Collaborative Projects in Computer Science Education
+### Problem
+Bài báo giải quyết vấn đề đánh giá project nhóm trong giáo dục khoa học máy tính. Trong project nhóm, giảng viên khó đánh giá công bằng chất lượng project và đóng góp cá nhân vì dữ liệu nằm rải rác trong GitHub, commits, issues, pull requests, README, documentation và quá trình cộng tác.
 
-Tác giả:
-Yu & Zagula
+### Method
+TRACE sử dụng repository mining, static analysis, NLP, AI-assisted analytics và GitHub API để đánh giá project quality và individual contribution. Hệ thống phân tích repository, activity logs và artifacts của project để sinh điểm hoặc dashboard hỗ trợ instructor review.
 
-Năm:
-2026
+### Rubric / Criteria
+Các tiêu chí có thể liên hệ với rubric gồm code quality, test coverage, documentation, functionality, usability và contribution. Bài không phải rubric-based grading thuần túy, nhưng tiêu chí có thể được cấu hình trọng số theo mục tiêu môn học.
 
-Nguồn:
-Computer Science Education Research
+### Dataset / Context
+Bối cảnh là collaborative software projects trong CS education, thường liên quan GitHub Classroom hoặc GitHub repositories. Đây không phải cuộc thi lập trình, nhưng rất gần với phần GitHub workflow của dự án nhóm.
 
-DOI/Link:
-Link
-https://arxiv.org/pdf/2510.03998
+### Evaluation
+Đánh giá bằng cách so sánh AI-generated/project grades với instructor grades, kết hợp phân tích thời gian chấm, perception của sinh viên/giảng viên và tính minh bạch trong đánh giá.
 
----
+### Results
+TRACE cho thấy repository-based analytics có thể hỗ trợ đánh giá project nhóm và giảm workload cho instructor. Bài hữu ích để thiết kế dashboard GitHub tracking và project assessment.
 
-## Problem
+### Limitations
+- Là arXiv preprint, chưa chắc đã peer-reviewed.
+- Tập trung project nhóm/course project, không phải contest/hackathon.
+- Tập trung nhiều vào contribution cá nhân hơn là source code grading theo rubric.
 
-Bài báo tập trung vào vấn đề đánh giá công bằng project nhóm trong môi trường giáo dục ngành Computer Science.
+### Relevance to our topic
+Mức độ liên quan: **Trung bình cao** nếu hệ thống dùng GitHub repository. Bài này phù hợp cho nhánh GitHub Integration hơn là AI chấm rubric trực tiếp.
 
-Khó khăn chính:
-
-- khó xác định đóng góp cá nhân,
-- khó đánh giá project quality,
-- grading collaborative projects mất nhiều thời gian,
-- thiếu dữ liệu repository analytics.
-
----
-
-## Method
-
-Hệ thống TRACE sử dụng:
-
-- repository mining,
-- static analysis,
-- NLP,
-- AI-assisted analytics,
-- GitHub API.
-
-Hệ thống phân tích:
-
-- commit history,
-- contribution activity,
-- test coverage,
-- documentation,
-- project quality metrics.
+### Possible improvement for our system
+Áp dụng vào module **GitHub Repository Analytics**: lấy commit count, file changes, test coverage, README, documentation và activity logs để hỗ trợ AI/judge đánh giá Git Activity, Documentation và Project Structure.
 
 ---
 
-## Dataset
-
-Dataset gồm:
-
-- collaborative software projects,
-- GitHub Classroom repositories,
-- course project repositories.
-
 ---
 
-## Evaluation
-
-Bài báo đánh giá bằng:
-
-- Pearson correlation giữa AI-generated grades và instructor grades,
-- student perception,
-- grading time reduction.
-
----
-
-## Results
-
-Kết quả chính:
-
-- AI-assisted analytics hỗ trợ đánh giá project tốt hơn,
-- giảm thời gian grading,
-- hỗ trợ xác định contribution của từng thành viên,
-- correlation với instructor grading ở mức tốt.
-
----
-
-## Limitations
-
-Hạn chế của bài báo:
-
-- chưa áp dụng trực tiếp cho hackathon competitions,
-- chưa hỗ trợ realtime competition workflow,
-- chưa tích hợp AI code review sâu bằng LLM,
-- focus chủ yếu vào educational context.
-
----
-
-## Relevance to our topic
-
-Bài báo rất hữu ích cho SEAL vì:
-
-- sử dụng GitHub repository data,
-- hỗ trợ repository evaluation,
-- hỗ trợ dashboard analytics,
-- hỗ trợ collaborative project assessment,
-- có workflow gần với hackathon repository tracking.
-
-SEAL có thể học từ bài báo này về:
-
-- repository mining,
-- contribution analysis,
-- GitHub analytics,
-- project quality metrics.
-
----
-
-## Possible improvement
-
-Nhóm có thể mở rộng bằng cách:
-
-- thêm AI-assisted source code review bằng LLM,
-- hỗ trợ hackathon competition ranking,
-- xử lý realtime webhook events,
-- tích hợp AI-generated rubric scoring,
-- hỗ trợ competition dashboard và judge workflow.
+**Ghi chú cho repo:** File này thuộc thư mục `02_related_work/paper_summaries/` và dùng để phục vụ literature review, gap analysis, methodology và AI integration của dự án.

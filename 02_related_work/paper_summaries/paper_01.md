@@ -1,145 +1,41 @@
 # Paper 01 Summary
 
-## Citation
+### Citation
+- **Tên bài:** Implementing AI-Based Code Review Automation: A Case Study in Academic Software Development
+- **Tác giả:** Omar Isam AL Mrayat, Dyala Ibrahim, Malik Jawarneh
+- **Năm:** 2025
+- **Nguồn:** International Journal of Artificial Intelligence Applications
+- **DOI/Link:** Link trong Google Sheet
 
-Tên bài:
-Design and Evaluation of an AI-Assisted Grading Tool for Introductory Programming Assignments: An Experience Report
+### Problem
+Bài báo giải quyết vấn đề review code thủ công trong môi trường học thuật. Review code thủ công thường tốn thời gian, phụ thuộc vào kinh nghiệm người review, dễ bỏ sót lỗi và thiếu nhất quán giữa các reviewer. Mục tiêu của bài là xây dựng một hệ thống AI-assisted code review để hỗ trợ phát hiện lỗi, kiểm tra coding standard và đánh giá chất lượng code.
 
-Tác giả:
-SIGCSE Research Group
+### Method
+Bài sử dụng hướng tiếp cận AI-based code review, kết hợp mô hình GPT-4/transformer với các công cụ static analysis như Pylint, Flake8, Checkstyle. Hệ thống kiểm tra các lỗi cú pháp, lỗi ngữ nghĩa, coding standards, design/implementation patterns và sinh feedback cho developer/student.
 
-Năm:
-2025
+### Dataset / Context
+Bối cảnh là academic software development, gồm các student projects hoặc programming assignments trong môi trường Computer Science. Đây không phải bối cảnh cuộc thi lập trình và cũng không phải hệ thống leaderboard.
 
-Nguồn:
-SIGCSE 2025 (CORE A Conference)
+### Evaluation
+Đánh giá chủ yếu dựa trên khả năng phát hiện vấn đề trong code, giảm thời gian review, so sánh với công cụ truyền thống và phản hồi từ người dùng/developer. Không có metric ranking hoặc AI-human rubric score alignment rõ như đề tài nhóm.
 
-DOI/Link:
-Link
-https://dl.acm.org/doi/abs/10.1145/3641554.3701913
+### Results
+Bài cho thấy AI có thể hỗ trợ review code nhanh hơn và giúp phát hiện các vấn đề về code quality. Kết quả phù hợp để chứng minh AI có thể hỗ trợ kiểm tra source code trước khi judge chấm theo rubric.
 
----
+### Limitations
+- Không tập trung vào predefined rubric scoring.
+- Không tập trung vào contest/hackathon ranking.
+- Không có human judge accept/override workflow rõ.
+- Nguồn học thuật yếu hơn các bài ACM/Elsevier/Springer.
 
-## Problem
+### Relevance to our topic
+Mức độ liên quan: **Trung bình thấp**. Bài này nên dùng làm **background** cho AI code review và static analysis, không nên xem là core paper.
 
-Bài báo giải quyết vấn đề đánh giá bài tập lập trình trong các khóa học nhập môn lập trình.
-
-Các hệ thống autograder truyền thống chỉ kiểm tra test case và output nhưng không đánh giá sâu các yếu tố như:
-
-- code quality,
-- readability,
-- coding style,
-- requirement compliance,
-- maintainability.
-
-Việc chấm thủ công của TA mất nhiều thời gian và thiếu tính nhất quán.
-
----
-
-## Method
-
-Bài báo đề xuất hệ thống TA Buddy – một AI-assisted grading tool sử dụng:
-
-- Code Llama (LLM chuyên cho code),
-- grading rubric,
-- instructor-in-the-loop workflow.
-
-Input của hệ thống gồm:
-
-- problem statement,
-- source code submission,
-- grading rubric.
-
-AI sẽ sinh:
-
-- suggested score cho từng rubric criterion,
-- feedback,
-- grading explanation.
-
-Human TA có thể:
-
-- accept,
-- reject,
-- override kết quả AI.
+### Possible improvement for our system
+Áp dụng vào bước **Code Preprocessing / Static Analysis**: trước khi gửi code cho AI chấm theo rubric, hệ thống có thể chạy static analysis để phát hiện syntax issues, coding standard violations, code smells và gộp kết quả này vào prompt AI.
 
 ---
 
-## Dataset
-
-Dataset gồm:
-
-- bài tập lập trình nhập môn,
-- student code submissions,
-- grading rubric,
-- human grading results.
-
-Bối cảnh:
-
-- introductory programming courses.
-
 ---
 
-## Evaluation
-
-Bài báo đánh giá hệ thống bằng:
-
-- grading time reduction,
-- agreement between AI-assisted grading and manual grading,
-- instructor feedback.
-
----
-
-## Results
-
-Kết quả chính:
-
-- thời gian chấm giảm khoảng 24%,
-- AI-assisted grading đạt khoảng 90% grade agreement với manual grading,
-- TA đánh giá workflow hỗ trợ grading hiệu quả hơn.
-
----
-
-## Limitations
-
-Hạn chế của bài báo:
-
-- chỉ áp dụng cho programming assignments trong giáo dục,
-- chưa áp dụng cho hackathon hoặc programming competition,
-- AI vẫn cần human validation,
-- chưa xử lý collaborative repository evaluation.
-
----
-
-## Relevance to our topic
-
-Bài báo rất liên quan đến đề tài SEAL vì:
-
-- sử dụng rubric-based grading,
-- dùng AI hỗ trợ chấm source code,
-- có human-in-the-loop workflow,
-- hỗ trợ judge review.
-
-Workflow của bài báo gần giống với SEAL:
-
-Problem statement + source code + rubric
-→ AI suggested grades
-→ Human judge review
-→ Final evaluation.
-
-Trong SEAL:
-
-- “student assignment” được thay bằng “contestant submission”,
-- “TA” được thay bằng “judge/coordinator”.
-
----
-
-## Possible improvement
-
-Nhóm có thể mở rộng bằng cách:
-
-- tích hợp GitHub repository tracking,
-- đánh giá collaborative projects,
-- xử lý commit activity,
-- thêm realtime webhook processing,
-- hỗ trợ hackathon competition workflow,
-- hỗ trợ AI review cho toàn bộ repository thay vì single assignment.
+**Ghi chú cho repo:** File này thuộc thư mục `02_related_work/paper_summaries/` và dùng để phục vụ literature review, gap analysis, methodology và AI integration của dự án.
