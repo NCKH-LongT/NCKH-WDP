@@ -1,270 +1,191 @@
-# Project Proposal
+# Topic Proposal
 
-## 1. Tên đề tài dự kiến
+## 1. Group Information
 
-_Personalized Career Orientation & Dynamic Learning Roadmap Platform for Software Engineering Students Using Artificial Intelligence_
+- Class: SE1823
+- Group: G03
+- Leader: Bùi Đức Anh
+- Members:
 
-Tên tiếng Việt đề xuất:
+## 2. Proposed Title
 
-_Nền tảng định hướng nghề nghiệp và xây dựng lộ trình học tập cá nhân hóa cho sinh viên ngành Công nghệ phần mềm ứng dụng trí tuệ nhân tạo (AI)_
+English title:
 
----
+**Personalized Career Orientation & Learning Roadmap Platform for Software Engineering Students**
 
-## 2. Lĩnh vực ứng dụng
+Vietnamese title:
 
-Dự án thuộc các lĩnh vực:
+**Nền tảng định hướng nghề nghiệp và xây dựng lộ trình học tập cá nhân hóa cho sinh viên ngành Công nghệ phần mềm**
 
-- Trí tuệ nhân tạo (Artificial Intelligence)
-- Công nghệ giáo dục (EdTech)
-- Hệ thống định hướng nghề nghiệp
-- Phân tích dữ liệu học tập
-- Hỗ trợ phát triển kỹ năng ngành Công nghệ thông tin
+## 3. Application Domain
 
-Hệ thống hỗ trợ sinh viên:
+The project belongs to the following application domains:
 
-- định hướng nghề nghiệp,
-- xây dựng lộ trình học tập,
-- phân tích kỹ năng,
-- quản lý portfolio cá nhân.
+- Artificial Intelligence
+- Education Technology
+- Career Orientation System
+- Learning Analytics
+- Software Engineering Education
+- Student Support System
+- E-Portfolio Management
 
----
+The system is designed to support Software Engineering students in career orientation, skill gap analysis, personalized learning roadmap generation, job market trend awareness, and GitHub-based portfolio development.
 
-## 3. Vấn đề thực tế
+## 4. Problem Statement
 
-Hiện nay nhiều sinh viên ngành Công nghệ thông tin gặp khó khăn trong việc:
+Many Software Engineering students face difficulties in preparing for specific career roles in the software industry. Although students may learn many general subjects at university, they often do not know which career path is suitable for their current skills, interests, academic background, and project experience.
 
-- xác định hướng nghề nghiệp phù hợp,
-- lựa chọn kỹ năng cần học,
-- theo kịp xu hướng công nghệ mới,
-- xây dựng lộ trình học tập hiệu quả,
-- chuẩn bị portfolio phù hợp với nhu cầu tuyển dụng.
+The main practical problems include:
 
-Các phương pháp định hướng truyền thống thường:
+1. Students have difficulty identifying a suitable career path such as Backend Developer, Frontend Developer, Mobile Developer, DevOps Engineer, Cloud Engineer, Data Engineer, or AI Engineer.
+2. University curricula may not update quickly enough to match current industry requirements.
+3. Students are overwhelmed by many online roadmaps and do not know which roadmap fits their current level.
+4. Students may not clearly understand the gap between their current skills and the skills required by a target career role.
+5. Students often build random projects that do not form a coherent portfolio story for potential employers.
+6. Job market trends change quickly, but students rarely use job posting data to decide which skills should be learned first.
 
-- mang tính chung chung,
-- thiếu cá nhân hóa,
-- không cập nhật theo thị trường lao động thực tế.
+Traditional career guidance methods are often general, not personalized, and not updated according to real labor market demand. As a result, students may learn unsuitable technologies, lack practical skills, and face difficulty when applying for internships or entry-level jobs.
 
-Điều này dẫn đến:
+Therefore, a personalized AI-based platform is needed to help Software Engineering students identify suitable career paths, analyze skill gaps, generate learning roadmaps, and build professional e-portfolios based on their GitHub projects.
 
-- học sai công nghệ,
-- thiếu kỹ năng thực tế,
-- khó cạnh tranh khi xin thực tập hoặc việc làm.
+## 5. Motivation
 
----
+This topic is important because career orientation and job readiness are major concerns for Software Engineering students. Choosing a suitable career path early can help students focus their learning, prepare better projects, and improve their chances of getting internships or entry-level jobs.
 
-## 4. Đối tượng người dùng
+Traditional online roadmaps are useful, but they are usually static and do not consider each student’s current skills, academic background, GitHub projects, or target career role. In addition, these roadmaps are not always updated according to real job market trends.
 
-### 4.1 Student
+By integrating AI into the system, students can receive more personalized and practical support. AI can analyze student profiles, compare current skills with career role requirements, summarize GitHub repositories, identify missing skills, and recommend learning priorities based on market demand.
 
-Là sinh viên sử dụng hệ thống để định hướng nghề nghiệp và phát triển kỹ năng.
+The system does not replace academic counselors or industry mentors. Instead, it acts as an intelligent support tool that helps students make better learning and career decisions.
 
-Nhu cầu:
+## 6. Target Users
 
-- Xác định career path phù hợp.
-- Xây dựng roadmap học tập cá nhân hóa.
-- Phân tích skill gap.
-- Theo dõi tiến độ học tập và kỹ năng.
-- Quản lý GitHub và portfolio cá nhân.
-- Chuẩn bị kỹ năng cho thực tập và tuyển dụng.
+The main users of the system are:
 
-### 4.2 Academic Counselor
+1. **Software Engineering Students**
 
-Là cố vấn học tập hoặc giảng viên.
+   Students use the system to discover suitable career paths, analyze skill gaps, follow personalized learning roadmaps, track progress, and build e-portfolios.
 
-Nhu cầu:
+2. **Academic Counselors**
 
-- Theo dõi tiến độ phát triển kỹ năng của sinh viên.
-- Hỗ trợ định hướng nghề nghiệp.
-- Đánh giá khả năng đáp ứng kỹ năng của sinh viên.
-- Đưa ra khuyến nghị học tập phù hợp.
+   Academic counselors use the system to monitor student progress, understand student skill gaps, and provide better academic and career guidance.
 
-### 4.3 Industry Mentor
+3. **Industry Mentors**
 
-Là mentor doanh nghiệp hoặc Senior Developer.
+   Industry mentors use the system to give practical feedback on career paths, technical skills, project portfolios, and industry expectations.
 
-Nhu cầu:
+4. **Administrators**
 
-- Hỗ trợ sinh viên định hướng kỹ năng thực tế.
-- Đề xuất công nghệ phù hợp với thị trường.
-- Theo dõi sự phát triển kỹ năng của mentee.
-- Góp ý về roadmap học tập và portfolio.
+   Administrators manage users, system data, skill frameworks, roadmap content, AI API configuration, and third-party service integration.
 
-### 4.4 Admin
+## 7. Proposed AI Model / Method
 
-Là người quản trị hệ thống.
+The project does not aim to build or train a completely new AI model from scratch. Instead, it focuses on integrating existing AI models and AI-based methods into a practical student support platform.
 
-Nhu cầu:
+The proposed AI models and methods include:
 
-- Quản lý người dùng và quyền truy cập.
-- Cấu hình AI API và third-party services.
-- Quản lý dữ liệu roadmap và skill framework.
-- Theo dõi trạng thái hoạt động của hệ thống.
+- **Large Language Model API**
 
----
+  The system may use GPT, Gemini, or similar LLM APIs for the AI Virtual Mentor module. The LLM will support career-related question answering, roadmap explanation, and personalized learning advice.
 
-## 5. Lý do cần tích hợp AI
+- **Retrieval-Augmented Generation**
 
-AI đóng vai trò cốt lõi giúp hệ thống:
+  RAG can be used to improve chatbot responses by retrieving relevant information from career role requirements, skill trees, learning resources, job trend data, and student profiles.
 
-- cá nhân hóa lộ trình học tập,
-- phân tích kỹ năng sinh viên,
-- đánh giá khoảng cách kỹ năng (skill gap),
-- gợi ý công nghệ nên học,
-- phân tích GitHub và portfolio,
-- cập nhật xu hướng tuyển dụng theo thời gian thực.
+- **Natural Language Processing**
 
-AI giúp hệ thống:
+  NLP will be used to process user questions, analyze job descriptions, extract skills from recruitment posts, and summarize GitHub README files.
 
-- thông minh hơn,
-- tự động hóa quá trình tư vấn,
-- đưa ra khuyến nghị phù hợp với từng sinh viên.
+- **Embedding Model / Semantic Similarity**
 
-Thay vì sử dụng roadmap cố định, hệ thống có thể:
+  Embedding-based similarity can be used to compare student skills with target career role requirements and identify skill gaps.
 
-- cập nhật theo xu hướng thị trường,
-- điều chỉnh theo năng lực người dùng,
-- đề xuất kỹ năng ưu tiên học tập.
+- **Recommendation Model**
 
-Lưu ý: AI trong hệ thống đóng vai trò hỗ trợ định hướng và gợi ý học tập, không thay thế hoàn toàn cố vấn học tập hoặc mentor doanh nghiệp.
+  Recommendation methods will be used to suggest suitable career paths, learning roadmaps, technical skills, and learning resources.
 
----
+- **Keyword Frequency Analysis**
 
-## 6. Model AI dự kiến sử dụng
+  Keyword frequency analysis will be used in the Market Pulse module to identify trending technologies from job postings.
 
-Hệ thống không tự xây dựng hoặc huấn luyện mô hình AI riêng.
+- **GitHub README Analysis**
 
-Thay vào đó, hệ thống sẽ tích hợp các third-party AI services thông qua API.
+  AI will be used to analyze README files, extract project objectives, identify tech stacks, and generate portfolio summaries.
 
-Các model/API dự kiến có thể sử dụng:
+## 8. System Features
 
-- OpenAI GPT-4 / GPT-4o
-- Google Gemini API
-- Claude API (nếu phù hợp)
+The main features of the system are:
 
-Các kỹ thuật AI dự kiến áp dụng:
+1. **AI Virtual Mentor**
 
-### 6.1 Natural Language Processing (NLP)
+   A natural language chatbot that allows students to ask career-related questions and receive personalized technical career advice.
 
-Ứng dụng để:
+2. **Dynamic Learning Roadmap**
 
-- xử lý câu hỏi người dùng,
-- phân tích mô tả công việc,
-- phân tích README GitHub,
-- phân tích portfolio và kỹ năng.
+   The system allows students to select a target career role and automatically generates a hierarchical skill tree with prioritized learning steps and curated learning resources.
 
-### 6.2 Recommendation System
+3. **Skill Gap Analysis**
 
-Ứng dụng để:
+   The system compares the student’s current skills with the required skills of the selected career role and generates a report showing missing skills and urgent learning priorities.
 
-- gợi ý roadmap học tập,
-- đề xuất kỹ năng phù hợp,
-- đề xuất khóa học hoặc công nghệ nên học.
+4. **Market Pulse**
 
-### 6.3 Semantic Skill Analysis
+   The system collects job posting data from IT job portals, analyzes skill keywords in job descriptions, and displays trend charts for in-demand technologies.
 
-Ứng dụng để:
+5. **E-Portfolio Management**
 
-- phân tích mối liên hệ giữa các kỹ năng,
-- đánh giá độ phù hợp nghề nghiệp,
-- xác định skill gap.
+   The system allows students to link their GitHub account, synchronize public repositories, summarize README files, extract tech stacks, and generate a shareable portfolio URL.
 
-### 6.4 Trend Analysis
+6. **User Management**
 
-Ứng dụng để:
+   The system supports authentication using Email/Password and Google OAuth 2.0. It also stores chat history, skill assessments, roadmap progress, and portfolio data.
 
-- phân tích xu hướng công nghệ,
-- cập nhật nhu cầu tuyển dụng từ thị trường lao động,
-- đề xuất công nghệ đang được doanh nghiệp ưu tiên.
+## 9. Expected Contribution
 
----
+The expected contributions of the project are:
 
-## 7. Kết quả mong muốn
+1. A personalized AI-based career orientation platform for Software Engineering students.
 
-### 7.1 Về mặt hệ thống
+2. A skill gap analysis mechanism that maps student skills to specific career role requirements.
 
-- Xây dựng được nền tảng định hướng nghề nghiệp ứng dụng AI.
-- Tạo roadmap học tập cá nhân hóa cho từng sinh viên.
-- Hỗ trợ phân tích skill gap tự động.
-- Hỗ trợ quản lý GitHub Portfolio.
-- Cập nhật xu hướng công nghệ theo thị trường tuyển dụng.
-- Hỗ trợ theo dõi tiến độ học tập và phát triển kỹ năng.
+3. A dynamic learning roadmap generation method based on student profile, target career role, and market skill demand.
 
-### 7.2 Về mặt người dùng
+4. A Market Pulse module that analyzes job posting data to identify trending Software Engineering skills.
 
-Hệ thống giúp sinh viên:
+5. An AI-supported e-portfolio system that summarizes GitHub repositories and helps students present project experience more clearly.
 
-- học đúng kỹ năng,
-- theo sát nhu cầu doanh nghiệp,
-- cải thiện khả năng thực tập và tuyển dụng,
-- có định hướng nghề nghiệp rõ ràng hơn,
-- xây dựng portfolio phù hợp với vị trí mong muốn.
+6. A practical integration of LLM, NLP, semantic matching, recommendation methods, and GitHub data in a student support system.
 
-### 7.3 Về mặt nghiên cứu ứng dụng AI
+## 10. Evaluation Plan
 
-- Đánh giá khả năng ứng dụng AI trong định hướng nghề nghiệp.
-- Phân tích hiệu quả của AI Recommendation System đối với sinh viên.
-- So sánh mức độ phù hợp của roadmap AI-generated với roadmap truyền thống.
-- Đề xuất mô hình hỗ trợ học tập cá nhân hóa trong lĩnh vực Software Engineering Education.
+The system will be evaluated using both technical metrics and user-centered evaluation.
 
----
+- **Dataset:**
 
-## 8. Phạm vi đề tài
+  Student profiles, self-declared skills, GitHub repositories, README files, career role skill requirements, and job descriptions collected from IT job portals such as LinkedIn, TopCV, or similar sources.
 
-### 8.1 In Scope
+- **Baseline:**
 
-Đề tài tập trung vào:
+  Static online roadmaps, manual career guidance, keyword-based skill matching, or LLM-only chatbot without retrieval and personalization.
 
-- quản lý người dùng và hồ sơ kỹ năng,
-- phân tích skill gap,
-- xây dựng learning roadmap cá nhân hóa,
-- tích hợp GitHub Portfolio,
-- tích hợp third-party AI API,
-- phân tích xu hướng công nghệ,
-- đề xuất kỹ năng và công nghệ phù hợp,
-- dashboard theo dõi tiến độ học tập.
+- **Metrics:**
 
-### 8.2 Out of Scope
+  Recommendation relevance, Precision@K, Recall@K, skill matching accuracy, response time, roadmap completion rate, and user satisfaction.
 
-Đề tài không bao gồm:
+- **Expert evaluation:**
 
-- tự xây dựng AI model,
-- tự training hoặc fine-tuning AI model,
-- thay thế hoàn toàn vai trò của mentor hoặc counselor,
-- cam kết tuyển dụng hoặc giới thiệu việc làm,
-- xây dựng nền tảng học trực tuyến hoàn chỉnh như Coursera/Udemy,
-- triển khai hệ thống tuyển dụng doanh nghiệp đầy đủ.
+  Academic counselors or industry mentors can review the generated roadmaps, skill gap reports, and portfolio summaries to evaluate their usefulness, correctness, and practical value.
 
----
+- **User survey:**
 
-## 9. Định hướng áp dụng vào hệ thống
+  Software Engineering students can evaluate the system based on ease of use, usefulness, roadmap clarity, career guidance quality, portfolio usefulness, and overall satisfaction.
 
-Trong hệ thống, đề tài sẽ được áp dụng vào các module:
+## 11. Related Papers
 
-- Career Orientation Module
-- Skill Gap Analysis Module
-- Personalized Learning Roadmap Module
-- GitHub Portfolio Analysis Module
-- Technology Trend Analysis Module
-- Student Dashboard
-- Mentor/Counselor Dashboard
-
-Quy trình tổng quan:
-
-1. Sinh viên tạo tài khoản và cập nhật hồ sơ kỹ năng.
-2. Hệ thống phân tích kỹ năng hiện tại của sinh viên.
-3. Sinh viên lựa chọn career path mong muốn.
-4. AI phân tích skill gap và xu hướng thị trường.
-5. Hệ thống tạo roadmap học tập cá nhân hóa.
-6. Sinh viên cập nhật GitHub và portfolio.
-7. AI tiếp tục đánh giá tiến độ và đề xuất kỹ năng mới.
-8. Mentor/Counselor theo dõi và hỗ trợ định hướng.
-9. Hệ thống cập nhật roadmap theo sự phát triển của sinh viên và thị trường công nghệ.
-
----
-
-## 10. Kết luận
-
-Đề tài _Personalized Career Orientation & Dynamic Learning Roadmap Platform for Software Engineering Students Using Artificial Intelligence_ phù hợp với nhu cầu thực tế của sinh viên ngành Công nghệ thông tin trong bối cảnh thị trường công nghệ thay đổi nhanh chóng.
-
-Việc tích hợp AI giúp hệ thống có khả năng cá nhân hóa lộ trình học tập, phân tích kỹ năng và hỗ trợ định hướng nghề nghiệp hiệu quả hơn. Hệ thống không thay thế hoàn toàn mentor hoặc counselor mà đóng vai trò là công cụ hỗ trợ giúp sinh viên phát triển kỹ năng đúng hướng, phù hợp với nhu cầu tuyển dụng và xu hướng công nghệ hiện đại.
+| No  | Title                                                                                                                                                                                   | Year | Source                                                        | Link / DOI                              |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---: | ------------------------------------------------------------- | --------------------------------------- |
+| 1   | C3-IoC: A Career Guidance System for Assessing Student Skills using Machine Learning and Network Visualisation                                                                          | 2023 | International Journal of Artificial Intelligence in Education | Springer Paper Link                     |
+| 2   | SkillGap AI: An AI-Powered Career Guidance Platform                                                                                                                                     | 2026 | International Journal For Multidisciplinary Research          | IJFMR Paper Link                        |
+| 3   | A Review on AI-Based Chatbots for Personalized Career Guidance                                                                                                                          | 2025 | IJARCST                                                       | DOI: 10.15662/IJARCST.2025.0805011      |
+| 4   | Reducing Career Path Anxiety among Vocational Students with an AI-Driven Career Guidance System Integrating Skills Mapping, Adaptive Mentoring, and Real-Time Labor Market Intelligence | 2025 | Zenodo Preprint                                               | https://doi.org/10.5281/zenodo.17355217 |
+| 5   | Personalized Learning Path Recommendation Based on Learner Profile and Knowledge Graph                                                                                                  | 2025 | Computing and Informatics                                     | DOI: 10.31577/cai_2025_4_983            |
