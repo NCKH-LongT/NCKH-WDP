@@ -22,7 +22,7 @@ https://openaccess.thecvf.com/content/CVPR2021/html/Zhang_Generating_Manga_From_
 
 Bài báo giải quyết vấn đề gì?
 Bài báo giải quyết việc **tự động chuyển một minh họa số thành đầu ra theo phong cách manga** bằng cách mô phỏng quy trình sáng tác manga chuyên nghiệp.
-Mục tiêu là autom hóa các bước chính như: **rút trích đường line**, **tạo screentone**, và **tạo texture**, để kết quả có thể dùng được trong workflow thực tế của manga artists. [web:44]
+Mục tiêu là autom hóa các bước chính như: **rút trích đường line**, **tạo screentone**, và **tạo texture**, để kết quả có thể dùng được trong workflow thực tế của manga artists.
 
 ## Method
 
@@ -30,7 +30,7 @@ Bài báo dùng phương pháp/model/hệ thống nào?
 Bài báo đề xuất **một framework học dữ liệu (data‑driven)**, trong đó sinh manga được chia thành ba thành phần chính:
 - Manga line drawing,
 - Regular screentone,
-- Irregular screen texture. [web:44]
+- Irregular screen texture. 
 Phương pháp được thiết kế dựa trên **workflow thực tế trong studio**, và được huấn luyện trên dữ liệu được annotate bởi artist, giúp các layer được sinh ra có thể **combine lại và chỉnh sửa tay** trong quy trình sản xuất thật.
 
 ## Dataset
@@ -71,4 +71,4 @@ Nhóm có thể cải tiến hoặc mở rộng điểm nào?
 - Mở rộng hướng **localization & publishing**:
   - Thêm **xử lý vùng text**,
   - **annotation support**,
-  - **tích hợp với pipeline xuất bản** (publishing workflow) sau khi text được dịch và thay thế. 
+  - **tích hợp với pipeline xuất bản** (publishing workflow) sau khi text được dịch và thay thế.
