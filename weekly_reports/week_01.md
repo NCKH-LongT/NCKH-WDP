@@ -2,10 +2,10 @@
 
 ## Group Information
 
-Class: SE1823
-Group: G03
-Leader: Bùi Đức Anh
-Members: Lương Khánh Toàn, Lê Văn Kiên, Nguyễn Khánh Hưng, Tăng Thùy Thụy
+- Class: SE1823
+- Group: G03
+- Leader: Bùi Đức Anh
+- Members: Lương Khánh Toàn, Lê Văn Kiên, Nguyễn Khánh Hưng,Tăng Thùy Thụy
 
 ## Tasks Completed This Week
 
