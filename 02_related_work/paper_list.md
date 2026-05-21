@@ -25,6 +25,10 @@ Paper 05:
 Mihara, T., et al. (2014).
 A Manga Creator Support Tool Based on a Manga Production Process Model — Improving Productivity by Metadata.
 
+Paper 10:
+Hikaru Ikuta, Leslie Wöhler, and Kiyoharu Aizawa (2024)
+MangaUB: A Manga Understanding Benchmark for Large Multimodal Models
+
 ## AI Model / Method
 Paper 08:
 Xie, M., & Wong, T.-T. (2016).
