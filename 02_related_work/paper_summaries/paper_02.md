@@ -28,10 +28,10 @@ Bài báo cho thấy người dùng hoàn thành các tác vụ có độ khó t
 
 Nghiên cứu dựa trên mẫu nghiên cứu tình huống tương đối nhỏ và không nhắm trực tiếp tới hạ tầng trung tâm dữ liệu. Trọng tâm của bài báo nghiêng về chất lượng hướng dẫn tác vụ và kết quả tương tác nhiều hơn là phân tích telemetry phía backend hoặc cơ chế chấm điểm bất thường.
 
-## Mức độ liên quan tới đề tài của chúng tôi
+## Mức độ liên quan tới đề tài của nhóm
 
-Bài báo có mức độ tương đồng rất cao với tính năng hướng dẫn bảo trì theo ngữ cảnh mà chúng tôi đề xuất. Công trình cung cấp tiền lệ vững chắc cho việc sử dụng AI không chỉ để phát hiện sự cố mà còn để sinh hoặc chuyển hóa tri thức bảo trì thành các chỉ dẫn AR có thể thực thi cho kỹ thuật viên tại hiện trường.
+Bài báo có mức độ tương đồng rất cao với tính năng hướng dẫn bảo trì theo ngữ cảnh mà nhóm đề xuất. Công trình cung cấp tiền lệ vững chắc cho việc sử dụng AI không chỉ để phát hiện sự cố mà còn để sinh hoặc chuyển hóa tri thức bảo trì thành các chỉ dẫn AR có thể thực thi cho kỹ thuật viên tại hiện trường.
 
 ## Hướng cải tiến khả dĩ
 
-Đối với đề tài của chúng tôi, có thể điều chỉnh cùng ý tưởng tương tác này nhưng để cơ chế hướng dẫn được điều khiển bởi telemetry hạ tầng và điểm bất thường, thay vì chỉ từ văn bản bảo trì tổng quát. Chúng tôi cũng có thể so sánh hướng dẫn do AI sinh ra với playbook bảo trì dựa trên luật để kiểm chứng liệu lớp AI thực sự tạo thêm giá trị hay không.
+Đối với đề tài của nhóm, có thể điều chỉnh cùng ý tưởng tương tác này nhưng để cơ chế hướng dẫn được điều khiển bởi telemetry hạ tầng và điểm bất thường, thay vì chỉ từ văn bản bảo trì tổng quát. Nhóm cũng có thể so sánh hướng dẫn do AI sinh ra với playbook bảo trì dựa trên luật để kiểm chứng liệu lớp AI thực sự tạo thêm giá trị hay không.

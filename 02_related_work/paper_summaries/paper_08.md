@@ -28,10 +28,10 @@ Bài báo cho thấy các phương pháp đề xuất đạt hiệu năng tươn
 
 Cách tiếp cận này chuyên biệt cho telemetry có tính chu kỳ và phụ thuộc vào các lựa chọn tiền xử lý có thể không chuyển giao đồng đều sang mọi loại tín hiệu hạ tầng. Công trình cũng tập trung vào phát hiện bất thường ở phía backend hơn là tương tác bảo trì có con người trong vòng lặp.
 
-## Mức độ liên quan tới đề tài của chúng tôi
+## Mức độ liên quan tới đề tài của nhóm
 
-Bài báo rất gần với bài toán backend của chúng tôi vì xử lý trực tiếp telemetry của server farm, phát hiện bất thường thời gian thực và bối cảnh triển khai hướng tới observability. Nghiên cứu này củng cố cơ sở biện minh cho việc sử dụng AI chuỗi thời gian trên các chỉ số hạ tầng đa biến trong trung tâm dữ liệu mô phỏng.
+Bài báo rất gần với bài toán backend của nhóm vì xử lý trực tiếp telemetry của server farm, phát hiện bất thường thời gian thực và bối cảnh triển khai hướng tới observability. Nghiên cứu này củng cố cơ sở biện minh cho việc sử dụng AI chuỗi thời gian trên các chỉ số hạ tầng đa biến trong trung tâm dữ liệu mô phỏng.
 
 ## Hướng cải tiến khả dĩ
 
-Trong dự án của chúng tôi, có thể lấy cảm hứng từ bài báo này để đánh giá không chỉ độ chính xác phát hiện bất thường mà còn cả tính kịp thời của cảnh báo. Ngay cả khi không triển khai VMD, chúng tôi vẫn có thể kế thừa luận điểm rằng tiền xử lý và các chỉ số độ trễ là quan trọng khi điểm bất thường được dùng để hỗ trợ bảo trì có AR theo thời gian thực.
+Trong dự án của nhóm, có thể lấy cảm hứng từ bài báo này để đánh giá không chỉ độ chính xác phát hiện bất thường mà còn cả tính kịp thời của cảnh báo. Ngay cả khi không triển khai VMD, nhóm vẫn có thể kế thừa luận điểm rằng tiền xử lý và các chỉ số độ trễ là quan trọng khi điểm bất thường được dùng để hỗ trợ bảo trì có AR theo thời gian thực.

@@ -26,12 +26,12 @@ Thuật toán đề xuất đạt độ chính xác dự báo trung bình tốt 
 
 ## Hạn chế
 
-Miền ứng dụng của nghiên cứu là sản xuất công nghiệp thay vì hạ tầng trung tâm dữ liệu, do đó loại cảm biến, loại lỗi và quy trình bảo trì khác với bối cảnh của chúng tôi. Kiến trúc giải pháp cũng nặng hơn so với proof-of-concept mà chúng tôi dự kiến triển khai vì phụ thuộc vào cảm biến công nghiệp chuyên dụng và mô hình hóa RUL.
+Miền ứng dụng của nghiên cứu là sản xuất công nghiệp thay vì hạ tầng trung tâm dữ liệu, do đó loại cảm biến, loại lỗi và quy trình bảo trì khác với bối cảnh của nhóm. Kiến trúc giải pháp cũng nặng hơn so với proof-of-concept mà nhóm dự kiến triển khai vì phụ thuộc vào cảm biến công nghiệp chuyên dụng và mô hình hóa RUL.
 
-## Mức độ liên quan tới đề tài của chúng tôi
+## Mức độ liên quan tới đề tài của nhóm
 
-Đây là một trong những tài liệu tham khảo mạnh nhất cho định hướng "AR + bảo trì có hỗ trợ AI" trong đề xuất của chúng tôi. Dù miền ứng dụng khác biệt, mẫu kiến trúc của nghiên cứu rất tương đồng: thu thập telemetry, mô hình dự báo và hỗ trợ bảo trì được phân phối qua AR.
+Đây là một trong những tài liệu tham khảo mạnh nhất cho định hướng "AR + bảo trì có hỗ trợ AI" trong đề xuất của nhóm. Dù miền ứng dụng khác biệt, mẫu kiến trúc của nghiên cứu rất tương đồng: thu thập telemetry, mô hình dự báo và hỗ trợ bảo trì được phân phối qua AR.
 
 ## Hướng cải tiến khả dĩ
 
-Trong dự án của chúng tôi, có thể đơn giản hóa lớp dự báo từ RUL công nghiệp sang dự báo tình trạng node hoặc dịch vụ trong môi trường mô phỏng. Chúng tôi cũng có thể thay thế bối cảnh đối tượng công nghiệp bằng cơ chế neo bám rack hoặc node dựa trên marker để phù hợp với phạm vi proof-of-concept WebAR.
+Trong dự án của nhóm, có thể đơn giản hóa lớp dự báo từ RUL công nghiệp sang dự báo tình trạng node hoặc dịch vụ trong môi trường mô phỏng. Nhóm cũng có thể thay thế bối cảnh đối tượng công nghiệp bằng cơ chế neo bám rack hoặc node dựa trên marker để phù hợp với phạm vi proof-of-concept WebAR.

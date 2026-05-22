@@ -28,10 +28,10 @@ Bài báo báo cáo các kết quả đầy hứa hẹn từ việc tích hợp 
 
 Cách tiếp cận này phụ thuộc vào tri thức miền từ quản trị viên hệ thống để diễn giải chính xác các kịch bản quan trọng. Nó cũng thiên về khám phá mẫu và tương quan bất thường hơn là mô hình hóa dự báo hoặc trình bày thông tin qua AR.
 
-## Mức độ liên quan tới đề tài của chúng tôi
+## Mức độ liên quan tới đề tài của nhóm
 
-Bài báo có mức độ liên quan cao tới kiến trúc mà chúng tôi đề xuất vì chúng tôi cũng dự định kết hợp telemetry, log và ngữ cảnh vận hành. Công trình này củng cố lập luận rằng khả năng quan sát hạ tầng có hỗ trợ AI không nên dựa trên một nguồn tín hiệu duy nhất.
+Bài báo có mức độ liên quan cao tới kiến trúc mà nhóm đề xuất vì nhóm cũng dự định kết hợp telemetry, log và ngữ cảnh vận hành. Công trình này củng cố lập luận rằng khả năng quan sát hạ tầng có hỗ trợ AI không nên dựa trên một nguồn tín hiệu duy nhất.
 
 ## Hướng cải tiến khả dĩ
 
-Đối với dự án của chúng tôi, có thể đơn giản hóa ý tưởng lai này thành một proof-of-concept bằng cách tương quan log container, trạng thái dịch vụ và các chỉ số mức node. Sau đó, ngữ cảnh bất thường đã hợp nhất có thể được hiển thị không chỉ trên dashboard mà còn thông qua lớp phủ AR trên các node mô phỏng tương ứng.
+Đối với dự án của nhóm, có thể đơn giản hóa ý tưởng lai này thành một proof-of-concept bằng cách tương quan log container, trạng thái dịch vụ và các chỉ số mức node. Sau đó, ngữ cảnh bất thường đã hợp nhất có thể được hiển thị không chỉ trên dashboard mà còn thông qua lớp phủ AR trên các node mô phỏng tương ứng.

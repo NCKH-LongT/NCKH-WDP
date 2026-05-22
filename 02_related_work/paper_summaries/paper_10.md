@@ -22,16 +22,16 @@ Bài báo đánh giá mô hình so với các phương pháp phát hiện bất 
 
 ## Kết quả
 
-Nghiên cứu báo cáo độ chính xác rất cao, đạt `99.50%`, vượt qua các mô hình tương đương trên tập dữ liệu được khảo sát. Quan trọng hơn đối với đề tài của chúng tôi, bài báo chứng minh vì sao autoencoder dựa trên LSTM là một bộ phát hiện bất thường theo thời gian hợp lý khi các phụ thuộc dài hạn đóng vai trò đáng kể.
+Nghiên cứu báo cáo độ chính xác rất cao, đạt `99.50%`, vượt qua các mô hình tương đương trên tập dữ liệu được khảo sát. Quan trọng hơn đối với đề tài của nhóm, bài báo chứng minh vì sao autoencoder dựa trên LSTM là một bộ phát hiện bất thường theo thời gian hợp lý khi các phụ thuộc dài hạn đóng vai trò đáng kể.
 
 ## Hạn chế
 
 Miền ứng dụng của nghiên cứu là chất lượng không khí trong nhà thay vì hạ tầng tính toán, và độ phức tạp của telemetry máy chủ có thể khác biệt đáng kể so với dữ liệu cảm biến CO2. Độ chính xác cao trong một miền không tự động bảo đảm khả năng chuyển giao sang phát hiện bất thường hạ tầng.
 
-## Mức độ liên quan tới đề tài của chúng tôi
+## Mức độ liên quan tới đề tài của nhóm
 
-Bài báo hữu ích vì đề xuất của chúng tôi đã nêu rõ `LSTM Autoencoder` như một mô hình ứng viên cho phát hiện bất thường. Công trình này củng cố trực giác rằng các mô hình tái tạo theo chuỗi có thể nắm bắt hành vi thời gian bất thường vượt ra ngoài các vi phạm ngưỡng đơn giản.
+Bài báo hữu ích vì đề xuất của nhóm đã nêu rõ `LSTM Autoencoder` như một mô hình ứng viên cho phát hiện bất thường. Công trình này củng cố trực giác rằng các mô hình tái tạo theo chuỗi có thể nắm bắt hành vi thời gian bất thường vượt ra ngoài các vi phạm ngưỡng đơn giản.
 
 ## Hướng cải tiến khả dĩ
 
-Đối với dự án của chúng tôi, có thể điều chỉnh mô hình này cho các cửa sổ hạ tầng đa biến như CPU, bộ nhớ, mạng, lưu trữ và tín hiệu tình trạng container. Chúng tôi cũng nên đánh giá bằng các chỉ số ở mức sự kiện, vì độ chính xác tính theo điểm đơn lẻ có thể đánh giá quá cao tính hữu dụng trong vận hành thực tế.
+Đối với dự án của nhóm, có thể điều chỉnh mô hình này cho các cửa sổ hạ tầng đa biến như CPU, bộ nhớ, mạng, lưu trữ và tín hiệu tình trạng container. Nhóm cũng nên đánh giá bằng các chỉ số ở mức sự kiện, vì độ chính xác tính theo điểm đơn lẻ có thể đánh giá quá cao tính hữu dụng trong vận hành thực tế.

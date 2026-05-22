@@ -28,10 +28,10 @@ Nghiên cứu báo cáo sự cải thiện đáng kể về hiệu năng so vớ
 
 TFT phức tạp hơn các mô hình dự báo LSTM đơn giản hơn và có thể đòi hỏi nhiều dữ liệu, công sức tinh chỉnh và tài nguyên tính toán hơn. Đối với một proof-of-concept ở quy mô sinh viên, gánh nặng triển khai có thể tương đối cao nếu chức năng dự báo chỉ là một phần mở rộng thứ cấp.
 
-## Mức độ liên quan tới đề tài của chúng tôi
+## Mức độ liên quan tới đề tài của nhóm
 
-Bài báo liên quan trực tiếp vì `TFT` đã được liệt kê trong đề xuất của chúng tôi như một lựa chọn phân tích dự báo nâng cao. Công trình cung cấp cơ sở nghiên cứu vững chắc cho phần hỗ trợ dự báo của hệ thống, đặc biệt nếu chúng tôi muốn biểu diễn các xu hướng rủi ro có khả năng diễn giải thay vì chỉ sử dụng các dự báo dạng hộp đen.
+Bài báo liên quan trực tiếp vì `TFT` đã được liệt kê trong đề xuất của nhóm như một lựa chọn phân tích dự báo nâng cao. Công trình cung cấp cơ sở nghiên cứu vững chắc cho phần hỗ trợ dự báo của hệ thống, đặc biệt nếu nhóm muốn biểu diễn các xu hướng rủi ro có khả năng diễn giải thay vì chỉ sử dụng các dự báo dạng hộp đen.
 
 ## Hướng cải tiến khả dĩ
 
-Trong dự án của chúng tôi, TFT nên được định vị như một mô hình so sánh nâng cao sau khi một đường cơ sở dự báo đơn giản hơn đã vận hành ổn định. Một ứng dụng thực tế là dự báo quỹ đạo ngắn hạn của CPU, bộ nhớ hoặc tình trạng lưu trữ, đồng thời hiển thị các tác nhân ảnh hưởng quan trọng nhất trên dashboard hoặc lớp phủ AR.
+Trong dự án của nhóm, TFT nên được định vị như một mô hình so sánh nâng cao sau khi một đường cơ sở dự báo đơn giản hơn đã vận hành ổn định. Một ứng dụng thực tế là dự báo quỹ đạo ngắn hạn của CPU, bộ nhớ hoặc tình trạng lưu trữ, đồng thời hiển thị các tác nhân ảnh hưởng quan trọng nhất trên dashboard hoặc lớp phủ AR.

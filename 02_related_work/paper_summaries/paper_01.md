@@ -22,16 +22,16 @@ Bài báo đánh giá hệ thống bằng các thước đo trải nghiệm ngư
 
 ## Kết quả
 
-Công trình đóng góp một khung đánh giá cụ thể cho các hệ thống bảo trì có hỗ trợ AR và báo cáo kết quả thực nghiệm về khả năng sử dụng, mức tải công việc và hiệu năng trong bối cảnh mô phỏng. Giá trị nổi bật nhất của bài báo đối với đề tài của chúng tôi nằm ở mô hình minh chứng: nghiên cứu cho thấy cách đánh giá một giao diện bảo trì AR vượt ra ngoài khía cạnh triển khai kỹ thuật thuần túy.
+Công trình đóng góp một khung đánh giá cụ thể cho các hệ thống bảo trì có hỗ trợ AR và báo cáo kết quả thực nghiệm về khả năng sử dụng, mức tải công việc và hiệu năng trong bối cảnh mô phỏng. Giá trị nổi bật nhất của bài báo đối với đề tài của nhóm nằm ở mô hình minh chứng: nghiên cứu cho thấy cách đánh giá một giao diện bảo trì AR vượt ra ngoài khía cạnh triển khai kỹ thuật thuần túy.
 
 ## Hạn chế
 
 Nghiên cứu được thực hiện trong môi trường công nghiệp mô phỏng thay vì triển khai trên dây chuyền sản xuất thực. Phần tóm tắt cũng cho thấy mối liên hệ với hỗ trợ ra quyết định có AI, nhưng đóng góp trung tâm của bài báo vẫn là đánh giá trải nghiệm người dùng hơn là xây dựng chi tiết một quy trình phát hiện bất thường dựa trên AI.
 
-## Mức độ liên quan tới đề tài của chúng tôi
+## Mức độ liên quan tới đề tài của nhóm
 
-Bài báo có mức độ liên quan cao tới đề xuất của chúng tôi vì hệ thống của chúng tôi cũng xem AR là lớp tương tác chính cho bảo trì và giám sát. Công trình đặc biệt hữu ích cho việc thiết kế phần đánh giá, chẳng hạn khi so sánh quy trình kiểm tra dựa trên AR với quy trình chỉ sử dụng dashboard truyền thống thông qua các chỉ số về tải nhận thức, khả năng sử dụng và hiệu năng tác vụ.
+Bài báo có mức độ liên quan cao tới đề xuất của nhóm vì hệ thống của nhóm cũng xem AR là lớp tương tác chính cho bảo trì và giám sát. Công trình đặc biệt hữu ích cho việc thiết kế phần đánh giá, chẳng hạn khi so sánh quy trình kiểm tra dựa trên AR với quy trình chỉ sử dụng dashboard truyền thống thông qua các chỉ số về tải nhận thức, khả năng sử dụng và hiệu năng tác vụ.
 
 ## Hướng cải tiến khả dĩ
 
-Đối với dự án của chúng tôi, có thể mở rộng phong cách đánh giá này bằng cách bổ sung các chỉ số đặc thù miền, chẳng hạn như độ chính xác định vị bất thường, mức độ đúng đắn của quyết định bảo trì và thời gian cần thiết để ánh xạ dữ liệu telemetry tới đúng rack hoặc node mô phỏng.
+Đối với dự án của nhóm, có thể mở rộng phong cách đánh giá này bằng cách bổ sung các chỉ số đặc thù miền, chẳng hạn như độ chính xác định vị bất thường, mức độ đúng đắn của quyết định bảo trì và thời gian cần thiết để ánh xạ dữ liệu telemetry tới đúng rack hoặc node mô phỏng.

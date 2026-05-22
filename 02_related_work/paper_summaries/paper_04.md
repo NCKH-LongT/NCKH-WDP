@@ -28,10 +28,10 @@ Bài báo chứng minh tính khả thi của cơ chế tự động sinh hướn
 
 Bài báo tập trung vào hướng dẫn tác vụ theo quy trình hơn là giám sát hạ tầng hoặc phân tích bất thường. Đây cũng là một công trình mới và mang tính thăm dò, do đó đóng góp mạnh nhất nằm ở thiết kế tương tác và tự động hóa sinh hướng dẫn hơn là triển khai vận hành ở mức trưởng thành.
 
-## Mức độ liên quan tới đề tài của chúng tôi
+## Mức độ liên quan tới đề tài của nhóm
 
-Bài báo đặc biệt hữu ích cho lớp "AI suggestion" trong đề xuất của chúng tôi. Hệ thống mà chúng tôi hướng tới cũng bao gồm hỗ trợ bảo trì theo ngữ cảnh trong AR, và công trình này cho thấy AI có thể chuyển từ vai trò giải thích thụ động sang vai trò chủ động sinh hướng dẫn vận hành theo từng bước và gắn kết với không gian.
+Bài báo đặc biệt hữu ích cho lớp "AI suggestion" trong đề xuất của nhóm. Hệ thống mà nhóm hướng tới cũng bao gồm hỗ trợ bảo trì theo ngữ cảnh trong AR, và công trình này cho thấy AI có thể chuyển từ vai trò giải thích thụ động sang vai trò chủ động sinh hướng dẫn vận hành theo từng bước và gắn kết với không gian.
 
 ## Hướng cải tiến khả dĩ
 
-Chúng tôi có thể điều chỉnh ý tưởng này bằng cách sinh hướng dẫn AR từ ngữ cảnh bất thường, log và trạng thái node thay vì từ các truy vấn người dùng mang tính tổng quát. Một mở rộng hữu ích là kết hợp cơ chế sinh hướng dẫn với mức độ tin cậy để kỹ thuật viên biết khi nào gợi ý của AI chỉ mang tính thăm dò và khi nào đạt độ tin cậy cao.
+Nhóm có thể điều chỉnh ý tưởng này bằng cách sinh hướng dẫn AR từ ngữ cảnh bất thường, log và trạng thái node thay vì từ các truy vấn người dùng mang tính tổng quát. Một mở rộng hữu ích là kết hợp cơ chế sinh hướng dẫn với mức độ tin cậy để kỹ thuật viên biết khi nào gợi ý của AI chỉ mang tính thăm dò và khi nào đạt độ tin cậy cao.

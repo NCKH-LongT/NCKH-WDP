@@ -28,10 +28,10 @@ Bài báo báo cáo kết quả tốt nhất hiện thời trên sáu bộ dữ 
 
 Các mô hình dựa trên Transformer đòi hỏi chi phí tính toán cao hơn so với các đường cơ sở gọn nhẹ như Isolation Forest. Chúng cũng có thể khó biện minh trong một proof-of-concept quy mô nhỏ nếu lợi ích từ mô hình hóa thời gian không vượt trội rõ rệt so với phần phức tạp tăng thêm.
 
-## Mức độ liên quan tới đề tài của chúng tôi
+## Mức độ liên quan tới đề tài của nhóm
 
-Bài báo tương thích trực tiếp với hướng `Transformer-based time-series model` trong đề xuất của chúng tôi. Công trình đặc biệt liên quan vì một trong các miền chuẩn mà nó đánh giá là `service monitoring`, vốn có sự tương đồng khái niệm rõ rệt với observability hạ tầng và AIOps.
+Bài báo tương thích trực tiếp với hướng `Transformer-based time-series model` trong đề xuất của nhóm. Công trình đặc biệt liên quan vì một trong các miền chuẩn mà nó đánh giá là `service monitoring`, vốn có sự tương đồng khái niệm rõ rệt với observability hạ tầng và AIOps.
 
 ## Hướng cải tiến khả dĩ
 
-Trong dự án của chúng tôi, nên xem lớp mô hình này như một mở rộng nâng cao thay vì một đường cơ sở bắt buộc. Một hướng thực tiễn là so sánh chất lượng phát hiện và chi phí tính toán của nó với LSTM Autoencoder và Isolation Forest trên cùng một tập cửa sổ telemetry.
+Trong dự án của nhóm, nên xem lớp mô hình này như một mở rộng nâng cao thay vì một đường cơ sở bắt buộc. Một hướng thực tiễn là so sánh chất lượng phát hiện và chi phí tính toán của nó với LSTM Autoencoder và Isolation Forest trên cùng một tập cửa sổ telemetry.
