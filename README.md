@@ -72,11 +72,11 @@ BDT301_G03
 
 ### 3.2. Quy tắc
 
-| Thành phần | Ý nghĩa | Ví dụ |
-|---|---|---|
-| `MA_LOP` | Mã lớp hoặc mã môn/lớp | `SE1701`, `AI1801`, `BDT301` |
-| `G` | Viết tắt của Group | `G` |
-| `SO_THU_TU_NHOM` | Số thứ tự nhóm, dùng 2 chữ số | `01`, `02`, `03` |
+| Thành phần       | Ý nghĩa                       | Ví dụ                        |
+| ---------------- | ----------------------------- | ---------------------------- |
+| `MA_LOP`         | Mã lớp hoặc mã môn/lớp        | `SE1701`, `AI1801`, `BDT301` |
+| `G`              | Viết tắt của Group            | `G`                          |
+| `SO_THU_TU_NHOM` | Số thứ tự nhóm, dùng 2 chữ số | `01`, `02`, `03`             |
 
 ### 3.3. Ví dụ đúng
 
@@ -180,16 +180,16 @@ Commit message nên viết rõ ràng theo cú pháp:
 
 ### Loại commit thường dùng
 
-| Type | Ý nghĩa | Ví dụ |
-|---|---|---|
-| `docs` | Cập nhật tài liệu | `docs: add related work summary` |
-| `topic` | Cập nhật đề tài | `topic: refine research objectives` |
-| `review` | Thêm phân tích bài báo | `review: analyze five related papers` |
-| `method` | Cập nhật phương pháp | `method: add system architecture description` |
-| `experiment` | Cập nhật thí nghiệm | `experiment: add evaluation metrics` |
-| `result` | Cập nhật kết quả | `result: add baseline comparison table` |
-| `fix` | Sửa lỗi nội dung | `fix: correct citation format` |
-| `figure` | Thêm hình ảnh/sơ đồ | `figure: add system architecture diagram` |
+| Type         | Ý nghĩa                | Ví dụ                                         |
+| ------------ | ---------------------- | --------------------------------------------- |
+| `docs`       | Cập nhật tài liệu      | `docs: add related work summary`              |
+| `topic`      | Cập nhật đề tài        | `topic: refine research objectives`           |
+| `review`     | Thêm phân tích bài báo | `review: analyze five related papers`         |
+| `method`     | Cập nhật phương pháp   | `method: add system architecture description` |
+| `experiment` | Cập nhật thí nghiệm    | `experiment: add evaluation metrics`          |
+| `result`     | Cập nhật kết quả       | `result: add baseline comparison table`       |
+| `fix`        | Sửa lỗi nội dung       | `fix: correct citation format`                |
+| `figure`     | Thêm hình ảnh/sơ đồ    | `figure: add system architecture diagram`     |
 
 Ví dụ:
 
@@ -413,10 +413,10 @@ Lưu tại:
 Nhóm cần tổng hợp các bài báo thành bảng:
 
 ```markdown
-| Paper | Domain | AI Model / Method | Dataset | Evaluation Metrics | Main Contribution | Limitation | Relevance |
-|---|---|---|---|---|---|---|---|
-| Paper 1 | Education | LLM, RAG | LMS data | Accuracy, expert rating | AI feedback system | Small dataset | High |
-| Paper 2 | Agriculture | Random Forest | Sensor data | F1-score | Disease detection | No explanation | Medium |
+| Paper   | Domain      | AI Model / Method | Dataset     | Evaluation Metrics      | Main Contribution  | Limitation     | Relevance |
+| ------- | ----------- | ----------------- | ----------- | ----------------------- | ------------------ | -------------- | --------- |
+| Paper 1 | Education   | LLM, RAG          | LMS data    | Accuracy, expert rating | AI feedback system | Small dataset  | High      |
+| Paper 2 | Agriculture | Random Forest     | Sensor data | F1-score                | Disease detection  | No explanation | Medium    |
 ```
 
 Lưu tại:
@@ -528,15 +528,15 @@ Model / Vector Database / External API
 
 Nhóm cần nêu rõ:
 
-| Nội dung | Câu hỏi cần trả lời |
-|---|---|
-| Model dùng là gì? | LLM, CNN, LSTM, Random Forest, XGBoost, RAG, embedding model? |
-| Vì sao chọn model này? | Có phù hợp với bài toán không? |
-| Model lấy từ đâu? | Paper trước, HuggingFace, API, thư viện open-source? |
-| Input của model là gì? | Text, image, sensor data, log, bảng dữ liệu? |
-| Output của model là gì? | Nhãn phân loại, dự báo, khuyến nghị, phản hồi? |
-| Cách tích hợp vào app? | REST API, Python service, Node.js service, batch job? |
-| Có baseline không? | Rule-based, manual, TF-IDF, LLM-only? |
+| Nội dung                | Câu hỏi cần trả lời                                           |
+| ----------------------- | ------------------------------------------------------------- |
+| Model dùng là gì?       | LLM, CNN, LSTM, Random Forest, XGBoost, RAG, embedding model? |
+| Vì sao chọn model này?  | Có phù hợp với bài toán không?                                |
+| Model lấy từ đâu?       | Paper trước, HuggingFace, API, thư viện open-source?          |
+| Input của model là gì?  | Text, image, sensor data, log, bảng dữ liệu?                  |
+| Output của model là gì? | Nhãn phân loại, dự báo, khuyến nghị, phản hồi?                |
+| Cách tích hợp vào app?  | REST API, Python service, Node.js service, batch job?         |
+| Có baseline không?      | Rule-based, manual, TF-IDF, LLM-only?                         |
 
 Lưu tại:
 
@@ -552,15 +552,15 @@ Một bài báo ứng dụng AI bắt buộc cần có đánh giá.
 
 Tùy bài toán, có thể dùng:
 
-| Loại bài toán | Metric phù hợp |
-|---|---|
-| Phân loại | Accuracy, Precision, Recall, F1-score |
-| Dự báo | MAE, RMSE, MAPE |
-| Gợi ý | Top-k Accuracy, Precision@k, Recall@k, NDCG |
-| RAG / LLM | Relevance, Faithfulness, Correctness, Expert Rating |
-| Hệ thống | Response Time, Throughput, Latency |
-| Người dùng | Survey, SUS, User Satisfaction |
-| So sánh quy trình | Time Saving, Error Reduction |
+| Loại bài toán     | Metric phù hợp                                      |
+| ----------------- | --------------------------------------------------- |
+| Phân loại         | Accuracy, Precision, Recall, F1-score               |
+| Dự báo            | MAE, RMSE, MAPE                                     |
+| Gợi ý             | Top-k Accuracy, Precision@k, Recall@k, NDCG         |
+| RAG / LLM         | Relevance, Faithfulness, Correctness, Expert Rating |
+| Hệ thống          | Response Time, Throughput, Latency                  |
+| Người dùng        | Survey, SUS, User Satisfaction                      |
+| So sánh quy trình | Time Saving, Error Reduction                        |
 
 Kết quả cần tạo:
 
@@ -578,14 +578,14 @@ Baseline là phương pháp dùng để so sánh với hệ thống đề xuất
 
 Ví dụ:
 
-| Bài toán | Baseline |
-|---|---|
-| Gợi ý giảng viên | Manual selection, TF-IDF + cosine similarity |
-| Phát hiện đề tài trùng | Keyword matching, TF-IDF |
-| Chatbot/RAG | LLM-only, keyword search |
-| Dự báo kho | Moving average, ARIMA |
-| Phân loại ảnh | Simple CNN, pretrained model without fine-tuning |
-| Nông nghiệp IoT | Rule-based threshold |
+| Bài toán               | Baseline                                         |
+| ---------------------- | ------------------------------------------------ |
+| Gợi ý giảng viên       | Manual selection, TF-IDF + cosine similarity     |
+| Phát hiện đề tài trùng | Keyword matching, TF-IDF                         |
+| Chatbot/RAG            | LLM-only, keyword search                         |
+| Dự báo kho             | Moving average, ARIMA                            |
+| Phân loại ảnh          | Simple CNN, pretrained model without fine-tuning |
+| Nông nghiệp IoT        | Rule-based threshold                             |
 
 Lưu tại:
 
@@ -647,17 +647,17 @@ Members:
 
 ## Tasks Completed This Week
 
-| Member | Task | Result |
-|---|---|---|
-| Nguyễn Văn A | Search papers | Found 5 papers |
-| Trần Văn B | Summarize paper 1-2 | Completed |
-| Lê Văn C | Draft topic proposal | Completed |
+| Member       | Task                 | Result         |
+| ------------ | -------------------- | -------------- |
+| Nguyễn Văn A | Search papers        | Found 5 papers |
+| Trần Văn B   | Summarize paper 1-2  | Completed      |
+| Lê Văn C     | Draft topic proposal | Completed      |
 
 ## Git Commits
 
-| Commit ID | Message | Author |
-|---|---|---|
-| abc123 | docs: add paper list | Nguyen Van A |
+| Commit ID | Message              | Author       |
+| --------- | -------------------- | ------------ |
+| abc123    | docs: add paper list | Nguyen Van A |
 
 ## Current Problems
 
@@ -766,13 +766,13 @@ Nhóm sẽ đánh giá hệ thống như thế nào?
 
 Liệt kê ít nhất 5 bài báo liên quan.
 
-| No | Title | Year | Source | Link / DOI |
-|---|---|---|---|---|
-| 1 | | | | |
-| 2 | | | | |
-| 3 | | | | |
-| 4 | | | | |
-| 5 | | | | |
+| No  | Title | Year | Source | Link / DOI |
+| --- | ----- | ---- | ------ | ---------- |
+| 1   |       |      |        |            |
+| 2   |       |      |        |            |
+| 3   |       |      |        |            |
+| 4   |       |      |        |            |
+| 5   |       |      |        |            |
 ```
 
 ---
@@ -790,13 +790,13 @@ Nội dung mẫu:
 ```markdown
 # Literature Review Matrix
 
-| No | Paper Title | Year | Venue | Domain | AI Method | Dataset | Metrics | Main Contribution | Limitation | Relevance to Our Topic |
-|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | | | | | | | | | | |
-| 2 | | | | | | | | | | |
-| 3 | | | | | | | | | | |
-| 4 | | | | | | | | | | |
-| 5 | | | | | | | | | | |
+| No  | Paper Title | Year | Venue | Domain | AI Method | Dataset | Metrics | Main Contribution | Limitation | Relevance to Our Topic |
+| --- | ----------- | ---- | ----- | ------ | --------- | ------- | ------- | ----------------- | ---------- | ---------------------- |
+| 1   |             |      |       |        |           |         |         |                   |            |                        |
+| 2   |             |      |       |        |           |         |         |                   |            |                        |
+| 3   |             |      |       |        |           |         |         |                   |            |                        |
+| 4   |             |      |       |        |           |         |         |                   |            |                        |
+| 5   |             |      |       |        |           |         |         |                   |            |                        |
 ```
 
 ---
@@ -850,14 +850,14 @@ Mô tả tổng quan hệ thống.
 
 ## 2. Main Components
 
-| Component | Description |
-|---|---|
-| Frontend | Giao diện người dùng |
-| Backend API | Xử lý nghiệp vụ |
-| Database | Lưu dữ liệu hệ thống |
-| AI Service | Chạy model AI hoặc gọi API model |
-| Vector Database | Lưu embedding nếu dùng RAG |
-| External Services | API hoặc công cụ bên ngoài |
+| Component         | Description                      |
+| ----------------- | -------------------------------- |
+| Frontend          | Giao diện người dùng             |
+| Backend API       | Xử lý nghiệp vụ                  |
+| Database          | Lưu dữ liệu hệ thống             |
+| AI Service        | Chạy model AI hoặc gọi API model |
+| Vector Database   | Lưu embedding nếu dùng RAG       |
+| External Services | API hoặc công cụ bên ngoài       |
 
 ## 3. Architecture Diagram
 
@@ -906,13 +906,13 @@ Hệ thống hoặc phương pháp so sánh.
 
 ## 4. Metrics
 
-| Metric | Meaning | Why Used |
-|---|---|---|
-| Accuracy | | |
-| F1-score | | |
-| Response Time | | |
-| Expert Rating | | |
-| User Satisfaction | | |
+| Metric            | Meaning | Why Used |
+| ----------------- | ------- | -------- |
+| Accuracy          |         |          |
+| F1-score          |         |          |
+| Response Time     |         |          |
+| Expert Rating     |         |          |
+| User Satisfaction |         |          |
 
 ## 5. Evaluation Procedure
 
@@ -940,39 +940,39 @@ Mỗi nhóm phải cập nhật Git ít nhất:
 
 ### Checklist mỗi tuần
 
-| Tuần | Công việc chính | File cần cập nhật |
-|---|---|---|
-| Week 1 | Chọn đề tài, lập nhóm, tạo nhánh | `topic_proposal.md`, `week_01.md` |
-| Week 2 | Tìm bài báo liên quan | `paper_list.md`, `search_keywords.md`, `week_02.md` |
-| Week 3 | Tóm tắt bài báo | `paper_summaries/`, `week_03.md` |
-| Week 4 | Literature review matrix | `literature_review_matrix.md`, `week_04.md` |
-| Week 5 | Xác định gap và RQ | `research_gap.md`, `research_questions.md` |
-| Week 6 | Thiết kế hệ thống | `system_architecture.md`, `data_flow.md` |
-| Week 7 | Mô tả model AI và baseline | `ai_model_integration.md`, `baseline.md` |
-| Week 8 | Thiết kế evaluation | `evaluation_metrics.md`, `dataset.md` |
-| Week 9 | Viết Introduction và Related Work | `introduction.md`, `related_work.md` |
-| Week 10 | Viết Methodology | `methodology.md` |
-| Week 11 | Thực nghiệm và kết quả | `experimental_setup.md`, `results.md` |
-| Week 12 | Discussion và Conclusion | `discussion.md`, `conclusion.md` |
-| Week 13 | Ghép bản nháp hoàn chỉnh | `paper_outline.md`, full draft |
-| Week 14 | Review và chỉnh sửa | revision log |
-| Week 15 | Hoàn thiện bài | final paper |
-| Week 16 | Nộp bài và thuyết trình | final paper, slides |
+| Tuần    | Công việc chính                   | File cần cập nhật                                   |
+| ------- | --------------------------------- | --------------------------------------------------- |
+| Week 1  | Chọn đề tài, lập nhóm, tạo nhánh  | `topic_proposal.md`, `week_01.md`                   |
+| Week 2  | Tìm bài báo liên quan             | `paper_list.md`, `search_keywords.md`, `week_02.md` |
+| Week 3  | Tóm tắt bài báo                   | `paper_summaries/`, `week_03.md`                    |
+| Week 4  | Literature review matrix          | `literature_review_matrix.md`, `week_04.md`         |
+| Week 5  | Xác định gap và RQ                | `research_gap.md`, `research_questions.md`          |
+| Week 6  | Thiết kế hệ thống                 | `system_architecture.md`, `data_flow.md`            |
+| Week 7  | Mô tả model AI và baseline        | `ai_model_integration.md`, `baseline.md`            |
+| Week 8  | Thiết kế evaluation               | `evaluation_metrics.md`, `dataset.md`               |
+| Week 9  | Viết Introduction và Related Work | `introduction.md`, `related_work.md`                |
+| Week 10 | Viết Methodology                  | `methodology.md`                                    |
+| Week 11 | Thực nghiệm và kết quả            | `experimental_setup.md`, `results.md`               |
+| Week 12 | Discussion và Conclusion          | `discussion.md`, `conclusion.md`                    |
+| Week 13 | Ghép bản nháp hoàn chỉnh          | `paper_outline.md`, full draft                      |
+| Week 14 | Review và chỉnh sửa               | revision log                                        |
+| Week 15 | Hoàn thiện bài                    | final paper                                         |
+| Week 16 | Nộp bài và thuyết trình           | final paper, slides                                 |
 
 ---
 
 ## 15. Tiêu chí đánh giá nhóm
 
-| Tiêu chí | Trọng số gợi ý |
-|---|---|
-| Chất lượng ý tưởng đề tài | 10% |
-| Chất lượng literature review | 15% |
-| Xác định gap và research questions | 15% |
-| Thiết kế hệ thống | 15% |
-| Tích hợp model AI hợp lý | 15% |
-| Evaluation plan và kết quả | 15% |
-| Chất lượng bài viết | 10% |
-| Cập nhật Git và làm việc nhóm | 5% |
+| Tiêu chí                           | Trọng số gợi ý |
+| ---------------------------------- | -------------- |
+| Chất lượng ý tưởng đề tài          | 10%            |
+| Chất lượng literature review       | 15%            |
+| Xác định gap và research questions | 15%            |
+| Thiết kế hệ thống                  | 15%            |
+| Tích hợp model AI hợp lý           | 15%            |
+| Evaluation plan và kết quả         | 15%            |
+| Chất lượng bài viết                | 10%            |
+| Cập nhật Git và làm việc nhóm      | 5%             |
 
 ---
 
