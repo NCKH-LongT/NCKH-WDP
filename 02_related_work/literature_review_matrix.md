@@ -1,0 +1,14 @@
+# Literature Review Matrix
+
+Bảng tổng hợp ma trận phân tích các nghiên cứu tiền đề nhằm xác định khoảng trống công nghệ (Research Gap) cho hệ thống SU26SWP06.
+
+| Paper | Domain | AI Model / Method | Dataset | Evaluation Metrics | Main Contribution | Limitation | Relevance to SU26SWP06 |
+|---|---|---|---|---|---|---|---|
+| **Paper 1** (Wang, 2023) | Computer Science | LDA (Latent Dirichlet Allocation) | IEEE Xplore Metadata (10k papers) | Perplexity, Coherence Score | Thiết kế Dashboard trực quan hóa số lượng bài viết theo thời gian. | Thuật toán LDA cũ, dễ bị nhiễu từ viết tắt, không tự động phân nhóm tối ưu. | **High**: Gợi ý cách thiết kế UI/UX Dashboard theo dõi xu hướng. |
+| **Paper 2** (Grootendorst, 2022) | NLP / Text Mining | BERTopic, Transformers, HDBSCAN | arXiv Computer Science Abstracts | Topic Coherence, Silhouette Score | Kỹ thuật nhúng từ (embeddings) kết hợp clustering để tìm chủ đề con (sub-topic). | Tốn tài nguyên tính toán (GPU), xử lý chậm với tập dữ liệu hàng triệu bản ghi. | **High**: Đây là core AI method giúp hệ thống tự phân nhóm từ khóa/chủ đề nổi bật. |
+| **Paper 3** (Priem, 2022) | Data Science / Bibliometrics | Rule-based API Parsing & Entity Alignment | Toàn bộ cơ sở dữ liệu OpenAlex | API Response Time, Data Coverage % | Xây dựng catalog mở, chuẩn hóa metadata (Tác giả, Cung, Trường, Khái niệm). | Không tích hợp sẵn bộ lọc AI dự đoán xu hướng tương lai. | **High**: Cung cấp giải pháp kết nối, cấu hình cấu trúc API dữ liệu (giống nguồn của nhóm). |
+| **Paper 4** (Chen, 2021) | Bibliometrics | Co-citation Network Analysis, Clustering | Web of Science / Scopus export | Modularity Q, Silhouette | Công cụ vẽ bản đồ mạng lưới liên kết giữa các tác giả và từ khóa. | Đòi hỏi người dùng tự tải file dữ liệu thủ công (.txt, .csv), không tự động đồng bộ API. | **Medium**: Định hướng tính năng Bookmark, Follow và trực quan đồ thị kết nối mạng lưới. |
+| **Paper 5** (Liu, 2024) | Recommender Systems | LLMs (GPT-4 fine-tuned), RAG | Semantic Scholar Open Research Corpus | Recall@K, Precision, NDCG | Gợi ý bài báo thông minh dựa trên hành vi đọc và dự báo từ khóa sắp nổi bật. | Chi phí gọi API LLM lớn, độ trễ (latency) cao, không phù hợp realtime quy mô lớn. | **High**: Giúp hiện thực hóa tính năng "Receive notifications for newly published papers" và gợi ý chủ đề. |
+
+### Khoảng trống nghiên cứu (Research Gap) ứng dụng vào đề tài nhóm:
+Các hệ thống hiện tại hoặc quá nặng về thuật toán chuyên sâu (như Paper 2, 5) thiếu một giao diện quản trị và phân hệ người dùng đầu cuối tinh gọn, hoặc là các công cụ cài đặt offline nặng nề (Paper 4) bắt người dùng tự tải file dữ liệu. Hệ thống SU26SWP06 sẽ giải quyết bằng cách kết hợp **data pipeline tự động hóa qua API miễn phí (OpenAlex/Semantic Scholar)** với một **Web Dashboard gọn nhẹ**, ứng dụng thuật toán gom cụm AI để hiển thị xu hướng trực quan cho sinh viên và giảng viên mà không cần xử lý file full-text phức tạp.
