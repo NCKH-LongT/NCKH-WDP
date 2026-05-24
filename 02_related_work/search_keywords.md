@@ -14,20 +14,20 @@
 
 ## Từ khóa tìm kiếm
 
-| STT | Từ khóa | Nguồn tìm | Số kết quả | Ghi chú |
-|---|---|---|---|---|
-| 1 | smart parking slot allocation algorithm | Google Scholar | ~18,700 | Tìm được [P1], [P3] |
-| 2 | multi-agent system parking allocation | Google Scholar, MDPI | ~3,200 | Tìm được [P1] |
-| 3 | optimal parking occupancy differentiated parking | Google Scholar | ~1,500 | Tìm được [P2] |
-| 4 | parking assignment Hungarian algorithm | Google Scholar, arXiv | ~2,400 | Tìm được [P3] |
-| 5 | parking management connected autonomous vehicles | ScienceDirect | ~5,600 | Tìm được [P4] |
-| 6 | multi-criteria decision making MCDM parking | Google Scholar, MDPI | ~4,100 | Tìm được [P5], [P6] |
-| 7 | TOPSIS CRITIC parking lot selection | Google Scholar | ~320 | Tìm được [P5] |
-| 8 | metaheuristic optimization parking space | Google Scholar | ~1,800 | Tìm được [P6] |
-| 9 | deep reinforcement learning parking assignment | Google Scholar, ScienceDirect | ~3,500 | Tìm được [P7], [P9] |
-| 10 | peak period parking demand allocation NSGA | Google Scholar, MDPI | ~450 | Tìm được [P8] |
-| 11 | reservation allocation shared parking uncertainty | ScienceDirect | ~2,100 | Tìm được [P10] |
-| 12 | parking building management system multi-story | Google Scholar | ~6,300 | Background research, tìm kiếm domain |
+| STT | Từ khóa | Nguồn tìm | Kết quả |
+|---|---|---|---|
+| 1 | smart parking slot allocation algorithm | Google Scholar | Tìm được [P1], [P3] |
+| 2 | multi-agent system parking allocation | Google Scholar, MDPI | Tìm được [P1] |
+| 3 | optimal parking occupancy differentiated parking | Google Scholar | Tìm được [P2] |
+| 4 | parking assignment Hungarian algorithm | Google Scholar, arXiv | Tìm được [P3] |
+| 5 | parking management connected autonomous vehicles | ScienceDirect | Tìm được [P4] |
+| 6 | multi-criteria decision making MCDM parking | Google Scholar, MDPI | Tìm được [P5], [P6] |
+| 7 | TOPSIS CRITIC parking lot selection | Google Scholar | Tìm được [P5] |
+| 8 | metaheuristic optimization parking space | Google Scholar | Tìm được [P6] |
+| 9 | deep reinforcement learning parking assignment | Google Scholar, ScienceDirect | Tìm được [P7], [P9] |
+| 10 | peak period parking demand allocation NSGA | Google Scholar, MDPI | Tìm được [P8] |
+| 11 | reservation allocation shared parking uncertainty | ScienceDirect | Tìm được [P10] |
+| 12 | parking building management system multi-story | Google Scholar | Background research |
 
 ## Chiến lược tìm kiếm
 

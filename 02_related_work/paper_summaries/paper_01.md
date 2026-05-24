@@ -49,7 +49,7 @@ Kết quả chính:
 - **Concurrent + Decommitment** là cơ chế hiệu quả nhất: giảm thời gian phân bổ đáng kể so với Serial, đồng thời tăng tỷ lệ sử dụng slot.
 - Cơ chế Concurrent giảm latency phân bổ nhờ đàm phán song song thay vì tuần tự.
 - Decommitment cải thiện chất lượng phân bổ (tránh lock-in sớm) với overhead chấp nhận được.
-- Khi occupancy rate cao (>80%), lợi ích của Concurrent + Decommitment càng rõ rệt.
+- Khi occupancy rate cao, lợi ích của Concurrent + Decommitment càng rõ rệt — nhiều xe tranh slot → decommitment giúp tránh lock-in.
 
 ## Limitations
 

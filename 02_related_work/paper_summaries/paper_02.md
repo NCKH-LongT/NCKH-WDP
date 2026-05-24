@@ -40,7 +40,7 @@ Sử dụng **mô hình giao thông vĩ mô (macroscopic traffic model)** với 
 Bài báo sử dụng **mô hình toán học và mô phỏng:**
 - Dữ liệu tham số dựa trên nghiên cứu giao thông đô thị (urban traffic studies).
 - Mô phỏng với các tham số: số slot, tỷ lệ các loại xe, tốc độ đến (arrival rate), thời gian đỗ trung bình (average parking duration).
-- Nhiều kịch bản: mixed vs. differentiated, occupancy 50% – 95%, tỷ lệ EV 10% – 30%.
+- Nhiều kịch bản: mixed vs. differentiated, occupancy từ thấp đến cao, tỷ lệ loại xe khác nhau.
 - Không sử dụng dataset thực tế từ bãi xe cụ thể.
 
 ## Evaluation
@@ -54,11 +54,11 @@ Các metric đánh giá:
 ## Results
 
 Kết quả chính:
-- **Optimal occupancy O* nằm trong khoảng 70%–85%** tùy kịch bản — không phải 100% như trực giác.
+- **Optimal occupancy O* không phải 100%** — tồn tại điểm cân bằng nơi tổng chi phí (cruising + lãng phí) là nhỏ nhất, nằm dưới ngưỡng gây cruising.
 - Khi occupancy > 85%, cruising delay **tăng phi tuyến** (exponential) → chi phí hệ thống tăng nhanh.
-- **Differentiated parking giảm total system cost 10–15%** so với mixed parking trong hầu hết kịch bản.
+- **Differentiated parking giảm total system cost** so với mixed parking trong hầu hết kịch bản.
 - Zone dành riêng cho từng loại xe giúp giảm variance giữa các zone → occupancy cân bằng hơn.
-- Khi tỷ lệ EV tăng (>20%), lợi ích của differentiated parking càng rõ rệt vì EV có parking duration dài hơn xe thường.
+- Khi tỷ lệ xe có parking duration dài tăng (ví dụ: EV), lợi ích của differentiated parking càng rõ rệt.
 
 ## Limitations
 
