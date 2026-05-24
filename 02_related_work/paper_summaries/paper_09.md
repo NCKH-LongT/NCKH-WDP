@@ -78,7 +78,7 @@ Bài báo liên quan đến **RQ4** (cải thiện tỷ lệ sử dụng giờ c
 - **Thuật toán PCPT:** Mô hình tham khảo để tối ưu đường đi xe trong bãi — có thể đơn giản hóa thành hướng dẫn đường đi cho tài xế.
 - **Chiến lược DCS:** Nguyên lý cập nhật liên tục phân bổ khi trạng thái thay đổi — phù hợp kiến trúc event-driven (Socket.IO) của hệ thống.
 - **Conflict Resolution:** Cơ chế giải quyết xung đột khi 2 xe hướng đến cùng slot — áp dụng khi có nhiều request đồng thời.
-- **Hướng nâng cấp tương lai:** Bài báo mở ra khả năng tích hợp **Deep Q-Network (DQN)** với reward function điều chỉnh được — hướng phát triển nâng cao cho Load Balancing.
+- **Hướng nâng cấp tương lai:** Nguyên lý tối ưu iterative của DCS/PCPT có thể thay thế threshold-based load balancing đơn giản — cho phép phân bổ slot chính xác hơn khi bãi có lưu lượng cao.
 
 ## Possible improvement
 
