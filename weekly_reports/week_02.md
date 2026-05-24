@@ -50,11 +50,10 @@
 
 | Commit ID | Message | Author |
 |---|---|---|
-| - | docs: add search_keywords and paper_list for week 2 | Nguyễn Chí Bảo |
-| - | docs: complete paper summaries P1, P2 | Nguyễn Chí Bảo |
-| - | docs: add paper summaries P6, P7 | Thái Minh Tuấn |
-| - | docs: add paper summaries P9, P10 | Trần Minh Kiệt |
-| - | review: standardize format P6, P7, P9, P10 | Cả nhóm |
+| b549d36 | docs: add search_keywords and paper_list for week 2 | Nguyễn Chí Bảo |
+| ba809cc | docs: complete paper summaries P1, P2 | Nguyễn Chí Bảo |
+| c514257 | docs: add paper summaries P6, P7 (đã chuẩn hóa format) | Thái Minh Tuấn |
+| b6d10a9 | docs: add paper summaries P9, P10 (đã chuẩn hóa format) | Trần Minh Kiệt |
 
 ## Current Problems
 
