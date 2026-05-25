@@ -1,34 +1,57 @@
 # Search Keywords
 
 ## Primary Keywords
-- Keyword 1
-- Keyword 2
-- Keyword 3
+- smart parking allocation
+- parking slot assignment algorithm
+- multi-floor parking management
+- parking space optimization
 
 ## Secondary Keywords
-- Keyword 4
-- Keyword 5
-- Keyword 6
+- motorcycle parking behavior
+- vehicle type parking zoning
+- parking reservation system
+- parking occupancy prediction
+- parking building management system
+- balanced occupancy parking
+
+## Domain-Specific Keywords
+- two-wheeler parking developing countries
+- parking demand Vietnam
+- campus parking facility planning
+- peak hour parking utilization
 
 ## Search Strategy
 
 ### Databases Used
-- IEEE Xplore
-- ACM Digital Library
 - Google Scholar
-- PubMed (if applicable)
-- Others: [List other databases]
+- IEEE Xplore
+- ScienceDirect (Elsevier)
+- MDPI
+- arXiv
+- ResearchGate
 
 ### Search Queries
-1. Query 1: "keyword1" AND "keyword2"
-2. Query 2: "keyword3" OR "keyword4"
-3. Query 3: [Additional queries]
+1. "smart parking" AND "slot allocation" AND "multi-floor"
+2. "parking space" AND "optimization" AND ("genetic algorithm" OR "dynamic programming")
+3. "parking reservation" AND "vehicle type" AND ("motorcycle" OR "two-wheeler")
+4. "parking occupancy" AND "floor" AND ("utilization" OR "distribution")
+5. "motorcycle parking" AND ("Vietnam" OR "developing countries")
+6. "parking guidance" AND "search time" AND "reduction"
+7. "parking demand" AND "campus" AND ("car" OR "motorcycle")
+8. "constraint optimization" AND "parking" AND "allocation"
+9. "parking patterns" AND "vehicle type" AND "capacity"
 
 ## Filtering Criteria
-- **Date Range**: [Specify years]
+- **Date Range**: 2015–2024 (ưu tiên 2020–2024, chấp nhận papers cũ hơn nếu highly cited hoặc Vietnam context)
 - **Language**: English
-- **Document Type**: [Journal articles, Conference papers, etc.]
-- **Relevance**: [High, Medium, Low]
+- **Document Type**: Journal articles, Conference papers, Preprints (arXiv)
+- **Relevance**: Phải liên quan trực tiếp đến ít nhất 1 trong 4 RQs
+- **Exclusion**: Papers chỉ về city-wide routing (không phải intra-building), papers chỉ về hardware/IoT sensors mà không có allocation algorithm
+
+## Results Summary
+- Tổng papers tìm được ban đầu: ~40+
+- Sau lọc relevance + quality: **9 papers** được chọn phân tích chi tiết
+- Coverage: 4/4 RQs đều có ít nhất 2 papers hỗ trợ
 
 ---
 
