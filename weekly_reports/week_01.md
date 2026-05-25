@@ -52,3 +52,13 @@ Members: Nguyen Tien Dat, Huynh Kha Tu, Nguyen Minh Huy
 - Có thể sử dụng pretrained YOLO model cho evaluation không?
 - Phần AI evaluation có bắt buộc so sánh nhiều model không?
 
+### Answer
+#### Có cần tự annotate thêm dataset ngoài Manga109 không?
+Có thể cần annotate thêm một phần nhỏ nếu Manga109 hoặc dataset có sẵn chưa đủ nhãn speech bubble/mask phù hợp với mục tiêu của nhóm. Nhóm có thể dùng Manga109 làm dataset chính, sau đó tạo thêm custom annotations cho một số trang mẫu để phục vụ segmentation và evaluation.
+
+#### Có thể sử dụng pretrained YOLO model cho evaluation không?
+Có thể sử dụng pretrained YOLO model làm baseline hoặc làm mô hình khởi tạo. Tuy nhiên, nhóm nên fine-tune hoặc đánh giá lại trên dữ liệu manga/speech bubble để kết quả phù hợp với domain của đề tài.
+
+#### Phần AI evaluation có bắt buộc so sánh nhiều model không?
+Không nhất thiết phải so sánh quá nhiều model. Nhóm nên có ít nhất một baseline rõ ràng, ví dụ YOLO pretrained hoặc U-Net baseline, rồi so sánh với pipeline đề xuất. Nếu thời gian cho phép, có thể so sánh thêm YOLO và U-Net theo các metrics như Precision, Recall, mAP, IoU, Dice Score.
+
