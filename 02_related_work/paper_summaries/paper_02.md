@@ -1,60 +1,32 @@
-Smart-parking Management Algorithms in Smart City
+# Paper 02 Summary
 
-1. Thông tin trích dẫn
-Tên bài báo: Smart-parking Management Algorithms in Smart City
-Năm xuất bản: 2022
-Nguồn: Scientific Reports (Nature)
-DOI: https://www.nature.com/articles/s41598-022-10076-4
+## Citation
+Tên bài: ParkGauge: Gauging the Occupancy of Parking Garages with Crowdsensed Parking Characteristics
+Tác giả: 
+Năm: 2016
+Nguồn: NTU (Nanyang Technological University)
+DOI/Link: 
 
-2. Vấn đề nghiên cứu
-Nghiên cứu giải quyết:
--traffic congestion 
--inefficient parking search 
--poor utilization of parking resources 
-Mục tiêu là tối ưu thuật toán quản lý smart parking trong đô thị.
+## Problem
+Bài báo giải quyết vấn đề gì?
 
-3. Phương pháp nghiên cứu
-Sử dụng:
--optimization algorithms 
--graph-based parking allocation 
--traffic-aware allocation 
-Hệ thống phân bổ slot dựa trên:
--khoảng cách 
--traffic density 
--availability 
+## Method
+Bài báo dùng phương pháp/model/hệ thống nào?
 
-4. Dữ liệu nghiên cứu (Dataset)
-Dataset gồm:
--parking occupancy 
--urban traffic data 
--vehicle movement patterns 
-Nguồn:
--urban smart city simulations 
+## Dataset
+Bài báo dùng dữ liệu gì?
 
-5. Đánh giá và Chỉ số đo lường
-Metrics
--searching time 
--congestion reduction 
--utilization rate 
--computational efficiency 
+## Evaluation
+Bài báo đánh giá bằng metric nào?
 
-6. Kết quả đạt được
-Thuật toán:
--giảm traffic congestion 
--tăng occupancy utilization 
--giảm searching time đáng kể 
+## Results
+Kết quả chính là gì?
 
-7. Hạn chế của nghiên cứu
--simulation-based 
--chưa xử lý reservation systems 
--thiếu realtime IoT deployment 
+## Limitations
+Hạn chế của bài báo là gì?
 
-8. Khả năng ứng dụng vào đề tài của nhóm
--Smart slot recommendation 
--Peak-hour analysis 
--Parking analytics dashboard 
+## Relevance to our topic
+Bài báo liên quan gì đến đề tài của nhóm?
 
-9. Đề xuất cải tiến từ nhóm
--Realtime occupancy updates 
--Reservation integration 
--Multi-floor optimization 
+## Possible improvement
+Nhóm có thể cải tiến hoặc mở rộng điểm nào?

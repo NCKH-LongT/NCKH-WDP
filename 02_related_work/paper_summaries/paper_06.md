@@ -1,9 +1,9 @@
-# Paper 01 Summary
+# Paper 06 Summary
 
 ## Citation
-Tên bài: Constraint Optimization Model for Dynamic Parking Space Allocation
+Tên bài: Optimization Model of Parking Space Allocation Based on Genetic Algorithm
 Tác giả: 
-Năm: 2024
+Năm: 
 Nguồn: 
 DOI/Link: 
 

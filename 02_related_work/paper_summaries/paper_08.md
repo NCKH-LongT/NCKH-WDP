@@ -1,10 +1,10 @@
-# Paper 01 Summary
+# Paper 08 Summary
 
 ## Citation
-Tên bài: Constraint Optimization Model for Dynamic Parking Space Allocation
+Tên bài: Planning Campus Parking Facilities Using Parking Demand Analysis
 Tác giả: 
 Năm: 2024
-Nguồn: 
+Nguồn: ResearchGate
 DOI/Link: 
 
 ## Problem

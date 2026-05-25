@@ -1,53 +1,32 @@
-A Parking Reservation and Allocation Model for Smart Parking System Considering Parking Unpunctuality
+# Paper 04 Summary
 
-1. Thông tin trích dẫn
-Tên bài báo: A Parking Reservation and Allocation Model for Smart Parking System Considering Parking Unpunctuality
-Năm xuất bản: 2024
-Nguồn: SSRN
-Link: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4933410
+## Citation
+Tên bài: Entropy-Based Dynamic Programming for Efficient Vehicle Parking
+Tác giả: 
+Năm: 
+Nguồn: 
+DOI/Link: 
 
-2. Vấn đề nghiên cứu
-Nghiên cứu xử lý:
--no-show users 
--arrival delays 
--reservation conflicts 
-Mục tiêu là tối ưu reservation allocation realtime.
+## Problem
+Bài báo giải quyết vấn đề gì?
 
-3. Phương pháp nghiên cứu
-Sử dụng:
--stochastic optimization 
--reservation scheduling 
--reusable parking slots 
+## Method
+Bài báo dùng phương pháp/model/hệ thống nào?
 
-4. Dữ liệu nghiên cứu (Dataset)
-Dataset gồm:
--reservation records 
--parking duration 
--punctuality behavior 
--occupancy logs 
+## Dataset
+Bài báo dùng dữ liệu gì?
 
-5. Đánh giá và Chỉ số đo lường
-Metrics
--reservation acceptance rate 
--utilization rate 
--idle time reduction 
+## Evaluation
+Bài báo đánh giá bằng metric nào?
 
-6. Kết quả đạt được
-Mô hình:
--tăng reservation efficiency 
--giảm slot idle time 
--tăng utilization rate 
+## Results
+Kết quả chính là gì?
 
-7. Hạn chế của nghiên cứu
--complexity cao 
--cần realtime data liên tục 
+## Limitations
+Hạn chế của bài báo là gì?
 
-8. Khả năng ứng dụng vào đề tài của nhóm
--Reservation system 
--Dynamic reassignment 
--No-show prediction 
+## Relevance to our topic
+Bài báo liên quan gì đến đề tài của nhóm?
 
-9. Đề xuất cải tiến từ nhóm
--Notification reminder 
--Mobile realtime tracking 
--AI prediction integration 
+## Possible improvement
+Nhóm có thể cải tiến hoặc mở rộng điểm nào?

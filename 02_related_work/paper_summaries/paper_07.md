@@ -1,10 +1,10 @@
-# Paper 01 Summary
+# Paper 07 Summary
 
 ## Citation
-Tên bài: Constraint Optimization Model for Dynamic Parking Space Allocation
+Tên bài: Parking Reservation Techniques: A Comprehensive Review
 Tác giả: 
-Năm: 2024
-Nguồn: 
+Năm: 2023
+Nguồn: ScienceDirect
 DOI/Link: 
 
 ## Problem
