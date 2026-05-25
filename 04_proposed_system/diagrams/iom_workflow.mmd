@@ -1,0 +1,6 @@
+flowchart LR
+    A[Input Layer\nProblem statement\nSource code / GitHub diff\nDynamic rubric\nREADME / Demo / Commit metadata] --> B[Method Layer\nLLM prompting\nStructured criterion evaluation\nHuman-in-the-loop]
+    B --> C[Output Layer\nSuggested scores\nEvidence\nFeedback\nConfidence\nRisks]
+    C --> D[Judge Review\nAccept / Override]
+    D --> E[Final Score]
+    E --> F[Ranking / Finalist Selection]

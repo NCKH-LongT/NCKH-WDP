@@ -1,31 +1,63 @@
-# System Overview
+# Proposed System Overview
 
-## English Title
+## 1. System Name
 
-A Hackathon Management and Evaluation System with GitHub Automation and AI-assisted Source Code Grading Using Dynamic Rubrics
+**SEAL Hackathon Management & AI-assisted Evaluation System**
 
-## Vietnamese Title
+## 2. Technology Stack
 
-Hệ thống quản lý và đánh giá giải đấu lập trình tích hợp GitHub Automation và AI hỗ trợ chấm điểm source code theo rubric động
-
-## Users
-
-| User | Responsibility |
+| Layer | Technology |
 |---|---|
-| Admin / Event Coordinator | Tạo cuộc thi, bảng đấu, rubric, phân công judge, quản lý kết quả |
-| Participant | Đăng ký, xác nhận email, check-in, xem đề bài/kết quả |
-| Mentor | Xem repo nhóm được phân công, review source code |
-| Judge | Chấm điểm, xem AI suggestion, accept/override |
-| Speaker | Workshop/news nếu trong scope |
+| Admin Web | React |
+| Judge Web | React |
+| Participant Mobile App | React Native |
+| Backend | Node.js / Express |
+| Database | MongoDB |
+| Source Control Integration | GitHub API / GitHub Webhook |
+| AI Service | Existing LLM API through backend service |
 
-## Core Modules
+The system does not use n8n. All automation is implemented in the MERN backend.
 
-1. Competition management
-2. Team registration and email confirmation
-3. GitHub repository automation
-4. Mobile check-in
-5. GitHub webhook tracking
-6. Dynamic rubric management
-7. AI-assisted source code grading
-8. Judge scoring sheet
-9. Ranking and final result
+## 3. Main Actors
+
+| Actor | Description |
+|---|---|
+| Admin / Event Coordinator | Creates competition, tracks, rounds, rubrics, judges, rankings and awards |
+| Participant | Registers, confirms participation, checks in, codes and submits through GitHub |
+| Judge | Reviews assigned teams, views AI suggestions, enters official scores |
+| Mentor | Reviews assigned teams and can monitor source code progress |
+| Speaker | Supports workshop activities |
+
+## 4. Main System Modules
+
+| Module | Purpose |
+|---|---|
+| Competition Management | Manage seasons, themes, tracks, rounds, timeline and policies |
+| Registration Management | Manage teams, participants and confirmation statuses |
+| GitHub Integration | Create repo, manage access, receive webhook, store commits/diffs |
+| Dynamic Rubric Management | Configure rubric by event, round and track |
+| AI Evaluation | Evaluate source code/diff using IOM workflow |
+| Judge Scoring | Judge accepts/overrides AI suggestion and submits official score |
+| Ranking & Awards | Calculate preliminary/final ranking and manage prizes |
+| Audit & Config | Store logs, API keys and system settings |
+
+## 5. IOM-based AI Evaluation Role
+
+The AI module acts as a review assistant, not an automatic judge.
+
+```text
+Input: source code/diff + problem statement + dynamic rubric + repository evidence
+Method: structured LLM prompting + human-in-the-loop review
+Output: suggested scores + evidence + feedback + confidence + risk warnings
+```
+
+## 6. Expected MVP
+
+The MVP should include:
+
+1. Dynamic rubric configuration.
+2. GitHub commit/diff extraction.
+3. AI evaluation API.
+4. AI result per rubric criterion.
+5. Judge scoring sheet with AI suggestion and override.
+6. Ranking generation.

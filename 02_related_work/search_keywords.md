@@ -1,18 +1,41 @@
 # Search Keywords
 
-| No | Search Query |
-|---:|---|
-| 1 | `"AI-assisted grading" "programming assignments"` |
-| 2 | `"LLM" "source code grading" "rubric"` |
-| 3 | `"automated grading" "source code" "large language models"` |
-| 4 | `"programming assignment grading" "large language models" "human graders"` |
-| 5 | `"rubric-based" "code grading" "LLM"` |
-| 6 | `"TA Buddy" "AI-Assisted Grading Tool" "Introductory Programming Assignments"` |
-| 7 | `"StepGrade" "Grading Programming Assignments" "Context-Aware LLMs"` |
-| 8 | `"CodEv" "Automated Grading Framework" "Large Language Models"` |
-| 9 | `"JorGPT" "Instructor-Aided Grading" "Programming Assignments"` |
-| 10 | `"systematic comparison" "large language models" "automated assignment assessment"` |
-| 11 | `"human-in-the-loop" "LLM-based automated grading" "rubric"` |
-| 12 | `"GitHub repository mining" "AI-assisted assessment" "computer science education"` |
-| 13 | `"Spearman correlation" "AI grading" "programming assignments"` |
-| 14 | `"Intraclass Correlation Coefficient" "LLM" "automated grading"` |
+## Core Keywords
+
+```text
+"AI-assisted grading" "programming assignments"
+"LLM" "source code grading" "rubric"
+"automated grading" "source code" "large language models"
+"programming assignment grading" "human graders" "LLM"
+"rubric-based" "code grading" "LLM"
+"AI-assisted code review" "academic software development"
+```
+
+## IOM-oriented Keywords
+
+```text
+"input output method" "AI grading"
+"human-in-the-loop" "LLM grading" "rubric"
+"structured prompting" "programming assignment grading"
+"Chain-of-Thought" "code grading" "rubric"
+"LLM" "criterion-level" "grading"
+"AI feedback" "source code" "rubric"
+```
+
+## Hackathon / GitHub Workflow Keywords
+
+```text
+"GitHub repository" "AI-assisted assessment" "computer science education"
+"commit diff" "AI code review" "LLM"
+"hackathon" "source code evaluation" "rubric"
+"software project assessment" "GitHub" "rubric"
+```
+
+## Ranking / Evaluation Keywords
+
+```text
+"Spearman correlation" "AI grading" "programming assignments"
+"Top-k agreement" "automated grading"
+"human AI agreement" "programming assignment grading"
+"Intraclass Correlation Coefficient" "LLM grading"
+```

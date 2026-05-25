@@ -1,31 +1,36 @@
-# Literature Review Matrix
+# Literature Review Matrix - IOM-oriented Update
 
-## Topic
+## Research Topic
 
-**Hệ thống quản lý và đánh giá giải đấu lập trình tích hợp GitHub Automation và AI hỗ trợ chấm điểm source code theo rubric động.**
+**An IOM-based AI-assisted Source Code Evaluation Workflow for SEAL Hackathon Management Systems**
 
-| STT | Bài báo | Năm / Nguồn | Lĩnh vực | Vấn đề nghiên cứu | AI / Phương pháp | Rubric / Tiêu chí | Dataset / Context | Metrics / Evaluation | Ranking | Đóng góp | Hạn chế | Relevance | Ứng dụng vào workflow |
-|---:|---|---|---|---|---|---|---|---|---|---|---|---|---|
-|1|AL Mrayat et al.|2025 / IJAIA|AI code review|Review code thủ công tốn thời gian và thiếu nhất quán.|GPT-4/transformer + Pylint/Flake8/Checkstyle.|Coding standards, chưa phải scoring rubric.|Academic student projects.|Issue detection, time reduction, feedback.|Thấp.|Nền tảng AI code review/static analysis.|Không chấm điểm theo rubric/ranking rõ.|Background.|Preprocessing/static analysis.|
-|2|TRACE|2026 / arXiv|CS project assessment|Đánh giá project nhóm và contribution khó công bằng.|Repository mining + GitHub API + AI analytics.|Code quality, test coverage, docs, functionality, usability.|GitHub Classroom/project repos.|Correlation với instructor, time reduction.|Trung bình.|Workflow repo/dashboard tốt.|Preprint, không phải contest.|Supporting.|GitHub extraction/dashboard.|
-|3|TA Buddy|2025 / ACM SIGCSE|AI source code grading|Autograder test case không chấm được partial marks/code quality.|Fine-tuned Code Llama; problem + code + rubric -> suggested ratings.|Instructor-specified grading rubric; TA accept/overrule.|6 problems, 740 submissions; 55 criteria.|24% time reduction, 90% grade agreement.|Trung bình cao.|Core workflow sát dự án nhất.|Không đo ranking similarity.|Very high core.|AI prefill score -> judge override -> final ranking.|
-|4|JorGPT|2025 / Future Internet|LLM grading|Manual grading tốn thời gian và thiếu nhất quán.|Nhiều LLM, instructor chọn model/rubric.|Correctness, docs, efficiency, readability/style, compliance.|Intro to Programming; 672 students.|Adjusted R²=0.9156, MAE=0.4579, time reduction.|Trung bình.|Rubric design + metrics mạnh.|Không phải contest/ranking.|High core.|Rubric + MAE/correlation/time metrics.|
-|5|Systematic Comparison of LLMs|2026 / Computers and Education: AI|Model reliability|LLM architecture/vendor ảnh hưởng điểm chấm.|18 LLM, distribution, variability, ICC.|Không trọng tâm rubric.|6,000+ submissions.|Correlation, clustering, ICC.|Trung bình cao.|Cần model selection/human-in-loop.|Không workflow/rubric contest.|High.|Benchmark model, reliability.|
-|6|Hands-on Analysis|2024 / IST|LLM auto evaluation|Đo LLM chấm code ổn định đến đâu.|LLM multi-run evaluation.|Correctness, quality, style/best practices.|Programming assignments.|10 iterations/model, consistency, exact match, ±1 accuracy.|Trung bình.|Không nên chạy AI một lần duy nhất.|Ít rubric/ranking.|High.|AI consistency check.|
-|7|CodEv|2025 / arXiv|Automated grading|Cần điểm nhất quán và feedback hữu ích.|CoT + LLM ensemble + agreement tests.|Correctness/readability/functionality.|Programming assignments.|ICC, agreement, feedback quality.|Trung bình cao.|Tăng độ ổn định và feedback.|Preprint, không contest.|High.|Repeat/ensemble -> agreement -> score.|
-|8|Comparative Study of LLMs|2025 / Applied Sciences|Model comparison|So sánh accuracy/efficiency/feedback khi chấm code.|GPT-4, Claude, Gemini, structured prompt.|Functionality, structure, documentation, efficiency.|315 Python assignments, 100 analyzed.|Agreement, accuracy, feedback quality.|Trung bình cao.|Workflow data -> rubric -> AI -> comparison.|Không ranking metric chính.|Very high.|Multi-model scoring.|
-|9|Automated Python Grading|2025 / Information|Hybrid scoring|Dự đoán điểm Python bằng LLM + ML.|GPT-4-Turbo + ML/PyCaret.|Score 0-100, chưa rõ rubric criterion.|350 Python submissions.|Prediction performance.|Trung bình.|Hybrid LLM+ML calibration.|Python-specific, rubric chưa rõ.|Supporting.|Future hybrid scoring.|
-|10|BeGrading|2024/2025 / Springer|LLM feedback/grading|Giảm gánh nặng chấm và tăng feedback.|Fine-tuned/customized LLM, augmented data.|Không trọng tâm predefined rubric.|3,470 samples + 374 book questions.|Difference rate/benchmark.|Thấp-trung bình.|Hướng fine-tune và feedback.|Không sát ranking/rubric động.|Supporting.|Feedback report/future fine-tune.|
-|11|StepGrade|2025 / arXiv|CoT code grading|Regular prompting thiếu reasoning và minh bạch.|GPT-4 + CoT step-by-step.|Functionality, code quality, algorithmic efficiency.|30 Python assignments.|CoT vs regular prompting; deviation from human.|Trung bình.|Prompt design mạnh, evidence/feedback.|Preprint, dataset nhỏ.|High.|Structured prompt in Node AI service.|
-|12|GradeHITL|2025 / arXiv|Human-in-loop|LLM fully automated khó đạt human-level.|LLM hỏi human experts, refine rubrics.|Rubric-based, dynamic refinement.|Short-answer grading.|Accuracy improvement.|Thấp-trung bình.|Luận cứ cho judge override/rubric refine.|Không code grading.|Method.|Judge override -> improve rubric.|
-|13|AI-based Automated Grading of Source Code|2025 / ICPC|Source code rubric grading|Test-case autograding thiếu partial/code-quality criteria.|LLM for code + instructor-specified rubric.|Rất sát: instructor-specified rubrics.|Intro programming assignments.|Need full paper for detailed metrics.|Trung bình cao.|Core evidence LLM+code+rubric.|Có phí/không ranking.|Very high.|AI source code scoring.|
-|14|GradeOpt|2024/2025 / arXiv|Guideline optimization|Guidelines mơ hồ làm chấm lệch.|Multi-agent Grader/Reflector/Refiner.|Guidelines gần rubric, short-answer.|Open-ended answers.|Accuracy, human alignment, ablation.|Thấp-trung bình.|Future rubric/prompt optimization.|Không code/hackathon.|Method.|Analyze judge override -> refine prompt/rubric.|
+The goal of this matrix is not only to summarize papers, but also to extract their **Input–Output–Method (IOM)** contribution for the proposed system.
 
-## Priority
+| No | Paper | Domain | Input | Output | Method / Model | Evaluation | IOM Contribution to Our Project | Relevance |
+|---:|---|---|---|---|---|---|---|---|
+| 1 | TA Buddy: Design and Evaluation of an AI-Assisted Grading Tool for Introductory Programming Assignments | Programming education / source code grading | Problem statement, source code, grading rubric | Suggested grade/rating per criterion, reasoning | Code Llama-based AI-assisted grading with human accept/override | Time reduction, grade agreement | Core workflow: AI suggestion + human judge accept/override | Very High |
+| 2 | StepGrade: Grading Programming Assignments with Context-Aware LLMs | Programming assignment grading | Assignment, submitted code, context from previous steps | Grade and feedback for functionality, code quality, efficiency | Chain-of-Thought / structured prompting | Human evaluation, deviation comparison | Prompt design for criterion-by-criterion evaluation | Very High |
+| 3 | JorGPT: Instructor-Aided Grading of Programming Assignments with LLMs | Programming education | Code submissions, rubric, instructor configuration | Grade and feedback | Multi-LLM grading with instructor oversight | MAE, R², correlation, time/cost | Evaluation metrics and human oversight justification | High |
+| 4 | CodEv: Automated Grading Framework Leveraging LLMs | Programming grading and feedback | Code, problem, criteria, compile/test info | Scores, comments, feedback | CoT, LLM ensemble, agreement tests | Consistency, feedback quality | Optional consistency check and robust feedback | High |
+| 5 | AI-based Automated Grading of Source Code of Introductory Programming Assignments | Source code grading | Problem statement, source code, instructor rubric | Automated grade/suggested assessment | LLM for code / rubric-based grading | AI-human grading comparison | Supports feasibility of rubric-based code grading | Very High |
+| 6 | A Comparative Study of LLMs in Programming Education | LLM comparison | Student submissions, rubric | Grades, feedback | GPT/Claude/Gemini comparison | Accuracy, efficiency, feedback quality | Model selection and comparison | High |
+| 7 | Systematic Comparison of LLMs for Automated Assignment Assessment | Programming education | Large set of submissions | Automated assessment outputs | 18 LLMs from multiple vendors | Correlation, variability, ICC | Reliability and model selection | High |
+| 8 | Hands-on Analysis of LLMs for Auto Evaluation of Programming Assignments | Programming assessment | Programming assignments | AI grades | Multi-run LLM evaluation | Consistency, accuracy | Multi-run score stability idea | Medium-High |
+| 9 | GradeHITL: LLM-based Automated Grading with Human-in-the-Loop | Rubric grading / short answers | Student answers, rubric, human expert inputs | Refined grading and scores | Human-in-the-loop rubric refinement | Accuracy improvement | Future work for dynamic rubric refinement | Medium |
+| 10 | GradeOpt: LLM-Powered Automatic Grading Framework with Guidelines Optimization | Guideline optimization | Answers, grading guideline | Optimized guideline, score | Multi-agent grader-reflector-refiner | Accuracy, ablation | Future work: prompt/rubric optimization | Medium |
+| 11 | BeGrading | Programming education feedback | Programming assignments and grades | Grades, enhanced feedback | Fine-tuned LLM | Feedback and grading evaluation | Future work after enough judge-score data | Medium |
+| 12 | TRACE | Collaborative project assessment | GitHub repository/project data | Project assessment dashboard | Repository mining, analytics, AI support | Instructor comparison, time reduction | GitHub-based project evidence workflow | Medium-High |
+| 13 | Transparency and Explainability of AI Systems | Explainable AI | AI system decisions | Explainability requirements | Requirements analysis | Qualitative evaluation | Supports evidence/feedback/confidence output | Medium |
+| 14 | Capstone Course SLR | Software engineering education | Literature on capstone projects | Taxonomy and findings | Systematic literature review | Literature synthesis | Domain background for project-based assessment | Medium |
 
-1. TA Buddy
-2. StepGrade
-3. JorGPT
-4. CodEv
-5. AI-based Automated Grading of Source Code
-6. Systematic Comparison of LLMs
+## Key Takeaways
+
+1. **TA Buddy** is the closest workflow reference because it uses source code + rubric → AI suggested grades → human accept/override.
+2. **StepGrade** is the strongest reference for structured prompting and criterion-level reasoning.
+3. **JorGPT** provides useful evaluation metrics such as MAE, correlation and time reduction.
+4. **CodEv** supports optional consistency checking and feedback quality improvement.
+5. The proposed project adapts these ideas to SEAL Hackathon, where input comes from GitHub and rubrics are dynamic by season/round/track.
+
+## Gap Identified from Matrix
+
+Existing works mostly focus on classroom assignments. The proposed research extends the workflow to hackathon management with GitHub diffs, dynamic rubrics, judge accept/override and ranking-oriented evaluation.

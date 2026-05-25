@@ -1,0 +1,42 @@
+flowchart TB
+    subgraph Client[Client Applications]
+        AdminWeb[Admin Web - React]
+        JudgeWeb[Judge Web - React]
+        MobileApp[Participant App - React Native]
+    end
+
+    subgraph Backend[Node.js / Express Backend]
+        API[REST API]
+        Competition[Competition Service]
+        GitHub[GitHub Integration Service]
+        AI[AI Evaluation Service]
+        Scoring[Scoring & Ranking Service]
+        Notify[Email / Notification Service]
+    end
+
+    subgraph DB[MongoDB]
+        Mongo[(Collections: events, teams, rubrics, commits, diffs, AI reviews, scores, rankings)]
+    end
+
+    subgraph External[External Services]
+        GitHubAPI[GitHub API / Webhook]
+        LLM[LLM API]
+        Mail[Email Provider]
+    end
+
+    AdminWeb --> API
+    JudgeWeb --> API
+    MobileApp --> API
+    API --> Competition
+    API --> GitHub
+    API --> AI
+    API --> Scoring
+    API --> Notify
+    Competition --> Mongo
+    GitHub --> Mongo
+    AI --> Mongo
+    Scoring --> Mongo
+    Notify --> Mongo
+    GitHub <--> GitHubAPI
+    AI --> LLM
+    Notify --> Mail

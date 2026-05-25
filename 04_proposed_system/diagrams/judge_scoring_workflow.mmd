@@ -1,0 +1,9 @@
+flowchart TD
+    A[Judge Opens Assigned Team] --> B[View Rubric]
+    B --> C[View AI Suggested Scores]
+    C --> D{Judge Decision}
+    D -->|Accept| E[Use AI Suggested Score]
+    D -->|Override| F[Enter Judge Score and Reason]
+    E --> G[Submit Score Sheet]
+    F --> G
+    G --> H[Calculate Ranking]

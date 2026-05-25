@@ -1,0 +1,10 @@
+flowchart TD
+    A[GitHub Push or Final Submission] --> B[Extract Source Code or Diff]
+    B --> C[Load Problem Statement]
+    C --> D[Load Dynamic Rubric]
+    D --> E[Build IOM Prompt]
+    E --> F[Call LLM API]
+    F --> G[Parse JSON Output]
+    G --> H[Store AIReview]
+    H --> I[Store AIReviewCriteria]
+    I --> J[Show in Judge Scoring UI]
