@@ -5,7 +5,11 @@
 - Class: SE1823
 - Group: G03
 - Leader: Bùi Đức Anh
+<<<<<<< Updated upstream
 - Members: Lương Khánh Toàn, Lê Văn Kiên, Nguyễn Khánh Hưng,Tăng Thùy Thụy
+=======
+- Members:
+>>>>>>> Stashed changes
 
 ## 2. Proposed Title
 
