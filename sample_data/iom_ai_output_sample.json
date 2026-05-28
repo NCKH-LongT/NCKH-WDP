@@ -1,0 +1,95 @@
+{
+  "reviewType": "FINAL_AGGREGATE",
+  "isFinalDecision": false,
+  "overallSummary": "The submission provides evidence of an AI-assisted evaluation service and a basic submission review workflow. Build succeeds, but missing tests and lint warnings reduce confidence in functionality and maintainability.",
+  "criteriaResults": [
+    {
+      "criterionId": "functional_completeness",
+      "criterionName": "Tính đúng đắn & Hoàn thiện chức năng",
+      "aiSupported": true,
+      "judgeOnly": false,
+      "suggestedScore": 18,
+      "maxScore": 25,
+      "evidence": [
+        "Build completed successfully.",
+        "submissionController.js calls aiReviewService.evaluateSubmission(submission).",
+        "No automated tests were found."
+      ],
+      "feedback": "The core evaluation flow appears to be implemented, but missing automated tests make it difficult to verify behavior across edge cases.",
+      "confidence": "medium",
+      "needsHumanReview": true
+    },
+    {
+      "criterionId": "ai_integration",
+      "criterionName": "Ứng dụng AI trong giải pháp",
+      "aiSupported": true,
+      "judgeOnly": false,
+      "suggestedScore": 21,
+      "maxScore": 25,
+      "evidence": [
+        "aiReviewService.js calls an LLM client with model and messages.",
+        "The README states that the system generates rubric-based source code review.",
+        "The code parses AI review JSON for later use."
+      ],
+      "feedback": "AI is functionally integrated into the evaluation workflow. The judge should verify during demo whether the returned JSON is stable and correctly saved.",
+      "confidence": "medium",
+      "needsHumanReview": true
+    },
+    {
+      "criterionId": "architecture_code_quality",
+      "criterionName": "Thiết kế & Kiến trúc phần mềm",
+      "aiSupported": true,
+      "judgeOnly": false,
+      "suggestedScore": 14,
+      "maxScore": 20,
+      "evidence": [
+        "AI evaluation logic is separated into aiReviewService.js.",
+        "submissionController.js delegates AI evaluation to a service.",
+        "Lint found duplicated validation logic in two files."
+      ],
+      "feedback": "The architecture shows separation between controller and service layers, but duplicated validation should be refactored.",
+      "confidence": "medium",
+      "needsHumanReview": true
+    },
+    {
+      "criterionId": "presentation_demo",
+      "criterionName": "Thuyết trình & Demo",
+      "aiSupported": false,
+      "judgeOnly": true,
+      "suggestedScore": null,
+      "maxScore": 15,
+      "evidence": [
+        "Demo URL is provided, but live presentation quality cannot be judged from source code alone."
+      ],
+      "feedback": "This criterion should be scored by human judges during the live demo and presentation.",
+      "confidence": "not_applicable",
+      "needsHumanReview": true
+    },
+    {
+      "criterionId": "teamwork_response",
+      "criterionName": "Teamwork & Trả lời phản biện",
+      "aiSupported": false,
+      "judgeOnly": true,
+      "suggestedScore": null,
+      "maxScore": 15,
+      "evidence": [
+        "Commit metadata may support discussion, but it is insufficient to evaluate teamwork and oral response."
+      ],
+      "feedback": "This criterion should be scored by judges or mentors based on team interaction and Q&A.",
+      "confidence": "not_applicable",
+      "needsHumanReview": true
+    }
+  ],
+  "risks": [
+    "No automated tests were found, reducing confidence in functional correctness.",
+    "Lint warning indicates duplicated validation logic.",
+    "AI output stability should be checked during demo."
+  ],
+  "suggestedJudgeQuestions": [
+    "How do you validate that the AI-generated review JSON is correct and stable?",
+    "What happens if the LLM returns malformed JSON?",
+    "Which parts of the final score are controlled by judges rather than AI?",
+    "How would you add automated tests for the AI evaluation service?"
+  ],
+  "needsHumanReview": true
+}

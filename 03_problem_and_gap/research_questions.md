@@ -2,20 +2,17 @@
 
 ## Main Research Question
 
-How can an existing LLM be integrated into a hackathon management system using an Input–Output–Method workflow to support dynamic rubric-based source code evaluation?
+How can an AI-assisted workflow be integrated into a programming competition system to support fast source code evaluation and ranking based on dynamic rubrics?
 
 ## Sub Research Questions
 
 | ID | Research Question | Purpose |
 |---|---|---|
-| RQ1 | What input components are necessary for AI-assisted source code evaluation in a hackathon context? | Identify whether source code, GitHub diff, problem statement, rubric, README, demo link, slide link and commit history are needed |
-| RQ2 | What output format is most useful for judges? | Define AI output: suggested score, evidence, feedback, confidence, risks, suggested questions |
-| RQ3 | How can StepGrade-style structured prompting be adapted to evaluate each rubric criterion separately? | Design prompt method for criterion-level evaluation |
-| RQ4 | How close are AI-suggested criterion scores to human judge scores? | Evaluate score alignment |
-| RQ5 | How often do judges accept or override AI-suggested scores? | Measure usefulness and trust |
-| RQ6 | How similar is AI-supported ranking to human judge ranking? | Evaluate ranking alignment for contest context |
-| RQ7 | How much grading time can be reduced when judges use AI-generated evidence and suggested scores? | Evaluate workflow efficiency |
+| RQ1 | What input components are necessary for AI-assisted source code evaluation in a programming competition? | Identify the role of problem statement, source code/GitHub diff, final source snapshot, dynamic rubric, README, execution results and commit metadata |
+| RQ2 | What AI output format is most useful for human judges? | Define advisory output: suggested score, evidence, feedback, confidence, risks, suggested judge questions and needsHumanReview |
+| RQ3 | How close are AI-suggested criterion scores to judge-confirmed criterion scores? | Evaluate score alignment |
+| RQ4 | How much judging time can be reduced when judges use AI-generated evidence and suggested scores? | Evaluate workflow efficiency |
 
 ## Scope Boundary
 
-The project does not research model training or fine-tuning. The focus is workflow design, prompt-based LLM integration, database support, judge interaction and empirical evaluation.
+The research focuses on workflow design, structured prompting, AI output format, database support, judge interaction and evaluation metrics. The full Hackathon application is used as the system context, but the scientific paper focuses only on the AI-assisted source code evaluation module.

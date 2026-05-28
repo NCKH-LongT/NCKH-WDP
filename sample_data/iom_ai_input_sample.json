@@ -1,0 +1,100 @@
+{
+  "eventId": "seal_hackathon_sample",
+  "roundId": "preliminary",
+  "trackId": "track_a",
+  "teamId": "team_a03",
+  "problemStatement": "Build a software solution for the assigned Hackathon topic. The system should implement the core user workflow, demonstrate meaningful AI integration, and provide a maintainable codebase with clear documentation.",
+  "rubric": [
+    {
+      "criterionId": "functional_completeness",
+      "name": "Tính đúng đắn & Hoàn thiện chức năng",
+      "description": "Evaluate whether the submitted source code implements the core features described in the problem statement.",
+      "maxScore": 25,
+      "weight": 0.25,
+      "aiSupported": true,
+      "judgeOnly": false,
+      "aiInstruction": "Use source code, README, execution results and repository evidence to assess feature completeness. Do not rely only on claims in the README."
+    },
+    {
+      "criterionId": "ai_integration",
+      "name": "Ứng dụng AI trong giải pháp",
+      "description": "Evaluate whether AI is functionally integrated into the solution and relevant to the problem.",
+      "maxScore": 25,
+      "weight": 0.25,
+      "aiSupported": true,
+      "judgeOnly": false,
+      "aiInstruction": "Look for actual AI API usage, model calls, agent workflow, prompt handling or AI-related service logic in the source code."
+    },
+    {
+      "criterionId": "architecture_code_quality",
+      "name": "Thiết kế & Kiến trúc phần mềm",
+      "description": "Evaluate modularity, maintainability, structure, readability and separation of concerns.",
+      "maxScore": 20,
+      "weight": 0.2,
+      "aiSupported": true,
+      "judgeOnly": false,
+      "aiInstruction": "Use source structure, code organization, naming, duplication and maintainability evidence."
+    },
+    {
+      "criterionId": "presentation_demo",
+      "name": "Thuyết trình & Demo",
+      "description": "Evaluate presentation clarity and live demo quality.",
+      "maxScore": 15,
+      "weight": 0.15,
+      "aiSupported": false,
+      "judgeOnly": true,
+      "aiInstruction": "Do not assign a score. Human judges evaluate this during the presentation/demo."
+    },
+    {
+      "criterionId": "teamwork_response",
+      "name": "Teamwork & Trả lời phản biện",
+      "description": "Evaluate teamwork and ability to answer judge questions.",
+      "maxScore": 15,
+      "weight": 0.15,
+      "aiSupported": false,
+      "judgeOnly": true,
+      "aiInstruction": "Do not assign a score. Human judges or mentors evaluate this criterion."
+    }
+  ],
+  "sourceEvidence": {
+    "type": "github_diff",
+    "repositoryUrl": "https://github.com/example/seal-team-a03",
+    "branch": "main",
+    "commitSha": "abc123",
+    "changedFiles": [
+      {
+        "path": "src/services/aiReviewService.js",
+        "status": "modified",
+        "patch": "@@ -10,6 +10,14 @@\n+ const response = await llmClient.chat.completions.create({\n+   model: process.env.LLM_MODEL,\n+   messages: buildRubricPrompt(problem, rubric, sourceDiff)\n+ });\n+ return parseAiReviewJson(response);"
+      },
+      {
+        "path": "src/controllers/submissionController.js",
+        "status": "modified",
+        "patch": "@@ -25,7 +25,12 @@\n+ const submission = await Submission.findById(req.params.id);\n+ const aiReview = await aiReviewService.evaluateSubmission(submission);\n+ res.json({ submission, aiReview });"
+      }
+    ]
+  },
+  "executionResults": {
+    "build": {
+      "status": "SUCCESS",
+      "summary": "Build completed successfully."
+    },
+    "lint": {
+      "status": "WARNING",
+      "summary": "Lint found duplicated validation logic in two files."
+    },
+    "tests": {
+      "status": "NOT_FOUND",
+      "summary": "No automated tests were found."
+    }
+  },
+  "metadata": {
+    "readmeExcerpt": "The project uses an LLM API to generate rubric-based source code review and stores criterion-level AI suggestions.",
+    "demoUrl": "https://demo.example.com",
+    "commitMetadata": {
+      "changedFilesCount": 2,
+      "additions": 24,
+      "deletions": 3
+    }
+  }
+}

@@ -2,15 +2,15 @@
 
 ## Title
 
-An IOM-based AI-assisted Source Code Evaluation Workflow for SEAL Hackathon Management Systems
+AI-assisted Source Code Evaluation and Ranking Based on Dynamic Rubrics in Programming Competitions
 
 ## Abstract
 
 - Problem: manual hackathon judging is time-consuming and inconsistent.
-- Gap: existing LLM grading studies focus on classroom assignments.
-- Method: propose IOM workflow using GitHub source/diff, dynamic rubric and LLM output.
+- Gap: existing AI grading studies focus mainly on classroom assignments.
+- Method: propose an AI-assisted workflow using GitHub source/diff, dynamic rubric and criterion-level advisory output.
 - Evaluation: compare AI suggested scores/ranking with human judges.
-- Contribution: practical workflow without training a new model.
+- Contribution: practical workflow for judge-controlled source code evaluation.
 
 ## 1. Introduction
 
@@ -22,13 +22,13 @@ An IOM-based AI-assisted Source Code Evaluation Workflow for SEAL Hackathon Mana
 
 ## 2. Related Work
 
-- AI-assisted source code grading: TA Buddy, AI-based grading.
+- Rubric-based source code evaluation: Rubric Is All You Need.
+- Human-in-the-loop grading: TA Buddy.
 - Structured prompting: StepGrade.
-- Rubric LLM grading: JorGPT.
-- Consistency and feedback: CodEv.
-- Human-in-the-loop and rubric refinement.
+- Evaluation metrics and human comparison: JorGPT.
+- Consistency and feedback reliability: CodEv.
 
-## 3. Proposed IOM Workflow
+## 3. Proposed AI-assisted Evaluation Workflow
 
 - Input layer.
 - Method layer.
@@ -36,10 +36,10 @@ An IOM-based AI-assisted Source Code Evaluation Workflow for SEAL Hackathon Mana
 - Judge accept/override.
 - Ranking support.
 
-## 4. System Design
+## 4. System Context
 
-- MERN + React Native architecture.
-- GitHub webhook.
+- MERN + React Native architecture as application context.
+- GitHub evidence collection.
 - Dynamic rubric.
 - AI Evaluation Service.
 - Judge Scoring UI.
@@ -59,12 +59,12 @@ To be added after evaluation.
 
 - Which criteria AI supports well.
 - Which criteria should remain judge-only.
-- Limitations of prompt-based LLM grading.
+- Limitations of prompt-based AI grading.
 - Ethical and reliability concerns.
 
 ## 8. Conclusion and Future Work
 
 - Summary.
-- Fine-tuning/calibration as future work.
+- Model calibration as future work.
 - Multi-model agreement.
 - Rubric optimization.

@@ -1,8 +1,8 @@
-# Database Mapping for IOM Workflow
+# Database Mapping for AI-assisted Evaluation Workflow
 
 ## 1. Reused Existing Collections
 
-The current database already contains useful collections for the IOM workflow:
+The current database already contains useful collections for the AI-assisted evaluation workflow:
 
 | Existing Collection | Reused For |
 |---|---|
@@ -35,7 +35,7 @@ Recommended field usage:
 | Check-in state | `participants.checkinStatus` or equivalent |
 | Team check-in completion | derived from participants in the same team |
 
-## 3. Required Additions for IOM
+## 3. Required Additions for AI-assisted evaluation workflow
 
 ### 3.1. `commitdiffs`
 

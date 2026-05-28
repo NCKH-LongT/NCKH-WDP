@@ -13,7 +13,7 @@ Admin creates competition
 → Teams code and push commits
 → GitHub webhook sends push events
 → Backend extracts commit metadata and diffs
-→ AI evaluates source code/diff using IOM workflow
+→ AI evaluates source code/diff using AI-assisted evaluation workflow
 → Judges review AI suggestions and submit scores
 → System calculates rankings
 → Admin selects finalists

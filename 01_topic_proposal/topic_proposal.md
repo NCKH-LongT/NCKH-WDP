@@ -2,48 +2,81 @@
 
 ## Vietnamese Title
 
-Hệ thống quản lý SEAL Hackathon và hỗ trợ đánh giá source code bằng AI theo rubric động
+AI hỗ trợ đánh giá và xếp hạng source code theo rubric động trong cuộc thi lập trình
 
 ## English Title
 
-An IOM-based AI-assisted Source Code Evaluation Workflow for SEAL Hackathon Management Systems
+AI-assisted Source Code Evaluation and Ranking Based on Dynamic Rubrics in Programming Competitions
 
-## Application Domain
+## Application Context
 
-- Hackathon management
-- Software engineering education
-- AI-assisted source code evaluation
-- Dynamic rubric-based judging
+Bối cảnh ứng dụng là hệ thống **SEAL Hackathon Management**, nhưng phạm vi nghiên cứu khoa học chỉ tập trung vào **module AI hỗ trợ đánh giá source code theo rubric**.
+
+Dự án ứng dụng vẫn bao gồm đầy đủ các module vận hành như event, track, round, team, GitHub repository, submission, judge scoring, ranking và prize. Tuy nhiên, bài báo không nghiên cứu toàn bộ hệ thống quản lý Hackathon, mà chỉ nghiên cứu workflow AI-assisted evaluation bên trong hệ thống đó.
 
 ## Practical Problem
 
-SEAL Hackathon có nhiều mùa thi như Fall, Spring, Summer. Mỗi mùa có chủ đề, track, vòng thi và tiêu chí chấm điểm khác nhau. Việc chấm điểm thủ công trong thời gian ngắn gây áp lực cho giám khảo, dễ thiếu nhất quán giữa các giám khảo và khó theo dõi bằng chứng kỹ thuật từ GitHub repository.
+Trong các cuộc thi lập trình/Hackathon, giám khảo cần đánh giá nhiều bài nộp trong thời gian ngắn. Việc chấm source code không chỉ dựa vào test case, mà còn phải xem xét:
 
-Các hệ thống autograder truyền thống chỉ kiểm tra test case nên không đủ cho hackathon, vì rubric còn bao gồm kiến trúc phần mềm, mức độ tích hợp AI, chất lượng sản phẩm, documentation, UX, demo và teamwork.
+- mức độ hoàn thiện chức năng;
+- chất lượng source code;
+- kiến trúc phần mềm;
+- mức độ tích hợp AI hoặc công nghệ theo chủ đề cuộc thi;
+- README/documentation;
+- bằng chứng từ GitHub repository.
+
+Rubric có thể thay đổi theo mùa thi, vòng thi hoặc track. Vì vậy, hệ thống cần hỗ trợ **dynamic rubric** thay vì hard-code tiêu chí.
 
 ## Proposed Direction
 
-Nhóm đề xuất workflow IOM để tích hợp LLM hiện có vào hệ thống MERN + React Native. AI nhận source code/diff từ GitHub, đề bài và rubric động từ database, sau đó tạo điểm gợi ý theo từng tiêu chí kèm evidence và feedback. Judge xem kết quả AI, accept hoặc override trước khi hệ thống tính điểm cuối và ranking.
+Nhóm đề xuất một workflow để AI hỗ trợ giám khảo đánh giá source code.
+
+```text
+Input:
+Problem statement
++ source code/GitHub diff hoặc final source snapshot
++ dynamic rubric
++ README/setup guide
++ optional execution results
++ commit metadata
+
+Method:
+Structured AI prompting
++ rubric-based criterion evaluation
++ judge accept/override
+
+Output:
+AI suggested score theo từng criterion
++ evidence
++ feedback
++ confidence
++ risks
++ suggested judge questions
++ needsHumanReview
+```
+
+AI chỉ đóng vai trò **trợ lý đánh giá**. Điểm cuối cùng vẫn do giám khảo quyết định.
 
 ## Why AI is Needed
 
 AI hỗ trợ:
 
-- Đọc nhanh source code/diff.
+- Đọc nhanh source code hoặc commit diff.
 - Gợi ý điểm theo từng tiêu chí rubric.
-- Tạo evidence từ code/repository.
-- Tạo feedback ngắn cho judge.
-- Phát hiện rủi ro kỹ thuật.
-- Giảm thời gian chuẩn bị nhận xét cho judge.
+- Trích xuất evidence từ code/repository.
+- Tạo feedback ngắn gọn cho judge.
+- Phát hiện rủi ro kỹ thuật cần xem xét.
+- Gợi ý câu hỏi phản biện cho judge.
+- Giảm thời gian chuẩn bị nhận xét khi chấm nhiều đội.
 
 ## Important Boundary
 
-Dự án **không xây dựng hoặc fine-tune model AI mới** trong MVP. Nghiên cứu tập trung vào workflow tích hợp AI, prompt, output format, human-in-the-loop và cách đánh giá hiệu quả.
+Nghiên cứu không tập trung vào toàn bộ app quản lý Hackathon. App là bối cảnh triển khai. Phần nghiên cứu chỉ tập trung vào module AI-assisted source code evaluation và cách đánh giá hiệu quả của workflow này.
 
-## Expected Outputs
+## Expected Research Outputs
 
-- IOM workflow cho AI-assisted source code evaluation.
-- AI Evaluation API prototype.
-- Judge scoring sheet có AI suggestion và override.
-- Dataset thử nghiệm nhỏ.
-- Metrics so sánh AI score/ranking với judge score/ranking.
+- Workflow cho AI-assisted source code evaluation.
+- Prompt template theo rubric động.
+- Output schema cho AI suggested score, evidence, feedback.
+- Mapping giữa AI review và DB/prototype.
+- Evaluation plan: score alignment, ranking similarity, override rate, time reduction.

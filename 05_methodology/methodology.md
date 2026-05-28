@@ -2,7 +2,7 @@
 
 ## 1. Research Approach
 
-This study follows a **prototype-based empirical evaluation** approach. The goal is not to train a new AI model, but to evaluate how an existing LLM can be integrated into a hackathon evaluation workflow using the IOM structure.
+This study follows a **prototype-based empirical evaluation** approach. The goal is to evaluate how an existing AI model/API can support a hackathon source code evaluation workflow.
 
 ## 2. Method Overview
 
@@ -10,11 +10,11 @@ This study follows a **prototype-based empirical evaluation** approach. The goal
 Dynamic rubric
 + GitHub source code/diff
 + Problem statement
-→ LLM-based IOM evaluation
+→ structured AI evaluation
 → AI suggested scores and evidence
 → Judge accept/override
 → Final score and ranking
-→ Compare AI and human results
+→ Compare AI-supported results and human results
 ```
 
 ## 3. Step-by-step Procedure
@@ -58,11 +58,11 @@ Judges review AI suggestions and either accept or override them. Override reason
 The system compares:
 
 - AI suggested score vs judge score
-- AI ranking vs judge ranking
-- Simple prompt vs structured IOM prompt
+- AI-supported ranking vs judge ranking
+- Simple prompt vs structured rubric prompt
 - Manual grading time vs AI-assisted grading time
 - AI acceptance vs override rate
 
 ## 4. Expected Scientific Contribution
 
-The study contributes an IOM workflow for adapting existing LLM grading methods into a real hackathon management context with dynamic rubrics, GitHub evidence and judge-controlled final scoring.
+The study contributes a practical workflow for adapting AI-assisted grading methods into a real hackathon management context with dynamic rubrics, GitHub evidence and judge-controlled final scoring.

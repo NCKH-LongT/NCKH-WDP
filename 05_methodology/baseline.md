@@ -9,22 +9,22 @@ Purpose:
 - Main reference workflow.
 - Used to measure time and official score.
 
-## Baseline 2: Simple LLM Prompt
+## Baseline 2: Simple AI model Prompt
 
-The LLM receives source code and rubric and returns a general score without structured criterion-by-criterion reasoning.
+The AI model receives source code and rubric and returns a general score without structured criterion-by-criterion reasoning.
 
 Purpose:
 
 - Shows limitations of unstructured AI grading.
-- Used to compare with IOM structured prompt.
+- Used to compare with structured evaluation workflowd prompt.
 
-## Baseline 3: Structured IOM Prompt
+## Baseline 3: Structured AI-assisted evaluation workflow Prompt
 
-The LLM receives problem statement, source code/diff and dynamic rubric. It returns criterion-level suggested scores, evidence, feedback and confidence.
+The AI model receives problem statement, source code/diff and dynamic rubric. It returns criterion-level suggested scores, evidence, feedback and confidence.
 
 Purpose:
 
-- Tests whether IOM output is more useful and explainable.
+- Tests whether AI-assisted evaluation workflow output is more useful and explainable.
 
 ## Proposed Workflow: AI-assisted Judge Review
 
@@ -40,6 +40,6 @@ Purpose:
 | Comparison | Purpose |
 |---|---|
 | Manual vs AI-assisted | Measure time saving and workflow efficiency |
-| Simple prompt vs IOM prompt | Measure effect of structured evaluation |
+| Simple prompt vs structured rubric prompt | Measure effect of structured evaluation |
 | AI score vs Judge score | Measure score alignment |
 | AI ranking vs Judge ranking | Measure ranking alignment |
