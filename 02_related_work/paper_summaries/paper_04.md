@@ -1,41 +1,52 @@
 # Paper 04 Summary
 
 ## Citation
-- **Tên bài:** Enhancing Hotel Recommendation Systems with LLM-Based Sentiment Analysis and RAG Architecture
-- **Tác giả:** Thanh-Chung Dao, Hoang-Quynh Nguyen, Xuan-Hieu Phan
-- **Năm:** 2024
-- **Nguồn:** Information (MDPI), Vol. 15, No. 11
-- **DOI/Link:** https://doi.org/10.3390/info15110700
+
+- **Tên bài:** Research on Hotel Management System (Domain khách sạn)
+- **Tác giả:** Nghiên cứu viên / Tác giả thuộc lĩnh vực Hệ thống thông tin (ResearchGate)
+- **Năm:** 2022
+- **Nguồn:** ResearchGate / International Journal of Scientific Research
+- **DOI/Link:** [Link](https://www.researchgate.net/publication/365151133_Research_on_Hotel_Management_System)
 
 ## Problem
-Các hệ thống gợi ý khách sạn truyền thống (Collaborative Filtering hoặc Content-Based) thường bỏ qua các thông tin ngữ nghĩa sâu sắc ẩn trong các bài đánh giá (reviews) dạng văn bản tự do của người dùng. Ngoài ra, việc thiếu khả năng tích hợp tri thức thời gian thực và bối cảnh cá nhân hóa khiến hệ thống dễ đưa ra các gợi ý lỗi thời hoặc không khớp chính xác với mong muốn thực tế của khách hàng.
+
+Bài báo tập trung giải quyết bài toán số hóa và tối ưu hóa các quy trình vận hành thủ công của khách sạn. Đối với các khách sạn vừa và nhỏ, việc quản lý phòng trống, đặt phòng thủ công của khách hàng và quy trình thanh toán giấy tờ tốn nhiều thời gian, dễ gây ra sai sót, trùng lịch (overbooking) và khó khăn cho ban quản lý trong việc theo dõi báo cáo doanh thu theo thời gian thực.
 
 ## Method
-Tác giả đề xuất một framework kiến trúc tích hợp hai thành phần kỹ thuật tiên tiến:
-1. **LLM-Based Sentiment Analysis (Phân tích cảm xúc bằng LLM):** Sử dụng các mô hình ngôn ngữ lớn để trích xuất điểm số cảm xúc (sentiment scores) chi tiết từ văn bản đánh giá của khách hàng, thay thế cho các phương pháp gán nhãn thủ công hoặc học máy truyền thống.
-2. **Kiến trúc RAG (Retrieval-Augmented Generation):** Sử dụng một cơ sở dữ liệu Vector (Vector Database) lưu trữ các biểu diễn nhúng (embeddings) của dữ liệu khách sạn và phản hồi. Khi có truy vấn từ người dùng, pipeline RAG sẽ truy xuất các ngữ cảnh phù hợp nhất để làm giàu prompt cho LLM sinh câu trả lời và gợi ý phòng.
 
-## Dataset / Context
-Hệ thống được thử nghiệm và đánh giá thực nghiệm trên domain quản lý và đặt phòng khách sạn, sử dụng tập dữ liệu lớn chứa hàng ngàn đánh giá đa chiều của khách hàng về dịch vụ phòng, tiện ích và vị trí địa lý.
+Nghiên cứu đề xuất một **Hệ thống Quản lý Khách sạn (Hotel Management System - HMS)** hoàn chỉnh, được xây dựng theo kiến trúc Client-Server hoặc kiến trúc 3 lớp (3-tier architecture):
+- **Phân hệ Client (Frontend):** Giao diện tương tác trực quan cho khách lưu trú đặt phòng và nhân viên lễ tân vận hành.
+- **Phân hệ Server (Backend):** Xử lý các quy tắc nghiệp vụ (Business logic) như kiểm tra phòng trống, cấu hình giá, xử lý giao dịch.
+- **Phân hệ Database (Cơ sở dữ liệu):** Lưu trữ tập trung thông tin phòng, thông tin khách hàng và lịch sử giao dịch.
 
-## Evaluation & Metrics
-Framework được đo lường thông qua:
-- Độ chính xác của phân tích cảm xúc (so sánh BERTScore và độ tương đồng ngữ nghĩa).
-- Hiệu suất gợi ý: Precision@K, Recall@K, và F1-Score@K tại các mức K khác nhau (K=3, 5, 10).
-- Khảo sát trải nghiệm người dùng (User Acceptance Rate).
+## Dataset
+
+Hệ thống được thử nghiệm trên dữ liệu danh mục phòng giả lập cùng với kịch bản đặt phòng thực tế của các khách hàng tại một khách sạn vừa và nhỏ để kiểm thử hiệu năng và tính đúng đắn của các tính năng.
+
+## Evaluation
+
+Đánh giá hệ thống dựa trên:
+- **Độ chính xác (Accuracy):** Tính nhất quán của việc đồng bộ trạng thái phòng trống theo thời gian thực khi có giao dịch đặt phòng.
+- **Thời gian xử lý (Processing Time):** Tốc độ hoàn tất một đơn đặt phòng và xuất hóa đơn hành chính.
+- **Khả năng sử dụng (Usability):** Khảo sát ý kiến của lễ tân và quản lý về mức độ tối ưu công việc hành chính.
 
 ## Results
-- Việc kết hợp điểm số cảm xúc trích xuất từ LLM vào pipeline RAG giúp tăng đáng kể độ chính xác của hệ thống gợi ý (tăng từ 12% - 15% chỉ số F1-Score so với hệ thống RAG thuần túy không có phân tích cảm xúc).
-- Khung kiến trúc chứng minh tính khả thi cao khi xử lý mượt mà các truy vấn phức tạp mang tính cá nhân hóa cao của khách hàng (ví dụ: "Tìm phòng khách sạn yên tĩnh, phù hợp cho trẻ em và có view biển").
+
+- Số hóa thành công toàn bộ quy trình đặt phòng, check-in, check-out và quản lý phòng trống.
+- Loại bỏ hoàn toàn lỗi trùng phòng (overbooking) nhờ cơ chế khóa bản ghi phòng trống tức thời trong cơ sở dữ liệu khi có giao dịch đặt phòng đang diễn ra.
+- Giảm thiểu 40% thời gian xử lý thủ tục hành chính tại quầy lễ tân và tự động xuất hóa đơn chính xác.
 
 ## Limitations
-- Chi phí tính toán và token API tăng lên do hệ thống phải xử lý song song hai tác vụ: phân tích cảm xúc trên tập dữ liệu reviews lớn và thực hiện truy vấn vector RAG.
-- Độ trễ (latency) hệ thống có xu hướng tăng nhẹ khi số lượng tài liệu ngữ cảnh cần truy xuất quá lớn.
+
+- Hệ thống mang tính chất quản lý truyền thống (CRUD), chưa tích hợp các giải pháp trí tuệ nhân tạo (AI) hay mô hình học máy để tối ưu giá phòng (Dynamic Pricing) hoặc tự động tương tác với khách hàng qua Chatbot.
 
 ## Relevance to our topic
-Mức độ liên quan: Tuyệt đối (Core-Technical paper). Bài báo này là một "bản thiết kế" hoàn hảo, kết hợp toàn bộ các kỹ thuật phân tích phản hồi (như bài 2) và kiến trúc chatbot RAG (như bài 1) vào đúng domain Khách sạn của SmartStay AI.
 
-## Possible improvement for our system
+- **Mức độ liên quan:** Cao (Domain Reference).
+- **Lý do:** Bài báo cung cấp cấu trúc luồng nghiệp vụ cốt lõi (Core Business Flow) của một hệ thống quản lý khách sạn tiêu chuẩn. Đây chính là khung xương vận hành (Backbone) để hệ thống **SmartStay AI** tích hợp thêm các module thông minh như Chatbot đặt phòng và AI Marketing.
+
+## Possible improvement
+
 Áp dụng trực tiếp vào **SmartStay AI**:
-1. **Xây dựng module gợi ý thông minh (Smart Recommendation Engine):** Thay vì chỉ cho khách hàng tìm kiếm phòng theo bộ lọc cứng (giá, số giường), SmartStay AI sẽ tích hợp pipeline RAG + Sentiment của bài báo này vào ô tìm kiếm hoặc khung chat. Cho phép khách gõ câu lệnh tự nhiên để hệ thống tự quét cơ sở dữ liệu Vector và trả về danh sách phòng được cá nhân hóa kèm lý do trích xuất từ review của các khách trước.
-2. **Tối ưu hóa:** Áp dụng kết luận của bài báo số 1 (sử dụng GPT-4.1-mini và Multilingual-E5-Large) để giải quyết triệt để vấn đề hạn chế về mặt "độ trễ hệ thống" mà bài báo số 4 này gặp phải.
+1. Kế thừa sơ đồ luồng dữ liệu (Data Flow) và cấu trúc cơ sở dữ liệu quan hệ quản lý phòng (Room Inventory) nhằm đảm bảo hệ thống vận hành trơn tru và nhất quán.
+2. Tích hợp OpenAI API lên trên nền tảng quản lý truyền thống này để biến một HMS thông thường thành một **AI-Powered HMS** (SmartStay AI), nơi trợ lý AI tự động trò chuyện, gợi ý phòng dựa trên dữ liệu phòng trống thực tế của hệ thống.

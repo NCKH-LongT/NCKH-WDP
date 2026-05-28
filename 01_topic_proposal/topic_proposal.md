@@ -132,3 +132,15 @@ Khách truy cập hệ thống $\rightarrow$ Chat với Chatbot AI để nhận 
 ## 10. Kết luận
 
 Đề tài **SmartStay AI** hoàn toàn thực tế và có tính thương mại hóa cao khi giải quyết trúng phân khúc thị trường khách sạn vừa và nhỏ đang bị bỏ ngỏ tại Việt Nam. Bằng cách áp dụng mô hình "Human-in-the-loop AI" (AI hỗ trợ và tối ưu, con người kiểm soát quyết định), hệ thống mang lại một công cụ mạnh mẽ, chi phí hợp lý (kỳ vọng 50–150 USD/tháng) giúp các doanh nghiệp lưu trú chuyển đổi số thành công, nâng cao năng lực cạnh tranh trực tiếp với các chuỗi khách sạn quốc tế lớn.
+
+## 11. Related Papers (Tài liệu tham khảo liên quan)
+
+Dưới đây là danh sách 5 bài báo khoa học tiêu biểu được trích xuất từ báo cáo nghiên cứu làm nền tảng cho đề tài:
+
+| STT | Tên bài báo (Title) | Năm | Nguồn (Source) | Link liên kết |
+|---|---|---|---|---|
+| 1 | Artificial Intelligence (AI) in the Hospitality Industry: A Review Article | 2021 | Step Academic | [Link](https://stepacademic.net/ijcsr/article/view/337/136) |
+| 2 | Sentiment Analysis of Hotel Reviews Using Machine Learning Techniques | 2021 | ResearchGate | [Link](https://www.researchgate.net/publication/346144094_Sentiment_Analysis_of_Hotel_Reviews_Using_Machine_Learning_Techniques) |
+| 3 | Comparative Performance of Retrieval Augmented Generation Tourism Chatbots | 2026 | IJINS | [Link](https://ijins.umsida.ac.id/index.php/ijins/article/view/1836?utm_source=chatgpt.com) |
+| 4 | Optimizing guest experience in smart hospitality: Integrated fuzzy-AHP and machine learning for centralized hotel operations with IoT | 2024 | ScienceDirect | [Link](https://www.sciencedirect.com/science/article/pii/S1110016824015229?via%3Dihub) |
+| 5 | AI Impact on Hotel Guest Satisfaction via Tailor-Made Services | 2024 | MDPI | [Link](https://www.mdpi.com/2078-2489/15/11/700) |
