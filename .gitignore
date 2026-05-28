@@ -1,0 +1,6 @@
+# Temporary Excel analysis files
+excel_dump.json
+excel_inspect.txt
+
+# Raw report data
+REPORT NCKH.xlsx
