@@ -1,5 +1,4 @@
 # Paper List
-
 ## Priority Papers
 
 - Wang, L., Tang, D., Liu, C., Nie, Q., Wang, Z., & Zhang, L. (2022). *An Augmented Reality-Assisted Prognostics and Health Management System Based on Deep Learning for IoT-Enabled Manufacturing*. *Sensors, 22*(17), 6472.
