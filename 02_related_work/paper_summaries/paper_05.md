@@ -1,37 +1,126 @@
-# Tóm tắt Bài báo 05
+# Tóm tắt Bài báo 5
 
 ## Trích dẫn
 
-Baba, T., Isoyama, N., Uchiyama, H., Sakata, N., & Kiyokawa, K. (2023). *Effects of AR-Based Home Appliance Agents on User's Perception and Maintenance Behavior*. *Sensors, 23*(8), 4135. https://doi.org/10.3390/s23084135
+Luan, Y., He, L., Ostendorf, M., & Hajishirzi, H. (2018). *Multi-Task Identification of Entities, Relations, and Coreference for Scientific Knowledge Graph Construction*. ACL Anthology.
+nlp.cs.washington.edu/sciIE/
 
 ## Vấn đề nghiên cứu
 
-Nhiều người dùng xem hoạt động bảo trì là nhàm chán và khó chịu, ngay cả khi hệ thống về mặt kỹ thuật có thể hiển thị trạng thái của thiết bị. Bài báo nghiên cứu liệu các tác tử AR với hành vi biểu cảm có thể thay đổi nhận thức của người dùng và thúc đẩy hành vi bảo trì hiệu quả hơn so với cách trình bày trạng thái bằng văn bản đơn thuần hay không.
+Bài báo xác định một thách thức cơ bản trong việc khai thác thông tin từ tài liệu khoa học: **khó khăn trong việc xác định các công nghệ mới và mối quan hệ của chúng với kiến thức hiện có**. Các hệ thống trích xuất thông tin (Information Extraction - IE) truyền thống thường xử lý các nhiệm vụ (trích xuất thực thể, quan hệ, giải quyết đồng tham chiếu) một cách độc lập, dẫn đến:
+- Thiếu khả năng bao phủ các quan hệ xuyên câu (cross-sentence relations)
+- Mất mát thông tin cấu trúc và ngữ cảnh
+- Các đồ thị tri thức khoa học không đầy đủ hoặc mang tính chặt chẽ
+
+Câu hỏi đặt ra là làm thế nào có thể xây dựng một hệ thống thực sự hiểu được các mối quan hệ phức tạp trong tài liệu khoa học để tạo ra các đồ thị tri thức (Knowledge Graph) mạnh mẽ?
 
 ## Phương pháp
 
-Nhóm tác giả xây dựng một hệ thống AR trên `HoloLens 2`, trong đó một tác tử hoạt họa được chồng phủ lên tủ lạnh. Tác tử thay đổi hành vi tùy theo trạng thái của thiết bị. Thí nghiệm kiểu Wizard-of-Oz so sánh ba điều kiện: `Text`, `Animacy` và `Intelligence`, trong đó điều kiện sau cùng bổ sung các hành vi thích ứng ngữ cảnh hơn, chẳng hạn như chủ động tìm kiếm sự hỗ trợ.
+Tác giả đề xuất khung **SciIE** (Scientific Information Extraction) sử dụng **học đa nhiệm (Multi-Task Learning)** với ba thành phần chính:
+
+1. **Nhận diện Thực thể (Named Entity Recognition - NER)**:
+   - Xác định các thực thể quan trọng như Method, Material, Metric, Task, v.v. từ tài liệu
+
+2. **Trích xuất Quan hệ (Relation Extraction)**:
+   - Xác định các quan hệ giữa các thực thể, ví dụ: "Method X được sử dụng cho Task Y"
+   - Bao gồm cả các quan hệ xuyên câu
+
+3. **Giải quyết Đồng tham chiếu (Coreference Resolution)**:
+   - Xác định khi hai hay nhiều biểu thức nói đến cùng một thực thể
+   - Giúp kết nối các thông tin rải rác trong tài liệu
+
+**Đặc điểm quan trọng**: Sử dụng **biểu diễn span dùng chung (shared span representations)** - cho phép các nhiệm vụ khác nhau chia sẻ thông tin và tương tác với nhau, thay vì xử lý độc lập.
+
+Kiến trúc sử dụng:
+- BiLSTM (Bidirectional LSTM) để mã hóa văn bản
+- Attention mechanism để tập trung vào các spans quan trọng
+- Các lớp phân loại riêng cho từng nhiệm vụ nhưng với trọng số chia sẻ
 
 ## Dữ liệu
 
-Việc đánh giá được thực hiện thông qua một nghiên cứu người dùng trong phòng thí nghiệm. Có `31` người tham gia được tuyển chọn, `4` người bị loại khỏi phân tích, và kết quả cuối cùng được tính trên `27` người phân bố theo ba điều kiện thực nghiệm.
+Nghiên cứu sử dụng hai tập dữ liệu chính:
+
+1. **SCIERC (SciIE Relation Classification)**:
+   - 500 tóm tắt bài báo trong lĩnh vực **Trí tuệ nhân tạo (AI)**
+   - Được chú thích thủ công với thực thể, quan hệ và đồng tham chiếu
+
+2. **Semantic Scholar Corpus**:
+   - 110.000 tóm tắt bài báo
+   - Được sử dụng để huấn luyện các mô hình tổng quát hơn
+
+Các dữ liệu này cung cấp một lượng đáng kể các bài báo khoa học với các chú thích chất lượng cao.
 
 ## Đánh giá
 
-Bài báo đánh giá cả kết quả khách quan lẫn chủ quan. Các thước đo khách quan bao gồm tỷ lệ thành công, các chỉ số liên quan đến căng thẳng, hành vi nhìn và thời điểm thực hiện hành động. Các thước đo chủ quan bao gồm các bảng hỏi như `AttrakDiff`, `Godspeed`, cùng với các câu hỏi bổ sung về mức độ thân mật, dễ chịu, khó chịu và cảm giác bị ép buộc.
+Phương pháp được đánh giá thông qua:
+- **Precision**: Tỷ lệ các dự đoán đúng trên tổng số dự đoán
+- **Recall**: Tỷ lệ các dự đoán đúng trên tổng số thực tế trong dữ liệu
+- **F1-score**: Trung bình điều hòa của Precision và Recall
+- **So sánh với các mô hình nền tảng**: Các mô hình LSTM+CRF (Long Short-Term Memory với Conditional Random Fields) truyền thống
+- **Kiểm tra khả năng tổng quát hóa**: Đánh giá trên các tập dữ liệu khác để xem mô hình có khái quát hóa tốt hay không
 
 ## Kết quả
 
-Hai điều kiện `Animacy` và `Intelligence` làm tăng nhận thức về tính sống động và tính thân mật, đồng thời khiến tương tác được cảm nhận là dễ chịu hơn so với đường cơ sở chỉ có văn bản. Tuy nhiên, tác tử AR không làm giảm rõ rệt cảm giác khó chịu, và hành vi nâng cao trong điều kiện `Intelligence` cũng không cải thiện đáng kể nhận thức về trí tuệ hay làm giảm cảm giác ép buộc so với điều kiện hoạt họa đơn giản hơn. Các chỉ số khách quan cũng không cho thấy khác biệt có ý nghĩa thống kê giữa các cặp điều kiện.
+Bài báo đạt được những kết quả quan trọng:
+
+- **Tích hợp đồng tham chiếu tăng hiệu suất**: Việc tích hợp nhiệm vụ giải quyết đồng tham chiếu vào khung đa nhiệm **giúp tăng đáng kể độ bao phủ quan hệ và Recall**
+
+- **Đồ thị tri thức dày đặc hơn**: Kết quả là các đồ thị tri thức khoa học **dày đặc và hữu ích hơn** vì có thể kết nối các thông tin rải rác trong tài liệu
+
+- **Hiệu suất tốt hơn so với các phương pháp độc lập**: Cách tiếp cận học đa nhiệm cho kết quả tốt hơn so với việc thực hiện các nhiệm vụ riêng rẽ
+
+- **Có khả năng tổng quát hóa**: Mô hình huấn luyện trên SCIERC có thể hoạt động trên các tập dữ liệu khác mặc dù độ chính xác giảm
 
 ## Hạn chế
 
-Miền nghiên cứu là thiết bị gia dụng thay vì hạ tầng công nghiệp hoặc trung tâm dữ liệu. Hệ thống nhấn mạnh tác động hành vi và nhận thức hơn là phân tích bất thường dựa trên AI. Một số lợi ích chủ yếu xuất hiện ở thước đo chủ quan thay vì cải thiện mạnh mẽ về hiệu năng khách quan.
+Bài báo có một số hạn chế quan trọng:
+
+- **Khoảng cách hiệu suất con người vs máy**: Vẫn còn một **khoảng cách lớn giữa hiệu suất máy và con người**, cho thấy rằng các hệ thống hiện tại vẫn chưa đạt mức hoàn hảo
+
+- **Độ chính xác trích xuất quan hệ thấp**: Độ chính xác F1 cho việc trích xuất quan hệ chỉ đạt khoảng **39.3%**, cho thấy đây vẫn là một nhiệm vụ khó khăn
+
+- **Phụ thuộc vào dữ liệu chú thích**: Hiệu suất mô hình phụ thuộc vào chất lượng và số lượng dữ liệu huấn luyện có sẵn
+
+- **Giới hạn trên các miền khác**: Mô hình được huấn luyện chủ yếu trên tóm tắt bài báo AI, có thể không hoạt động tốt trên các miền lĩnh vực khác
+
+- **Chưa xử lý được các quan hệ phức tạp**: Các quan hệ lồng nhau hoặc có điều kiện vẫn còn khó để xử lý
 
 ## Mức độ liên quan tới đề tài của nhóm
 
-Bài báo rất hữu ích cho khía cạnh nhân tố con người trong đề xuất của nhóm. Nghiên cứu cho thấy hình thức trình bày bằng AR có thể ảnh hưởng đến cách người dùng cảm nhận về tác vụ bảo trì, điều này đặc biệt quan trọng nếu nhóm muốn người vận hành chú ý tới cảnh báo, tin tưởng các lớp phủ theo ngữ cảnh và hành động dựa trên gợi ý của AI.
+Bài báo có **mức độ liên quan cao** tới đề xuất của nhóm vì những lý do sau:
+
+- **Thành phần cốt lõi cho Knowledge Graph**: SciIE cung cấp các thành phần cốt lõi cần thiết để xây dựng **Đồ thị tri thức (Knowledge Graph)** - nền tảng quan trọng để **theo dõi sự kết nối và tiến hóa của các khái niệm khoa học và công nghệ**
+
+- **Trích xuất mối quan hệ**: Khung đa nhiệm cho phép xác định không chỉ các thực thể (như "phương pháp mới") mà cả các mối quan hệ của chúng (như "được ứng dụng trong"), điều này thiết yếu để hiểu sự tương tác giữa các xu hướng
+
+- **Giải quyết đồng tham chiếu**: Khả năng giải quyết đồng tham chiếu cho phép hệ thống kết nối các cách gọi khác nhau của cùng một khái niệm hoặc công nghệ, cải thiện độ chính xác của phát hiện xu hướng
+
+- **Hỗ trợ phân tích dòng thời gian**: Với các mối quan hệ được xác định rõ ràng, hệ thống có thể theo dõi cách các khái niệm tiến hóa và tương tác theo thời gian
+
+- **Ứng dụng cho bảo trì công nghiệp**: Các kỹ thuật tương tự có thể được áp dụng để trích xuất các thực thể (như thiết bị, phương pháp bảo trì) và các mối quan hệ từ tài liệu bảo trì hoặc báo cáo kỹ thuật
 
 ## Hướng cải tiến khả dĩ
 
-Đối với dự án của nhóm, có thể kế thừa bài học rằng các tín hiệu AR giàu tính biểu đạt là quan trọng, nhưng nên gắn chúng với ngữ nghĩa vận hành như mức độ nghiêm trọng của bất thường, rủi ro dịch vụ hoặc độ khẩn cấp của bảo trì. Nhóm cũng nên so sánh các tín hiệu trực quan nhẹ với hướng dẫn phong phú do AI điều khiển để xác định mức hỗ trợ nào thực sự đáng giá.
+Để mở rộng và cải thiện khung này cho dự án của nhóm, có thể xem xét:
+
+- **Áp dụng các kỹ thuật học bán giám sát (Semi-supervised Learning)**:
+  - Sử dụng dữ liệu chưa được chú thích để cải thiện hiệu suất
+  - Giảm chi phí công việc chú thích thủ công
+
+- **Bổ sung các đặc trưng chuyên biệt cho từng miền (Domain-specific Features)**:
+  - Tích hợp các đặc trưng riêng cho bảo trì công nghiệp, giám sát hệ thống, hoặc các miền khác
+  - Sử dụng các thế bộ từ (word embeddings) được huấn luyện trên dữ liệu lĩnh vực cụ thể
+
+- **Mở rộng sang các quan hệ phức tạp hơn**:
+  - Xử lý các quan hệ lồng nhau, có điều kiện hoặc thay đổi theo thời gian
+  - Thêm các loại quan hệ mới phù hợp với miền ứng dụng
+
+- **Tích hợp với hệ thống Knowledge Graph động**:
+  - Kết nối SciIE với các công cụ quản lý và truy vấn Knowledge Graph hiện đại
+  - Cho phép cập nhật liên tục Knowledge Graph khi dữ liệu mới có sẵn
+
+- **Cải thiện độ chính xác qua các kỹ thuật học sâu tiên tiến**:
+  - Sử dụng các mô hình Transformer (BERT, RoBERTa) thay vì LSTM
+  - Áp dụng các kỹ thuật như Graph Neural Networks (GNNs) để khai thác cấu trúc đồ thị của dữ liệu
+
+- **Xác thực chuyên gia**: Thiết lập quy trình xác thực với các chuyên gia miền để đánh giá chất lượng của các quan hệ được trích xuất

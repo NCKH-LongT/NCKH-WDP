@@ -1,143 +1,157 @@
-## Design and Development of an Intelligent Augmented Reality-Based Infrastructure Monitoring and Maintenance Platform with AI-Assisted Analytics for Simulated Data Center Environments
+## Scientific Journal Publication Trend Tracking System
 
 ---
 
 ## Group Information
 
 Semester: SU26
-Class: SE1823
-Subject: WDP301
-Group: 09
-Contributors: Phan Vo Duc Huy, Nguyen Khanh Ngan, Le Tran Anh Duy
+Class: SE1822
+Subject: WDP391
+Group: 04
+Contributors: Tran Dinh Phong, Pham Duc Thanh Phuong, Dang Thanh Tu, Ngo Nhat Minh
 
 ---
 
 ## 1. Proposed Title
 
-Design and Development of an Intelligent Augmented Reality-Based Infrastructure Monitoring and Maintenance Platform with AI-Assisted Analytics for Simulated Data Center Environments
+Scientific Journal Publication Trend Tracking System
 
 ## 2. Application Domain
 
-The proposed system belongs to the fields of:
+The proposed system belongs to the following fields:
 
-- Augmented Reality for Infrastructure Monitoring and Maintenance
-- Realtime Infrastructure Monitoring
-- Artificial Intelligence for IT Operations (AIOps)
-- Streaming Data Analytics
-- Distributed Systems and Observability
-- Machine Learning for Time-Series Analysis
-- Human-AI Interaction for Technical Field Support
+- Academic Data Analytics and Visualization
+- Scientific Literature Mining
+- Research Trend Detection and Forecasting
+- Information Retrieval from Bibliographic APIs
+- Knowledge Discovery in Academic Databases
+- Dashboard and Data Visualization for Research Intelligence
 
-The project is positioned as a proof-of-concept (PoC) for simulated data center environments rather than a production-ready enterprise platform. Instead of operating on real industrial infrastructure, the system uses Docker-based containerized services to emulate server nodes, workloads, and infrastructure events. This simulated environment allows the study to investigate whether Augmented Reality can serve as an effective operational interface for infrastructure monitoring and maintenance, while Artificial Intelligence can act as an optional analytical extension for anomaly interpretation and predictive support.
+The project is positioned as a web-based platform that aggregates metadata from open academic APIs such as Semantic Scholar, OpenAlex, or Crossref to help researchers, lecturers, and students analyze publication trends across selected research fields. Rather than building a full-text search engine, the system focuses on trend visualization, keyword tracking, and research topic discovery — areas currently underserved by existing academic search platforms.
 
 ## 3. Problem Statement
 
-Data center monitoring and maintenance involve both digital observability and physical operational awareness. In practical settings, infrastructure operators need to inspect resource usage, detect abnormal behavior, identify the affected node, and perform maintenance actions based on system context. However, conventional monitoring approaches are typically centered on dashboards, logs, and static alert interfaces, which separate virtual infrastructure information from the physical maintenance space.
+The rapid growth in the volume of scientific publications has made it increasingly difficult for researchers, lecturers, and students to stay informed about evolving research trends. Academic search platforms such as Google Scholar, Scopus, and Web of Science are primarily designed for paper retrieval rather than trend intelligence. They allow users to find specific papers but do not offer structured tools for visualizing how research topics emerge, grow, or decline over time.
 
-This separation creates several limitations:
+This gap creates several practical limitations:
 
-- Operators must mentally map virtual metrics to physical infrastructure components
-- Alert dashboards provide limited spatial context for onsite maintenance tasks
-- Rule-based alerts may produce high false-positive rates and weak decision support
-- Traditional interfaces are effective for centralized monitoring but less intuitive for physical inspection and maintenance workflows
-- Existing enterprise-grade solutions are often too complex, costly, or operationally constrained to be realistically reproduced in an academic project
+- Researchers cannot easily observe how a topic evolves across years or identify which sub-fields are gaining or losing momentum.
+- Keyword-based search interfaces do not provide visual or temporal context for understanding the research landscape.
+- Lecturers and students must manually browse large collections to determine which topics are currently active or worth pursuing.
+- There is no lightweight, accessible tool that combines paper metadata aggregation, trend analysis, and interactive visualization in a single platform.
+- Existing commercial research intelligence tools are expensive and not accessible to individual researchers or academic institutions with limited resources.
 
-Therefore, this project does not aim to replicate a real enterprise data center management system. Instead, it proposes a proof-of-concept platform to validate the feasibility of combining Augmented Reality and AI-assisted analytics in a simulated data center setting. The core objective is to demonstrate that AR can bridge the gap between physical maintenance activities and virtual infrastructure telemetry, while AI can enhance the system by providing anomaly detection and predictive insights.
+Therefore, this project proposes a web platform that collects and processes publicly available paper metadata from free academic APIs, then applies statistical analysis and visualization techniques to surface publication trends, identify emerging topics, and support research discovery across selected domains such as Computer Science or Artificial Intelligence.
 
 ## 4. Target Users
 
-- IT Administrators: Responsible for centralized monitoring, reviewing telemetry, supervising alerts, and managing infrastructure status from the web dashboard.
-- NOC Engineers: Responsible for realtime observation of infrastructure behavior, validation of abnormal events, and operational triage.
-- Maintenance Technicians: Responsible for onsite or simulated field inspection using the AR interface to identify nodes, inspect status, view logs, and follow contextual maintenance guidance.
+- **Researcher**: Analyzes research trends in depth, tracks journals and specific keywords over time, discovers newly emerging topics, and reviews publication statistics across time periods.
+- **Lecturer / Student**: Searches for reference papers, explores popular or trending research topics, saves papers or keywords of interest, and views a simplified trend dashboard for course or thesis guidance.
+- **System Administrator**: Manages user accounts and access permissions, configures external API data sources, schedules and monitors data synchronization, and oversees system health.
 
 ## 5. Research Motivation for AI Integration
 
-The research is primarily motivated by the need to explore more intuitive and context-aware approaches to infrastructure monitoring and maintenance. In this project, Augmented Reality is the core interaction layer, while Artificial Intelligence is introduced as an extension to strengthen analytical capability and research value.
+The primary motivation for incorporating analytical and AI-assisted features is to move beyond simple data aggregation and provide users with actionable research intelligence. Raw publication counts and keyword frequencies alone are insufficient for trend interpretation; the system needs to surface patterns that are not immediately obvious from browsing.
 
-##### 5.1 Complexity of Infrastructure Telemetry:
+##### 5.1 Volume and Velocity of Academic Publications
 
-Even in a simulated data center environment, infrastructure nodes and containerized services continuously generate multivariate telemetry such as CPU utilization, memory consumption, network activity, storage usage, and container status changes. These signals evolve over time and can form patterns that are difficult to interpret solely through fixed threshold rules or manual observation.
+The number of papers published annually in fields such as Computer Science and Artificial Intelligence has grown exponentially. Manually identifying which topics are rising, peaking, or declining across thousands of papers per year is not feasible without automated analysis. Statistical aggregation and trend modeling are necessary to make this information accessible and interpretable.
 
-##### 5.2 Augmented Reality as an Operational Interface
+##### 5.2 Keyword Co-occurrence and Topic Clustering
 
-Traditional dashboards are effective for centralized monitoring, but they do not naturally connect infrastructure data to the physical maintenance context. Augmented Reality can reduce this gap by overlaying operational information directly onto simulated server racks or node representations through marker-based spatial anchoring. This enables a more intuitive maintenance workflow in which users can inspect infrastructure state in situ rather than switching repeatedly between physical assets and remote dashboards.
+Individual keywords rarely describe a research topic in isolation. Related terms tend to appear together and form topic clusters. Analyzing keyword co-occurrence patterns allows the system to group semantically related concepts into coherent research topics and present them as discoverable clusters on the trend dashboard, rather than requiring users to guess which keywords to search.
 
-##### 5.3 Intelligent Realtime Anomaly Detection
+##### 5.3 Temporal Trend Analysis
 
-Once telemetry is continuously collected from the simulated environment, AI models can be used to learn normal operational patterns and identify abnormal behaviors beyond simple threshold violations. This introduces research value by allowing the system to move from visualization-only monitoring to intelligent assistance.
+Publication trends change over time in ways that reflect broader shifts in the research community. A topic that attracted few papers five years ago may now be one of the fastest-growing areas. Modeling these temporal dynamics — through time-series aggregation or lightweight trend scoring — enables the system to flag emerging topics and provide users with a forward-looking view of the research landscape.
 
-##### 5.4 Predictive Support for Maintenance Decision-Making:
+##### 5.4 Personalized Research Discovery
 
-In addition to anomaly detection, selected AI models may be used to estimate risk trends or potential degradation patterns from telemetry sequences. In this project, such predictive capability is considered an advanced extension rather than a mandatory core feature. Its purpose is to demonstrate how AI can further support maintenance planning when integrated with AR-based operational workflows.
+Users have different research interests and prior knowledge. By allowing users to follow specific journals, keywords, or topics, and by tracking their bookmarking behavior, the system can provide personalized recommendations and notifications when new papers align with their interests. This reduces discovery time and improves the relevance of the information presented to each user.
 
-## 6. Proposed AI Models
+## 6. Proposed Technical Approaches
 
-##### 6.1 Anomaly Detection
+##### 6.1 Trend Analysis
 
-- Isolation Forest: Proposed as the primary lightweight baseline for unsupervised anomaly detection on multivariate telemetry. It is computationally efficient and suitable for proof-of-concept experimentation with container-level and node-level metrics.
+- **Time-Series Publication Counting**: Annual and quarterly paper counts per keyword or topic are aggregated from the collected metadata to produce trend curves. These trend curves form the basis for identifying growing, stable, or declining research areas.
 
-- LSTM Autoencoder: Proposed as a temporal anomaly detection model for learning sequential telemetry behavior and reconstructing normal operational patterns. It is appropriate when the study requires comparison between conventional unsupervised detection and temporal deep learning approaches.
+- **Moving Average Smoothing**: A simple moving average is applied over publication counts to reduce noise from irregular publication patterns and highlight underlying trends more clearly.
 
-- Transformer-Based Time-Series Model: Considered as an advanced exploratory option for modeling longer temporal dependencies. This model is included as a research extension and is not required for the minimum viable proof-of-concept.
+- **Growth Rate Scoring**: A relative growth rate score is computed for each keyword or topic by comparing recent publication counts against historical baselines. Topics with consistently high growth rates are surfaced as emerging areas on the trend dashboard.
 
-##### 6.2 Predictive Maintenance
+##### 6.2 Keyword and Topic Analysis
 
-- LSTM Forecasting Model: Proposed for forecasting short-term infrastructure health trends such as CPU, memory, or storage evolution over time in the simulated environment.
+- **Keyword Co-occurrence Graph**: Co-occurrence relationships between keywords that appear together in paper metadata are extracted and stored as a graph structure. This graph is used to generate topic clusters and to power the keyword relationship visualization on the dashboard.
 
-- Remaining Useful Life (RUL) Estimation Model: Considered as a conceptual extension for estimating degradation tendency or failure likelihood. In the context of this project, it may be adapted to simulated service or node health rather than literal hardware lifetime prediction.
+- **TF-IDF-Based Keyword Ranking**: Term frequency and inverse document frequency weighting is applied across paper abstracts and keyword fields to rank the most representative and distinctive keywords for each research area and time period.
 
-- Temporal Fusion Transformer (TFT): Considered for advanced predictive analytics on multivariate telemetry streams. Similar to the Transformer-based anomaly model, this option is exploratory and intended for extended research scope rather than the mandatory baseline implementation.
+##### 6.3 Data Collection and Synchronization
 
-##### 6.3 Augmented Reality & Spatial Computing
+- **External API Integration**: Paper metadata is retrieved periodically from free academic APIs including Semantic Scholar, OpenAlex, or Crossref. The system stores normalized metadata records including title, abstract, keywords, publication year, authors, and journal name.
 
-- ID-Based Spatial Anchoring (WebAR + ArUco/QR Markers): The AR subsystem uses lightweight marker-based spatial anchoring to associate simulated racks, nodes, or server representations with their corresponding telemetry data. This approach is intentionally chosen over computationally expensive object recognition in order to keep the proof-of-concept technically feasible and academically well-scoped.
-
-- Matrix Transformation (Relative Offset): Spatial transformation is used to calculate the relative position and orientation between the camera and each marker so that 2D information overlays can be rendered stably on top of the corresponding infrastructure element.
+- **Scheduled Synchronization**: A background job runs on a configurable schedule (daily or weekly) to pull newly published or updated records from the configured API sources and update the local database without requiring manual intervention.
 
 ## 7. Core System
 
-##### 7.1 Web Application Dashboard Scope (Centralized Command Center):
+##### 7.1 User-Facing Web Application
 
-- Real-time Telemetry Visualization: A centralized dashboard presents node-level and container-level telemetry from the simulated data center environment, including CPU, memory, network activity, and service status.
+- **User Authentication and Authorization**: The system supports account registration, login, and role-based access control. Researcher and Lecturer/Student roles have access to trend analysis and paper discovery features, while the Administrator role has access to system configuration and user management.
 
-- Infrastructure Status and Alert Management: The dashboard allows administrators and operators to review health conditions, inspect detected anomalies, and monitor infrastructure events generated from the simulation.
+- **Paper Search**: Users can search for papers by keyword, author name, or journal title. Search results display paper titles, abstracts, authors, publication years, and journal names sourced from the synchronized metadata database.
 
-- Cluster or Rack Mapping View: A visual mapping module represents the relationship between simulated racks, nodes, containers, and their marker identifiers so that the AR interface can retrieve the correct contextual data.
+- **Paper Detail View**: Each paper has a dedicated detail page showing its full metadata including abstract, keywords, authors, journal, and publication year, along with links to the original source when available.
 
-- Incident and Maintenance Coordination: The dashboard provides a simple incident workflow for tracking abnormal nodes, assigning inspection status, and synchronizing maintenance-related information with the AR frontend.
+- **Trend Dashboard**: An interactive dashboard visualizes publication trends over time for selected keywords, topics, or journals. Charts include annual publication counts, growth rate trends, and keyword frequency over time using line charts and bar charts.
 
-##### 7.2 AR scope:
+- **Trending Topics View**: A dedicated section surfaces the most active and fastest-growing research topics based on recent publication activity and growth rate scores. Users can browse trending topics by field or time period.
 
-- Device Recognition & Registration via Spatial Anchors
+- **Keyword Relationship Visualization**: A visual graph or cluster map displays co-occurrence relationships between keywords, allowing users to explore how related research concepts are connected and identify topic neighborhoods.
 
-- Virtual-Physical Mapping: Marker-based AR overlays display node identity, service status, active workloads, and health summaries directly on simulated racks or server representations.
+- **Bookmarks**: Users can bookmark papers or keywords they want to revisit. Bookmarked items are accessible from a personal library page.
 
-- Contextual Maintenance Visualization: The AR interface highlights abnormal nodes and presents warning indicators, status summaries, and operational notes in a context-aware manner.
+- **Follow Journals and Topics**: Users can follow specific journals or research topics to receive notifications when new papers matching their interests are detected during the next synchronization cycle.
 
-- In-situ Log and Status Inspection: Users can trigger lightweight actions such as viewing recent logs, checking service health, or reading maintenance notes directly from the AR scene.
+- **Notifications**: The system delivers in-app notifications informing users of newly published papers in their followed journals or topics following each scheduled data update.
 
-- Guided Maintenance Support: The AR application provides simple contextual instructions for inspection or remediation, such as checking overheating simulation, restarting a failed service, or verifying container deployment status.
+- **Analytical Report Generation**: Users can generate simple downloadable reports summarizing publication trends for a selected keyword or topic over a specified time range, exported as a PDF or CSV file.
 
-- Ticket system integrateion: The AR frontend can interact with limited maintenance workflow actions such as acknowledge, in progress, escalated, and resolved.
+##### 7.2 Administrator Panel
 
-##### 7.3 AI & Backend Scope:
+- **User Management**: The administrator can view, activate, deactivate, and assign roles to user accounts.
 
-- Simulated Data Center Emulation & Telemetry Collection: The backend environment emulates racks, nodes, and services using Docker containers. A custom telemetry collector continuously gathers system and container metadata and streams them to the backend for visualization and analysis.
+- **API Data Source Configuration**: The administrator can configure which external academic APIs are enabled, set API keys or request parameters, and define the target research fields or domains from which data is collected.
 
-- Realtime Monitoring Pipeline: Incoming telemetry is processed for visualization, logging, and anomaly scoring. This pipeline supports both basic threshold logic and optional AI-assisted detection.
+- **Data Synchronization Management**: The administrator can view the status of the last synchronization run, trigger a manual sync, and review logs of data ingestion activity.
 
-- AI-Assisted Analytical Extension: Selected anomaly detection or predictive models are integrated as an analytical layer that enriches the dashboard and AR interface with abnormality scores, warning indicators, or simplified risk insights.
+- **System Monitoring**: A simple system overview page shows the number of papers, journals, and keywords in the database, along with synchronization history.
 
-## 8. Expected Result
+##### 7.3 Backend and Data Pipeline
 
-The expected research contributions include:
+- **Metadata Ingestion Pipeline**: A scheduled pipeline fetches paper metadata from the configured external APIs, normalizes the data into a unified schema, deduplicates records by DOI or title hash, and stores them in the application database.
 
-- A proof-of-concept architecture for AR-based infrastructure monitoring and maintenance in simulated data center environments.
+- **Trend Computation Layer**: After each synchronization cycle, a background computation task updates keyword publication counts by year, recalculates growth rate scores, and refreshes co-occurrence graph data to reflect the latest state of the dataset.
 
-- A practical demonstration of how marker-based Augmented Reality can connect infrastructure telemetry with physical maintenance context.
+- **REST API**: The backend exposes a REST API consumed by the web frontend. Endpoints support paper search, trend queries, bookmark management, notification retrieval, and admin operations.
 
-- An evaluation of AI-assisted anomaly detection or predictive analytics as an extension to AR-centered monitoring workflows.
+## 8. System Constraints and Assumptions
 
-- An integrated human-system interaction workflow combining dashboard monitoring, AR-based inspection, and optional AI-supported decision assistance.
+- The system uses publicly available metadata from academic APIs such as Semantic Scholar, OpenAlex, or Crossref through their free-tier access.
+- Only paper metadata is collected, including title, abstract, keywords, publication year, authors, and journal name. Full-text content is not processed due to copyright and storage limitations.
+- Collected data is assumed to be valid, reasonably structured, and consistently available from the configured third-party APIs.
+- The system analyzes data within a selected set of research domains (for example, Computer Science or Artificial Intelligence) to manage scope and reduce dataset complexity.
+- Data updates follow a periodic schedule (daily or weekly) and do not require real-time synchronization.
+- The platform does not perform full-text indexing or semantic embedding of paper content in the initial version.
 
-- A feasibility study showing the potential of combining AR and AI for future infrastructure maintenance and observability research, without claiming direct enterprise deployment readiness.
+## 9. Expected Results
+
+The expected outcomes of this project include:
+
+- A functional web platform that aggregates academic paper metadata from open APIs and presents publication trends through interactive visualizations.
+
+- A trend analysis layer that surfaces growing and emerging research topics based on historical publication data, keyword frequency, and growth rate scoring.
+
+- A personalized research discovery experience allowing users to follow topics and journals, bookmark papers, and receive notifications about new publications relevant to their interests.
+
+- A keyword relationship visualization that helps users explore topic neighborhoods and understand how research concepts are interconnected.
+
+- A demonstration of how open academic data APIs can serve as the data foundation for a lightweight but useful research intelligence tool accessible to individual researchers and academic communities without subscription fees.
