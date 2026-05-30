@@ -1,9 +1,11 @@
 # Tóm tắt Bài báo 5
 
+## Multi-Task Identification of Entities, Relations, and Coreference for Scientific Knowledge Graph Construction
+
 ## Trích dẫn
 
 Luan, Y., He, L., Ostendorf, M., & Hajishirzi, H. (2018). *Multi-Task Identification of Entities, Relations, and Coreference for Scientific Knowledge Graph Construction*. ACL Anthology.
-nlp.cs.washington.edu/sciIE/
+https://nlp.cs.washington.edu/sciIE/
 
 ## Vấn đề nghiên cứu
 

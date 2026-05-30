@@ -1,8 +1,10 @@
 # Tóm tắt Bài báo 3
 
+## DiTTO-LLM: Framework for Discovering Topic-based Technology Opportunities via Large Language Model (Khung khám phá cơ hội công nghệ dựa trên chủ đề thông qua LLM)
+
 ## Trích dẫn
 
-Kim, W., Seo, S., & Lee, J. (2025). *DiTTO-LLM: Framework for Discovering Topic-based Technology Opportunities via Large Language Model*. arXiv.
+Kim, W., Seo, S., & Lee, J. (2025). *DiTTO-LLM: Framework for Discovering Topic-based Technology Opportunities via Large Language Model*. arXiv. https://arxiv.org/
 
 ## Vấn đề nghiên cứu
 

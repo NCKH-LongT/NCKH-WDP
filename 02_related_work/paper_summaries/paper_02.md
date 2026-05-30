@@ -1,8 +1,10 @@
 # Tóm tắt Bài báo 2
 
+## Identifying Emerging Topics in Specific Domains via Novelty Analysis of Entities in Future Work Sentences (Xác định các chủ đề mới nảy sinh qua phân tích tính mới của thực thể trong câu định hướng nghiên cứu)
+
 ## Trích dẫn
 
-Yang, Y., Xiang, Y., & Zhang, C. (2024). *Identifying Emerging Topics in Specific Domains via Novelty Analysis of Entities in Future Work Sentences from Academic Articles*. CEUR-WS.org/Vol-3982/paper2.pdf
+Yang, Y., Xiang, Y., & Zhang, C. (2024). *Identifying Emerging Topics in Specific Domains via Novelty Analysis of Entities in Future Work Sentences from Academic Articles*. https://ceur-ws.org/Vol-3982/paper2.pdf
 
 ## Vấn đề nghiên cứu
 

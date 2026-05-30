@@ -1,8 +1,11 @@
-# Tóm tắt Bài báo 22
+# Tóm tắt Bài báo 10
+
+## CiteSpace II: Detecting and Visualizing Emerging Trends
 
 ## Trích dẫn
 
 Chen, C. (2006). *CiteSpace II: Detecting and Visualizing Emerging Trends and Transient Patterns in Scientific Literature*. JASIST (Journal of the American Society for Information Science and Technology).
+https://www.researchgate.net/publication/28674282_CiteSpace_II_Detecting_and_visualizing_emerging_trends_and_transient_patterns_in_scientific_literature
 
 ## Vấn đề nghiên cứu
 

@@ -1,9 +1,9 @@
 # Tóm tắt Bài báo 6
-
+## Research Progress on Emerging Technology Topic Identification Methods
 ## Trích dẫn
 
 Liu, X., & Tan, Z. (2023). *Research Progress on Emerging Technology Topic Identification Methods: Postprint*. ChinaXiv.
-chinarxiv.org/items/chinaxiv-202304.00212
+https://chinarxiv.org/items/chinaxiv-202304.00212
 
 ## Vấn đề nghiên cứu
 

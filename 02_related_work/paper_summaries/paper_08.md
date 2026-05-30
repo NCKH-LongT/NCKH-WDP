@@ -1,9 +1,10 @@
-# Tóm tắt Bài báo 20
+# Tóm tắt Bài báo 08
+## Deep Learning for Time Series Forecasting: Tutorial and Literature Survey
 
 ## Trích dẫn
 
 Benidis, K., et al. (2018). *Deep Learning for Time Series Forecasting: Tutorial and Literature Survey*. J. ACM.
-doi.org/10.1145/1122445.1122456
+https://dl.acm.org/doi/10.1145/3533382
 
 ## Vấn đề nghiên cứu
 

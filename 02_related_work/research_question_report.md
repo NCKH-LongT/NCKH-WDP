@@ -1,78 +1,242 @@
 # Research Question Report
 
-## Bối cảnh hình thành câu hỏi nghiên cứu
+## Thông Tin Nhóm
 
-Theo [đề cương đề tài](/D:/Study/FPTU/WDP301/projects/NCKH-WDP/01_topic_proposal/topic_proposal_vn.md), nhóm đang hướng tới việc xây dựng một nền tảng proof-of-concept cho giám sát và bảo trì hạ tầng trong môi trường trung tâm dữ liệu mô phỏng, trong đó `AR` đóng vai trò là lớp tương tác chính còn `AI` được sử dụng như lớp phân tích hỗ trợ. Điểm nhấn của đề tài không nằm ở việc tái tạo một hệ thống trung tâm dữ liệu doanh nghiệp hoàn chỉnh, mà ở việc kiểm chứng xem liệu dữ liệu telemetry thời gian thực, khi được kết hợp với giao diện AR và mô hình AI phù hợp, có thể tạo ra một quy trình vận hành trực quan và hữu ích hơn hay không.
+**Học kỳ:** SU26  
+**Lớp:** SE1822  
+**Môn học:** WDP391  
+**Nhóm:** 04  
+**Thành viên:** Trần Đình Phong, Phạm Đức Thanh Phương, Đặng Thanh Tú, Ngô Nhật Minh
 
-Từ định hướng đó, phần câu hỏi nghiên cứu cần làm rõ hai vấn đề. Thứ nhất, AI trong đề tài này thực sự sẽ giải quyết điều gì: chỉ phát hiện bất thường, dự báo xu hướng, hay đi xa hơn đến hỗ trợ quyết định bảo trì. Thứ hai, phạm vi nào là hợp lý trong bối cảnh một hệ thống mô phỏng ở quy mô học thuật, để câu hỏi nghiên cứu vừa có ý nghĩa học thuật, vừa có khả năng triển khai và đánh giá được bằng thực nghiệm.
+---
 
-## Nhận xét về hướng nghiên cứu hiện tại
+## Tên Đề Tài
 
-Sau khi đối chiếu proposal với nhóm 12 bài báo đã rà soát, có thể thấy hướng nghiên cứu của đề tài là hợp lý, nhưng phần AI cần được phát biểu cẩn trọng hơn để tránh ôm đồm. Các tài liệu liên quan hiện nay cho thấy ba xu hướng chính.
+**Hệ thống Theo dõi Xu hướng Công bố Bài báo Khoa học**
 
-Thứ nhất, ở nhóm nghiên cứu về `AR-assisted maintenance`, các công trình như Nagy et al. (2024), Xu et al. (2023), Wang et al. (2022) và Zhao et al. (2025) đều cho thấy AR đặc biệt hữu ích khi cần gắn dữ liệu vận hành với bối cảnh không gian và quy trình thao tác tại chỗ. Tuy nhiên, phần lớn các bài này tập trung vào cách trình bày hướng dẫn, trải nghiệm người dùng, hoặc khả năng hỗ trợ thao tác, thay vì đi sâu vào xây dựng một mô hình phân tích telemetry phức tạp.
+---
 
-Thứ hai, ở nhóm nghiên cứu về `data-center anomaly detection`, các công trình của Decker et al. (2020), Viola et al. (2022) và Vajda et al. (2024) nhấn mạnh rằng bài toán trung tâm không chỉ là hiển thị trạng thái hệ thống mà là nhận diện bất thường từ log, monitoring data và telemetry trong điều kiện thời gian thực. Nhóm bài này gần với phần backend của đề tài hơn cả, vì chúng trực tiếp xử lý dữ liệu hạ tầng và quan tâm đến các yếu tố thực tế như độ trễ phát hiện, tính thích nghi và khả năng kết hợp nhiều nguồn tín hiệu.
+## Bối Cảnh và Hướng Nghiên Cứu
 
-Thứ ba, ở nhóm bài phương pháp luận, các mô hình như `Isolation Forest`, `LSTM Autoencoder`, `Anomaly Transformer` và `Temporal Fusion Transformer` cung cấp nền tảng để lựa chọn mô hình AI phù hợp cho proof-of-concept. Trong đó, `Isolation Forest` thích hợp cho một baseline gọn nhẹ; `LSTM Autoencoder` phù hợp nếu muốn khai thác đặc trưng chuỗi thời gian; `Anomaly Transformer` và `TFT` có giá trị nghiên cứu cao hơn nhưng đòi hỏi chi phí triển khai và đánh giá lớn hơn.
+Theo [đề cương đề tài](d:\WDP%20REPORT\NCKH-WDP\01_topic_proposal\topic_proposal_vn.md), nhóm đang hướng tới việc xây dựng một nền tảng proof-of-concept cho phát hiện và theo dõi xu hướng công bố bài báo từ tài liệu khoa học, trong đó `khai thác thông tin từ API học thuật` đóng vai trò là lớp thu thập dữ liệu chính còn `AI (burst detection, topic modeling, trend analysis)` được sử dụng như lớp phân tích hỗ trợ. Điểm nhấn của đề tài không nằm ở việc tái tạo một công cụ phân tích bibliometric toàn diện như CiteSpace hay VOSviewer, mà ở việc kiểm chứng xem liệu metadata bài báo từ các API học thuật (Semantic Scholar, OpenAlex, Crossref), khi được kết hợp với các phương pháp phát hiện burst, phân tích chuỗi thời gian, xây dựng knowledge graph và trực quan hóa tương tác, có thể tạo ra một quy trình khám phá và dự báo xu hướng nghiên cứu trực quan, hữu ích và dễ tiếp cận hơn hay không.
 
-Từ ba nhóm bằng chứng trên, có thể rút ra một nhận xét quan trọng: đối với đề tài của nhóm, phần được hậu thuẫn tốt nhất từ literature không phải là một tuyên bố rộng về "predictive maintenance", mà là khả năng phát hiện và cảnh báo sớm các trạng thái bất thường trên hạ tầng mô phỏng, sau đó chuyển các tín hiệu đó thành thông tin có ngữ cảnh trên dashboard và giao diện AR.
+---
 
-## Câu hỏi nghiên cứu được đề xuất
+## Vấn Đề Nghiên Cứu
 
-Dựa trên bối cảnh đề tài và mức độ hỗ trợ của các tài liệu liên quan, câu hỏi nghiên cứu chính nên được phát biểu lại theo hướng chặt hơn như sau:
+Sự tăng trưởng nhanh chóng về số lượng bài báo khoa học đã khiến việc theo dõi xu hướng nghiên cứu ngày càng trở nên khó khăn. Các nền tảng tìm kiếm học thuật hiện tại (Google Scholar, Scopus, Web of Science) chủ yếu được thiết kế để tra cứu bài báo chứ không phải để phân tích xu hướng. Các thách thức chính bao gồm:
 
-**RQ1: Các mô hình AI có thể phát hiện và cảnh báo sớm đến mức nào các trạng thái hạ tầng bất thường dựa trên dữ liệu telemetry thời gian thực và các mẫu hành vi vận hành của hệ thống trong môi trường trung tâm dữ liệu mô phỏng?**
+- Nhà nghiên cứu khó quan sát sự phát triển của một chủ đề qua các năm
+- Thiếu công cụ để trực quan hóa sự xuất hiện, tăng trưởng hay suy giảm của các chủ đề theo thời gian
+- Giảng viên và sinh viên phải duyệt thủ công qua tập tài liệu lớn để xác định chủ đề nào đang hot
+- Chưa có công cụ nhẹ, dễ tiếp cận kết hợp tổng hợp metadata, phân tích xu hướng và trực quan hóa trong một nền tảng
 
-Nếu cần trình bày bản tiếng Anh trong proposal hoặc slide:
+---
 
-**RQ1: To what extent can AI models detect and provide early warning of abnormal infrastructure states based on real-time telemetry and operational behavior patterns in a simulated data center environment?**
+## Sự Thay Đổi Hướng Nghiên Cứu
 
-Cách phát biểu này phù hợp hơn với phạm vi thực tế của đề tài vì nó giữ được trọng tâm AI, đồng thời không đẩy nghiên cứu đi quá xa sang bài toán dự báo bảo trì toàn diện, vốn đòi hỏi nhãn dữ liệu, kịch bản hỏng hóc và quy trình đánh giá phức tạp hơn đáng kể.
+Sau khi rà soát các bài báo mới về phát hiện xu hướng công nghệ từ tài liệu khoa học, hướng nghiên cứu của đề tài đã được làm rõ thêm. Từ một hệ thống tổng quát "theo dõi xu hướng công bố", đề tài đã xác định ba trụ cột chính:
 
-## Vì sao câu hỏi này phù hợp hơn
+1. **Thu thập dữ liệu (Data Collection)**: Tích hợp các API học thuật mở (Semantic Scholar, OpenAlex, Crossref) để thu thập metadata
+2. **Phân tích xu hướng (Trend Analysis)**: Sử dụng các kỹ thuật phát hiện burst, phân tích chuỗi thời gian, topic modeling để xác định xu hướng mới nổi
+3. **Trực quan hóa và khám phá (Visualization & Discovery)**: Xây dựng dashboard tương tác, network visualization và hệ thống theo dõi cá nhân hóa
 
-Điểm mạnh đầu tiên của câu hỏi trên là nó bám sát đúng cấu trúc hệ thống mà nhóm đang xây dựng. Ở proposal, telemetry được thu thập liên tục từ các node và dịch vụ container hóa; AI được dùng như một lớp phân tích bổ sung; còn AR được dùng để hiển thị trạng thái, cảnh báo và hướng dẫn bảo trì theo ngữ cảnh. Với cấu trúc đó, việc hỏi về khả năng phát hiện và cảnh báo sớm bất thường là hoàn toàn tự nhiên, vì đây là khâu nối trực tiếp giữa dữ liệu vận hành và giao diện hỗ trợ người dùng.
+## Bối Cảnh Hình Thành Câu Hỏi Nghiên Cứu
 
-Điểm mạnh thứ hai là câu hỏi này phù hợp với bằng chứng nghiên cứu hiện có. Các bài của Decker et al. (2020), Viola et al. (2022) và Vajda et al. (2024) đều cho thấy dữ liệu hạ tầng có thể được xử lý để tìm ra bất thường hoặc mẫu vận hành đáng chú ý. Trong khi đó, các bài như Xu et al. (2023) hay Wang et al. (2022) lại cho thấy đầu ra phân tích có thể tiếp tục được chuyển hóa thành hỗ trợ thao tác hoặc hỗ trợ bảo trì trong lớp AR. Nói cách khác, câu hỏi này đứng đúng ở điểm giao nhau giữa hai nhánh nghiên cứu mà đề tài đang muốn kết hợp.
+Theo các bài báo trong rà soát hiện tại (10 bài báo về phát hiện xu hướng công nghệ), việc phát hiện và theo dõi xu hướng công bố từ tài liệu khoa học đang được hỗ trợ tốt bởi các phương pháp mới như:
 
-Điểm mạnh thứ ba là nó khả thi trong khuôn khổ một đồ án học thuật. Nhóm có thể chủ động thiết kế các kịch bản bất thường trong môi trường mô phỏng, chẳng hạn như tăng tải bất thường, vòng lặp restart container, suy giảm tài nguyên theo thời gian hoặc mất cân bằng giữa các chỉ số. Từ đó, nhóm có thể tạo ground truth ở mức sự kiện để đánh giá mô hình tương đối rõ ràng. Nếu chuyển ngay sang mục tiêu "dự báo rủi ro bảo trì", bài toán sẽ khó hơn đáng kể vì cần định nghĩa thêm thế nào là rủi ro, khoảng thời gian dự báo bao lâu, và tiêu chí đánh giá nào phản ánh đúng ý nghĩa vận hành.
+1. **Các thuật toán phát hiện burst**: Kleinberg (2003) cung cấp nền tảng cho việc phát hiện sự bùng nổ của tần suất từ khóa
+2. **Các chỉ số đánh giá mức độ mới nổi**: Liu & Porter (2020) đề xuất EScore, Liu & Tan (2023) đề xuất hệ thống 7-chiều
+3. **Topic modeling hiện đại**: BERTopic và các phương pháp NLP giúp xác định chủ đề từ metadata
+4. **LLM cho giải thích**: Các công cụ như DiTTO-LLM (Kim et al. 2025) cho phép giải thích ý nghĩa của các xu hướng
+5. **Các công cụ thực tiễn**: CiteSpace (Chen 2006) đã chứng minh khả năng phát hiện xu hướng từ tài liệu học thuật
 
-## Phạm vi khái niệm cần làm rõ
+Tuy nhiên, cơ hội nghiên cứu nằm ở việc kết hợp đầy đủ các phương pháp này và tối ưu hóa cho metadata từ các API học thuật mở, thay vì chỉ dựa trên trích dẫn (có độ trễ 1-2 năm)
 
-Để câu hỏi nghiên cứu không trở nên mơ hồ, hai khái niệm trong RQ1 cần được hiểu rõ.
+## Câu Hỏi Nghiên Cứu Chính
 
-Thứ nhất là `trạng thái hạ tầng bất thường`. Trong phạm vi đề tài, điều này không nhất thiết chỉ là một lỗi phần cứng hay sự cố nghiêm trọng, mà có thể bao gồm các điều kiện vận hành lệch khỏi mẫu bình thường đã được xác lập trong môi trường mô phỏng. Ví dụ, CPU tăng cao kéo dài không tương xứng với workload, bộ nhớ suy giảm bất thường, số lần restart container tăng liên tục, hoặc trạng thái dịch vụ không ổn định trong khi các chỉ số khác vẫn dao động.
+**RQ_Main: Làm thế nào có thể xây dựng một nền tảng web tích hợp để phát hiện, đánh giá mức độ mới nổi, và trực quan hóa các xu hướng công bố bài báo từ metadata API học thuật, nhằm hỗ trợ nhà nghiên cứu, giảng viên và sinh viên khám phá xu hướng nghiên cứu một cách hiệu quả?**
 
-Thứ hai là `mẫu hành vi vận hành`. Cụm từ này nên được hiểu là các dạng biến thiên có ý nghĩa của telemetry theo thời gian, thay vì chỉ là các điểm dữ liệu rời rạc. Nói cách khác, hệ thống không chỉ quan sát một giá trị CPU hay memory tại một thời điểm, mà quan tâm đến xu hướng, dao động, chu kỳ, mối tương quan giữa các chỉ số và cách chúng thay đổi trước khi một bất thường xuất hiện.
+Bản tiếng Anh:
 
-Việc làm rõ hai khái niệm này rất quan trọng, vì nó ảnh hưởng trực tiếp đến cách nhóm trích đặc trưng, gán nhãn dữ liệu mô phỏng và lựa chọn mô hình AI.
+**RQ_Main: How can we build an integrated web platform to detect, assess emergence level, and visualize emerging publication trends from academic API metadata to support researchers, lecturers, and students in discovering research trends effectively?**
 
-## Các câu hỏi phụ nên đi kèm
+## Các Câu Hỏi Phụ
 
-Để RQ1 có thể triển khai thành một kế hoạch thực nghiệm mạch lạc, nên tách thêm một số câu hỏi phụ:
+**RQ1_DataCollection:** Những API học thuật nào (Semantic Scholar, OpenAlex, Crossref) phù hợp nhất để thu thập metadata bài báo, và làm sao để chuẩn hóa dữ liệu từ các nguồn khác nhau?
 
-**RQ1a.** Những đặc trưng telemetry và mẫu hành vi vận hành nào đóng góp nhiều nhất vào việc phát hiện trạng thái bất thường?
+**RQ2_TrendDetection:** Phương pháp kết hợp nào (burst detection + time-series analysis + topic modeling) hiệu quả nhất để phát hiện xu hướng công bố mới nổi mà **giảm độ trễ thời gian** so với các phương pháp dựa trên trích dẫn?
 
-**RQ1b.** Trong các mô hình được xem xét, mô hình nào cho sự cân bằng tốt nhất giữa độ chính xác phát hiện, tỷ lệ cảnh báo sai và thời gian cảnh báo?
+**RQ3_Evaluation:** Hệ thống chỉ số nào (EScore 3-chiều, framework 7-chiều, hoặc các chỉ số tùy chỉnh) phù hợp nhất để xếp hạng và so sánh **mức độ mới nổi thực sự** của các xu hướng khác nhau?
 
-**RQ1c.** Kết quả phát hiện bất thường có thể được chuyển hóa như thế nào thành thông tin vận hành có ngữ cảnh để hiển thị hiệu quả trên dashboard và giao diện AR?
+**RQ4_Visualization:** Cách trực quan hóa nào (trend timeline, network graph, heatmap, dashboard) giúp người dùng (nhà nghiên cứu, giảng viên, sinh viên) khám phá và hiểu rõ xu hướng công bố một cách trực quan nhất?
 
-Ba câu hỏi phụ này giúp liên kết phần AI với phần hệ thống tổng thể của đề tài. Nếu chỉ dừng ở việc so sánh mô hình theo độ chính xác, nghiên cứu sẽ dễ nghiêng về một bài toán machine learning thuần túy, trong khi giá trị thực sự của đề tài nằm ở chỗ đầu ra phân tích phải phục vụ được quy trình giám sát và bảo trì.
+**RQ5_Personalization:** Hệ thống theo dõi (watch, bookmark, notification) nào giúp người dùng theo dõi các journal, từ khóa hoặc chủ đề quan tâm và nhận thông báo khi có bài báo mới liên quan một cách hiệu quả?
 
-## Định hướng phương pháp nghiên cứu
+## Phạm Vi Khái Niệm Cần Làm Rõ
 
-Xét về bản chất, đây là một nghiên cứu thực nghiệm theo hướng thiết kế và đánh giá hệ thống. Dữ liệu không đến từ một trung tâm dữ liệu thật mà được sinh ra từ môi trường mô phỏng có kiểm soát, vì vậy nhóm có điều kiện chủ động hơn trong việc xây dựng kịch bản và quan sát hành vi hệ thống.
+### Định Nghĩa "Xu Hướng Công Bố Bài Báo Mới Nổi" (Emerging Publication Trend)
 
-Một hướng triển khai hợp lý là tổ chức nghiên cứu theo ba lớp. Lớp thứ nhất là lớp sinh dữ liệu, nơi các node, dịch vụ và container trong môi trường Docker tạo ra telemetry như CPU, bộ nhớ, mạng, lưu trữ, trạng thái dịch vụ và log liên quan. Lớp thứ hai là lớp phân tích, nơi các mô hình AI được áp dụng để phát hiện bất thường hoặc sinh ra điểm cảnh báo. Lớp thứ ba là lớp trình bày, nơi dashboard và AR sử dụng các kết quả này để hỗ trợ người vận hành theo hai chế độ khác nhau: giám sát tập trung và kiểm tra tại chỗ.
+Trong bối cảnh của đề tài, một **xu hướng công bố bài báo mới nổi** được định nghĩa là:
+- Một **chủ đề, khóa, hoặc lĩnh vực nghiên cứu** mà tần suất các bài báo xảy ra
+- Có **tần suất xuất hiện tăng đột ngột** (burst) so với mức độ bình thường
+- Có **cộng đồng tác giả tích cực** đang nghiên cứu về vấn đề
+- Có **liên kết ngữ nghĩa** giữa các bài báo và được nhóm thành các chủ đề tương quan
 
-Với cấu trúc đó, nghiên cứu không cần theo đuổi một mô hình quá phức tạp ngay từ đầu. Một chiến lược phù hợp là xây dựng tối thiểu một baseline đơn giản, một mô hình chuỗi thời gian, và nếu còn đủ nguồn lực thì bổ sung một mô hình nâng cao để so sánh.
+**Không bao gồm:**
+- Các xu hướng tạm thời chỉ bùng nổ rồi biến mất
+- Các chủ đề cũ được tái phát hiện nhưng không có sự phát triển ý nghĩa
 
-## Gợi ý về mô hình và thiết kế thực nghiệm
+### Định Nghĩa "Người Dùng Mục Đích" (Target Users)
 
-Từ proposal và literature hiện tại, có thể đề xuất một lộ trình tương đối cân bằng.
+Hệ thống hướng tới ba nhóm người dùng chính:
+- **Nhà nghiên cứu (Researcher)**: Phân tích xu hướng chuyên sâu, theo dõi journal và từ khóa cụ thể
+- **Giảng viên / Sinh viên (Lecturer / Student)**: Tìm kiếm bài báo tham khảo, khám phá chủ đề trending
+- **Quản trị viên hệ thống (Administrator)**: Cấu hình API, quản lý người dùng, giám sát hệ thống
 
-Ở mức cơ sở, nhóm nên có một baseline dựa trên ngưỡng hoặc luật đơn giản để làm mốc tham chiếu. Điều này quan trọng vì trong các hệ thống giám sát thực tế, nhiều cảnh báo vẫn khởi đầu từ logic đơn giản, và việc chứng minh mô hình AI tốt hơn baseline là yêu cầu cần thiết về mặt học thuật.
+---
+
+## Khoảng Trống Nghiên Cứu Mà Đề Tài Khai Thác
+
+1. **Kết hợp đầy đủ phương pháp**: Rất ít công trình kết hợp:
+   - Burst detection (Kleinberg 2003) + 
+   - Emerging assessment (Liu & Porter 2020 EScore, Liu & Tan 2023 7D) + 
+   - Knowledge Graph (Luan et al. 2018 SciIE) + 
+   - LLM interpretation (Kim et al. 2025 DiTTO-LLM) + 
+   - Time-series forecasting (Benidis et al. 2018 DeepAR, Lim et al. 2021 TFT)
+   
+   Trong **cùng một nền tảng web**, đặc biệt là ở cấp độ proof-of-concept có khả năng triển khai trên các API học thuật mở
+
+2. **Giảm độ trễ thời gian**: Hầu hết các công cụ hiện tại (CiteSpace, VOSviewer) phụ thuộc vào trích dẫn, vốn có độ trễ tự nhiên 1-2 năm. Đề tài có thể khai thác:
+   - **Metadata metadata từ API**: Các bài báo mới được công bố liên tục, không cần chờ trích dẫn tích lũy
+   - **Co-occurrence keywords** từ abstract: Cho phép phát hiện sự kết hợp ý tưởng mới
+   - **Burst trong publication patterns**: Có thể phát hiện được trong vài tháng
+
+3. **Cạnh tranh lành mạnh so với CiteSpace**: Mặc dù CiteSpace là công cụ hùng mạnh, nhưng:
+   - CiteSpace chủ yếu là desktop tool, không phải web platform
+   - CiteSpace phụ thuộc vào WoS hoặc Scopus (trả phí)
+   - Đề tài có thể tập trung vào API mở + user experience + personalization
+
+---
+
+## Đề Xuất Cấu Trúc Hệ Thống
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│                    Data Collection Layer                      │
+│  - API: Semantic Scholar, OpenAlex, Crossref                 │
+│  - Metadata: title, abstract, keywords, year, author, journal│
+└───────────────────────┬──────────────────────────────────────┘
+                        │
+┌───────────────────────▼──────────────────────────────────────┐
+│              Data Processing & Analysis Layer                │
+│  - Metadata normalization & deduplication                   │
+│  - TF-IDF keyword ranking                                    │
+│  - Co-occurrence analysis                                    │
+└───────────────────────┬──────────────────────────────────────┘
+                        │
+┌───────────────────────▼──────────────────────────────────────┐
+│        Trend Detection & Ranking Layer                       │
+│  - Time-series analysis (papers per year/quarter)           │
+│  - Burst detection (Kleinberg algorithm)                    │
+│  - Growth rate scoring                                       │
+│  - EScore or 7-dimensional emergence metrics                │
+└───────────────────────┬──────────────────────────────────────┘
+                        │
+┌───────────────────────▼──────────────────────────────────────┐
+│     User Interface & Discovery Layer                         │
+│  - Search & filter papers                                    │
+│  - Trending topics dashboard                                 │
+│  - Keyword co-occurrence network visualization              │
+│  - Bookmark & watch functionality                           │
+└───────────────────────┬──────────────────────────────────────┘
+                        │
+┌───────────────────────▼──────────────────────────────────────┐
+│    Notification & Reporting Layer                            │
+│  - Personalized notifications                                │
+│  - Trend reports (PDF/CSV export)                           │
+│  - Admin dashboard & monitoring                              │
+└──────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Thước Đo Đánh Giá Đề Xuất
+
+### Phần Thu Thập & Xử Lý (Data Collection & Processing)
+- **Metadata quality**: Tần suất thành công của trích xuất metadata từ API
+- **Data freshness**: Thời gian độ trễ giữa API và cơ sở dữ liệu
+- **Deduplication accuracy**: Tần suất xác định chính xác các bài trùng lặp
+
+### Phần Phát Hiện Xu Hướng (Trend Detection)
+- **Precision@K**: Tỷ lệ xu hướng phát hiện thực sự là xu hướng mới nổi
+- **Lead time**: Bao nhiêu tháng sớm hơn so với phương pháp baseline (CiteSpace)
+- **Recall**: Tỷ lệ xu hướng thực sự được phát hiện
+
+### Phần Đánh Giá (Evaluation)
+- **EScore/Emergence metric accuracy**: Độ chính xác của các chỉ số emergence trong việc xếp hạng xu hướng
+- **Ranking consistency**: Độ ổn định của các chỉ số khi dữ liệu được cập nhật
+
+### Phần Trực Quan Hóa & Khám Phá (Visualization & Discovery)
+- **User engagement**: Số lượng người dùng sử dụng các tính năng chính
+- **Search effectiveness**: Thời gian tìm kiếm trung bình, tỷ lệ tìm thấy kết quả
+- **Bookmark/Watch activity**: Mức độ sử dụng tính năng cá nhân hóa
+
+---
+
+## Kết Luận & Định Hướng Phương Pháp
+
+Đề tài "Hệ thống Theo dõi Xu hướng Công bố Bài báo Khoa học" hướng tới việc xây dựng một nền tảng web integrated để:
+
+✅ **Mục tiêu Chính:**
+- Tích hợp metadata từ các API học thuật mở (Semantic Scholar, OpenAlex, Crossref)
+- Phát hiện xu hướng công bố mới nổi bằng kết hợp burst detection, time-series analysis, topic modeling
+- Đánh giá mức độ mới nổi của các xu hướng sử dụng EScore hoặc metrics 7-chiều
+- Cung cấp dashboard tương tác, visualization network, và tính năng theo dõi cá nhân hóa
+
+✅ **Lợi ích của Hướng Này:**
+- Có nền tảng lý thuyết vững chắc từ 10 bài báo rà soát về phát hiện xu hướng công nghệ
+- Có khả năng ứng dụng rộng rãi hơn CiteSpace (web-based, mở rộng được, dễ tiếp cận)
+- Phù hợp với sở thích của nhóm về NLP/AI/Web development
+- Giải quyết một bài toán thực tế: khó khăn của nhà nghiên cứu, giảng viên, sinh viên trong theo dõi xu hướng
+
+⚠️ **Thách Thức Cần Giải Quyết:**
+- Kết hợp nhiều thành phần công nghệ (API integration, burst detection, topic modeling, network visualization)
+- Đảm bảo chất lượng dữ liệu khi tích hợp từ nhiều API khác nhau
+- Xác định metrics phù hợp để đánh giá "mức độ mới nổi" một cách khách quan
+- Cần xác thực kết quả từ chuyên gia miền lĩnh vực
+
+## Định Hướng Thực Hiện
+
+1. **Giai Đoạn 1 - Thu thập & Xử Lý Dữ Liệu**:
+   - Cấu hình kết nối với 2-3 API học thuật chính
+   - Xây dựng pipeline chuẩn hóa metadata và phát hiện trùng lặp
+   - Lưu trữ vào cơ sở dữ liệu
+
+2. **Giai Đoạn 2 - Phát Hiện Xu Hướng**:
+   - Triển khai time-series analysis cho từ khóa/chủ đề
+   - Implement Kleinberg burst detection algorithm
+   - Tính toán growth rate và các chỉ số xu hướng
+
+3. **Giai Đoạn 3 - Đánh Giá & Xếp Hạng**:
+   - So sánh EScore (Liu & Porter) vs. framework 7-chiều (Liu & Tan)
+   - Xác định metric phù hợp nhất cho bối cảnh bài báo khoa học
+   - Xây dựng ranking system
+
+4. **Giai Đoạn 4 - Giao Diện Người Dùng**:
+   - Xây dựng dashboard hiển thị trending topics
+   - Network visualization cho keyword co-occurrence
+   - Tính năng search, filter, bookmark, watch
+   - Hệ thống notification
+
+## Phạm Vi Đề Tài Proof-of-Concept
+
+Với đặc thù của một đồ án học thuật, đề tài sẽ tập trung vào:
+- **Đầu vào**: Metadata từ 1-2 API chính và một khoảng thời gian ý định (ví dụ 3-5 năm)
+- **Xử lý**: Các phương pháp đã được chứng minh trong 10 bài báo rà soát
+- **Đầu ra**: Một web platform với các chức năng cốt lõi, chứ không phải một hệ thống production-grade
+- **Đánh giá**: Kết hợp định lượng (precision, recall, lead time) và định tính (expert feedback)
+
 
 Tiếp theo, `Isolation Forest` là một lựa chọn hợp lý cho baseline học máy không giám sát vì mô hình này nhẹ, dễ triển khai và phù hợp với telemetry đa biến ở quy mô proof-of-concept. Nếu mục tiêu là nắm bắt được động học theo thời gian rõ hơn, `LSTM Autoencoder` là lựa chọn phù hợp hơn vì có thể học mẫu bình thường từ chuỗi dữ liệu và phát hiện sai lệch thông qua lỗi tái tạo.
 

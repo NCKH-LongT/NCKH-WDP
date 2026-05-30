@@ -1,9 +1,11 @@
-# Tóm tắt Bài báo 19
+# Tóm tắt Bài báo 07
+
+## Capturing causal claims: A fine-tuned text mining model for extracting causal sentences
 
 ## Trích dẫn
 
 Norouzi, R., et al. (2025). *Capturing causal claims: A fine-tuned text mining model for extracting causal sentences from social science papers*. Research Synthesis Methods.
-doi.org/10.1017/rsm.2024.13
+https://www.cambridge.org/core/journals/research-synthesis-methods/article/capturing-causal-claims-a-finetuned-text-mining-model-for-extracting-causal-sentences-from-social-science-papers/E76E6EFB3373DE4FE6D9DCDB56271CEE
 
 ## Vấn đề nghiên cứu
 

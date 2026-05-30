@@ -1,9 +1,11 @@
 # Tóm tắt Bài báo 4
 
+## A 3-dimensional Analysis for Evaluating Technology Emergence Indicators (Phân tích 3 chiều để đánh giá các chỉ số công nghệ mới nảy sinh)
+
 ## Trích dẫn
 
 Liu, X., & Porter, A. L. (2020). *A 3-dimensional Analysis for Evaluating Technology Emergence Indicators*. Scientometrics, 124(1), 27-55.
-https://doi.org/10.1007/s11192-020-03432-6
+https://link.springer.com/article/10.1007/s11192-020-03432-6
 
 ## Vấn đề nghiên cứu
 

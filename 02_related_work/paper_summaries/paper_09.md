@@ -1,8 +1,11 @@
-# Tóm tắt Bài báo 21
+# Tóm tắt Bài báo 09
+
+## Bursty and Hierarchical Structure in Streams (Thuật toán phát hiện bùng nổ của Kleinberg)
 
 ## Trích dẫn
 
 Kleinberg, J. (2003). *Bursty and Hierarchical Structure in Streams*. Data Mining and Knowledge Discovery.
+https://link.springer.com/article/10.1023/A:1024940629314
 
 ## Vấn đề nghiên cứu
 
