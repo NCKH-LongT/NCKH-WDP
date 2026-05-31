@@ -1,0 +1,48 @@
+# Ma trận Tổng quan Tài liệu Nghiên cứu
+
+| Bài báo | Lĩnh vực | Mô hình / Phương pháp AI | Bộ dữ liệu | Chỉ số đánh giá | Đóng góp chính | Hạn chế | Mức độ liên quan |
+|---|---|---|---|---|---|---|---|
+| Paper 01: DR-RAG: Applying Dynamic Document Relevance to Retrieval-Augmented Generation for Question-Answering | Hỏi đáp nhiều bước, RAG | DR-RAG, truy xuất hai giai đoạn, Query Document Concatenation, bộ phân loại độ liên quan động, CFS/CIS | MuSiQue, HotpotQA, 2Wiki Multi-hop QA | Accuracy, Exact Match, F1, Recall Rate, Time per Query, Number of LLM Calls | Cải thiện khả năng truy xuất các tài liệu liên quan động, tức các tài liệu không giống trực tiếp câu hỏi ban đầu nhưng cần thiết để suy luận câu trả lời | Cần huấn luyện classifier riêng; kiến trúc phức tạp hơn Basic RAG; chưa kiểm chứng trên dữ liệu giáo dục chuyên biệt | Rất cao |
+| Paper 02: Dense Passage Retrieval for Open-Domain Question Answering | Hỏi đáp miền mở, truy xuất thông tin | DPR, BERT dual encoder, dense vector retrieval, in-batch negatives, BM25 hard negatives, FAISS | Natural Questions, TriviaQA, WebQuestions, CuratedTREC, SQuAD v1.1, Wikipedia 2018 passages | Top-5/20/100 Retrieval Accuracy, Exact Match, Throughput, Retrieval Latency | Chứng minh dense retrieval có thể vượt BM25 trong nhiều bài toán QA và đặt nền tảng cho truy xuất dựa trên embedding | Chi phí indexing cao; cần GPU để training; khó giải thích kết quả truy xuất vector; chưa mạnh cho multi-hop retrieval | Rất cao |
+| Paper 03: Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks | NLP cần tri thức, QA, sinh văn bản | RAG, DPR retriever, BART generator, parametric memory, non-parametric memory, RAG-Sequence, RAG-Token | Natural Questions, WebQuestions, CuratedTREC, TriviaQA, Wikipedia dense index | Exact Match, Accuracy, factuality, diversity, specificity, retrieval quality | Đề xuất RAG như một framework kết hợp retrieval và generation để giảm hallucination và tăng khả năng trả lời dựa trên tri thức | Phụ thuộc chất lượng retrieval; chưa xử lý tốt multi-hop reasoning; tăng chi phí indexing và retrieval; hallucination vẫn có thể xảy ra | Rất cao |
+| Paper 04: Dense Passage Retrieval for Open-Domain Question Answering | Hỏi đáp miền mở, semantic retrieval | DPR, BERT-base question encoder, BERT-base passage encoder, dot-product similarity, FAISS | Wikipedia 2018 với khoảng 21 triệu passages, Natural Questions, TriviaQA, WebQuestions, CuratedTREC, SQuAD v1.1 | Top-k Retrieval Accuracy, Exact Match, Questions per Second, Retrieval Latency, Indexing Time | Cung cấp nền tảng kỹ thuật cho semantic search, embedding retrieval và vector database trong các hệ thống RAG hiện đại | Indexing và training tốn tài nguyên; khó giải thích hơn BM25; không được thiết kế cho truy xuất nhiều bước | Rất cao |
+| Paper 05: DR-RAG: Applying Dynamic Document Relevance to Retrieval-Augmented Generation for Question-Answering | Hỏi đáp nhiều bước, RAG nâng cao | DR-RAG, truy xuất hai giai đoạn, Query Document Concatenation, binary relevance classifier, CFS | MuSiQue, HotpotQA, 2Wiki Multi-hop QA | Accuracy, Exact Match, F1, Recall Rate, Number of LLM Calls, Query Processing Time | Chứng minh dynamic-relevant documents rất quan trọng với câu hỏi cần tổng hợp bằng chứng từ nhiều tài liệu; cải thiện hiệu quả trên HotpotQA | Cần training classifier; không plug-and-play; chưa đánh giá trên giáo dục, pháp luật, y tế hoặc doanh nghiệp; triển khai phức tạp | Rất cao |
+| Paper 06: Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection | RAG nâng cao, QA, kiểm chứng sự thật, sinh văn bản dài | Self-RAG, adaptive retrieval, reflection tokens, retriever, critic model, generator, self-critique | PopQA, PubHealth, ASQA, ARC Challenge, FEVER và các bộ dữ liệu QA/reasoning khác | Exact Match, Accuracy, F1, Citation Precision, Citation Accuracy, Factuality, Human Evaluation, Reflection Quality | Bổ sung khả năng tự phản tư cho RAG: quyết định khi nào cần retrieve, đánh giá độ liên quan tài liệu, đánh giá mức hỗ trợ bằng chứng và chất lượng câu trả lời | Kiến trúc phức tạp; cần train critic và generator; latency cao hơn; vẫn phụ thuộc chất lượng retrieval | Rất cao |
+| Paper 07: Corrective Retrieval Augmented Generation | Độ tin cậy của RAG, QA, sinh văn bản dài | CRAG, lightweight retrieval evaluator, corrective retrieval, web search augmentation, decompose-then-recompose | 4 bộ dữ liệu bao phủ short-form QA, long-form generation, retrieval quality và knowledge-intensive QA | Accuracy, Exact Match, F1, Retrieval Quality, Confidence Accuracy, Factual Correctness, Robustness, Long-form Answer Quality | Thêm bước đánh giá và sửa lỗi retrieval trước khi sinh câu trả lời, giúp giảm lỗi do context sai và giảm hallucination | Tăng latency; phụ thuộc external web search; evaluator có thể đánh giá sai; chưa tự đánh giá hoàn chỉnh câu trả lời cuối | Rất cao |
+| Paper 08: A Novel Framework for Educational Q&A: Leveraging RAG and LLM Code Interpreters | Giáo dục, hỏi đáp học tập, STEM | Educational RAG, LLM, code interpreter, vector database, semantic retrieval | Tài liệu học tập như PDF, slide, textbook, lecture notes, course materials và câu hỏi giáo dục | Answer Accuracy, Retrieval Effectiveness, Reasoning Capability, Correctness, Relevance, Completeness, Educational Quality | Cho thấy kết hợp RAG với Code Interpreter giúp cải thiện hỏi đáp giáo dục, đặc biệt với câu hỏi môn học cụ thể và câu hỏi cần tính toán | Phụ thuộc chất lượng retrieval; phức tạp hơn chatbot thông thường; chưa đánh giá quy mô lớn; tăng chi phí tính toán và latency | Rất cao |
+| Paper 09: How to Build an AI Tutor that Can Adapt to Any Course and Provide Accurate Answers Using Retrieval-Augmented Generation | Giáo dục, AI Tutor, hỏi đáp theo môn học | Course-adaptive AI Tutor, RAG, LLM, chunking, embedding, vector database, grounded generation | Course materials gồm lecture slides, textbooks, assignments, course notes và student questions | Answer Accuracy, Grounding Quality, Retrieval Quality, Human Evaluation, Correctness, Relevance, Educational Usefulness | Chứng minh AI Tutor có thể thích ứng với môn học mới bằng cách index tài liệu môn học mà không cần fine-tune riêng cho từng môn | Phụ thuộc retrieval; chưa mạnh ở multi-hop reasoning; thiếu self-evaluation; chưa cá nhân hóa theo hồ sơ người học | Rất cao |
+| Paper 10: Retrieval-Augmented Generation Chatbots for Education: A Survey of Applications | Giáo dục, survey về RAG chatbot, AI Tutor | Systematic Literature Review, phân loại hệ thống Educational RAG, phân tích chatbot và AI Tutor | 47 nghiên cứu Educational RAG sử dụng PDF, lecture notes, syllabus, textbooks, course materials và learning resources | Accuracy, Exact Match, F1, Recall, Precision, Retrieval Relevance, Student Satisfaction, Learning Effectiveness, Response Time, Hallucination Rate, Citation Accuracy | Tổng hợp xu hướng, kiến trúc, lợi ích, thách thức và khoảng trống nghiên cứu trong các hệ thống RAG cho giáo dục | Không đề xuất mô hình mới; phụ thuộc chất lượng các nghiên cứu được khảo sát; chưa có benchmark thống nhất cho Educational RAG | Rất cao |
+
+## Nhận xét chính
+
+- Nền tảng kỹ thuật quan trọng nhất cho AI Study Hub đến từ DPR và RAG: embedding, vector search, top-k retrieval và grounded generation.
+- Các bài báo RAG nâng cao cho thấy Basic RAG thường chưa đủ tốt khi câu trả lời cần nhiều chunk hoặc nhiều bước suy luận.
+- Các bài báo Educational RAG xác nhận rằng tài liệu môn học, lecture notes, slide, syllabus và PDF là nguồn dữ liệu phù hợp cho hệ thống hỏi đáp học thuật.
+- Các metric thường dùng gồm Accuracy, Exact Match, F1, Recall, Retrieval Relevance, Faithfulness, Hallucination Rate, Citation Accuracy, Response Time và đánh giá từ chuyên gia/người dùng.
+- Các hạn chế lặp lại nhiều lần là phụ thuộc vào retrieval, hallucination khi context sai, yếu ở multi-hop reasoning, latency cao và thiếu cá nhân hóa theo người học.
+
+## Khoảng trống nghiên cứu cho AI Study Hub
+
+Các hệ thống Educational RAG hiện tại đã chứng minh RAG hữu ích cho hỏi đáp theo môn học, nhưng vẫn còn một số khoảng trống:
+
+1. Basic RAG có thể bỏ sót chunk quan trọng khi thông tin nằm rải rác ở nhiều phần khác nhau của tài liệu học tập.
+2. Nhiều hệ thống chưa đánh giá xem các chunk retrieved có thật sự liên quan trước khi sinh câu trả lời hay không.
+3. Nhiều hệ thống chưa tự kiểm tra câu trả lời có được hỗ trợ bởi bằng chứng trong tài liệu hay không.
+4. Educational RAG chưa có benchmark thống nhất, thường dùng dataset nhỏ hoặc dataset riêng theo từng domain.
+5. Các hệ thống AI Tutor hiện tại hiếm khi cá nhân hóa câu trả lời theo lịch sử học tập hoặc tiến độ của sinh viên.
+
+## Hướng phát triển đề xuất cho nhóm
+
+AI Study Hub có thể được định vị là một hệ thống Educational RAG thực tiễn với baseline rõ ràng:
+
+- Sinh viên upload PDF, slide, syllabus hoặc lecture notes.
+- Hệ thống chia nhỏ tài liệu thành chunk, tạo embedding, lưu vào vector database, retrieve top-k chunks và sinh câu trả lời dựa trên tài liệu.
+- Có thể đánh giá bằng cách so sánh LLM-only vs Basic RAG vs Enhanced RAG.
+
+Các hướng cải tiến dựa trên literature:
+
+- Áp dụng dense retrieval kiểu DPR để tăng chất lượng semantic search.
+- Lấy cảm hứng từ DR-RAG để thêm truy xuất lần hai cho câu hỏi học thuật nhiều bước.
+- Lấy cảm hứng từ CRAG để thêm tầng đánh giá độ tin cậy của retrieved chunks.
+- Lấy cảm hứng từ Self-RAG để thêm tầng kiểm tra câu trả lời và giảm hallucination.
+- Thêm citation-based answering để sinh viên biết câu trả lời đến từ chunk/tài liệu nào.
