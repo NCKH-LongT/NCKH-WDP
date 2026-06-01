@@ -1,21 +1,21 @@
-# Paper 04 Summary
+# Paper 4 Summary
 
 ## Citation
 
-Tên bài:  
-Dense Passage Retrieval for Open-Domain Question Answering
+Tên bài:
+Assessing the Robustness of Retrieval-Augmented Generation Systems in K-12 Educational Question Answering with Knowledge Discrepancies
 
-Tác giả:  
-Vladimir Karpukhin, Barlas Oguz, Sewon Min, Patrick Lewis, Ledell Wu, Sergey Edunov, Danqi Chen, Wen-tau Yih
+Tác giả:
+Tianshi Zheng, Weihan Li, Jiaxin Bai, Weiqi Wang, Yangqiu Song
 
-Năm:  
-2020
+Năm:
+2024
 
-Nguồn:  
-EMNLP 2020 (Conference on Empirical Methods in Natural Language Processing)
+Nguồn:
+arXiv
 
-DOI/Link:  
-https://aclanthology.org/2020.emnlp-main.550/
+DOI/Link:
+https://arxiv.org/abs/2412.08985
 
 ---
 
@@ -23,35 +23,42 @@ https://aclanthology.org/2020.emnlp-main.550/
 
 Bài báo giải quyết vấn đề gì?
 
-Trong Open-Domain Question Answering (ODQA), hầu hết các hệ thống truyền thống sử dụng BM25 hoặc TF-IDF để retrieve các đoạn văn liên quan trước khi đưa vào Reader Model.
+Các hệ thống Retrieval-Augmented Generation (RAG) đã chứng minh hiệu quả trong các bài toán Question Answering. Tuy nhiên trong môi trường giáo dục, đặc biệt là K-12 Education, tồn tại một vấn đề quan trọng:
 
-Tuy nhiên, các phương pháp này phụ thuộc mạnh vào việc khớp từ khóa (keyword matching), dẫn đến khó tìm được các đoạn văn có ý nghĩa tương đồng nhưng sử dụng từ ngữ khác nhau.
+```text
+Knowledge Discrepancy
+```
+
+Tức là:
+
+* Kiến thức trong textbook có thể khác với kiến thức mà LLM đã học trước đó.
+* Nội dung giáo trình có thể được cập nhật mới.
+* Đáp án trong tài liệu học tập có thể không hoàn toàn trùng với parametric knowledge của mô hình.
 
 Ví dụ:
 
-Question:
-
 ```text
-Who is the bad guy in Lord of the Rings?
+Textbook:
+Pluto is a dwarf planet.
+
+LLM Memory:
+Pluto is a planet.
 ```
 
-Passage:
+Khi xảy ra sự khác biệt này, RAG có thể:
 
-```text
-Sala Baker portrayed the villain Sauron.
-```
+* Retrieve đúng tài liệu.
+* Nhưng LLM vẫn trả lời theo kiến thức cũ trong tham số.
 
-BM25 khó liên kết được:
+Điều này dẫn đến:
 
-```text
-bad guy ≠ villain
-```
+* Hallucination.
+* Sai kiến thức học thuật.
+* Giảm độ tin cậy trong môi trường giáo dục.
 
-Điều này làm giảm chất lượng retrieval và kéo theo giảm độ chính xác của toàn bộ hệ thống QA.
+Bài báo tập trung nghiên cứu:
 
-Bài báo đặt ra câu hỏi:
-
-> Liệu Dense Retrieval có thể thay thế hoàn toàn BM25 trong Open-Domain Question Answering hay không?
+> Các hệ thống RAG có thực sự đáng tin cậy khi kiến thức trong tài liệu học tập khác với kiến thức mà LLM đã được huấn luyện hay không?
 
 ---
 
@@ -59,95 +66,75 @@ Bài báo đặt ra câu hỏi:
 
 Bài báo dùng phương pháp/model/hệ thống nào?
 
-Tác giả đề xuất mô hình:
+Tác giả không đề xuất một mô hình RAG mới.
 
-# DPR (Dense Passage Retrieval)
+Thay vào đó nghiên cứu tập trung vào:
 
-DPR sử dụng kiến trúc:
+# Robustness Evaluation Framework
 
-### Dual Encoder
+để đánh giá độ bền vững của các hệ thống RAG trong môi trường giáo dục.
 
-Gồm:
+---
 
-- Question Encoder
-- Passage Encoder
+### EduKDQA Dataset
 
-Cả hai đều sử dụng BERT-base độc lập.
+Tác giả xây dựng dataset mới:
 
-Pipeline:
+# EduKDQA
+
+(Educational Knowledge Discrepancy Question Answering)
+
+Mục tiêu:
+
+```text
+Simulate
+Knowledge Discrepancies
+```
+
+giữa:
+
+* Textbook Knowledge.
+* LLM Parametric Knowledge.
+
+---
+
+### Knowledge Update Simulation
+
+Tác giả tạo ra các tình huống:
+
+```text
+Old Knowledge
+↓
+Updated Textbook Knowledge
+```
+
+sau đó kiểm tra:
+
+```text
+RAG System
+```
+
+có ưu tiên kiến thức từ tài liệu hay vẫn sử dụng kiến thức cũ trong mô hình.
+
+---
+
+### Evaluation Pipeline
 
 ```text
 Question
 ↓
-Question Encoder
+Retrieve Textbook Context
 ↓
-Question Embedding
-
-Passage
+LLM
 ↓
-Passage Encoder
-↓
-Passage Embedding
+Answer
 ```
 
-Sau đó tính:
+Sau đó đánh giá:
 
-```text
-Similarity = Dot Product
-```
-
-giữa vector câu hỏi và vector passage.
-
----
-
-### In-Batch Negative Sampling
-
-Trong quá trình training:
-
-```text
-Question A
-→ Positive Passage A
-
-Passage B,C,D...
-→ Negative Samples
-```
-
-Tận dụng các passage trong cùng batch làm negative samples để tăng hiệu quả huấn luyện.
-
----
-
-### Hard Negative Training
-
-Ngoài random negatives, DPR còn sử dụng:
-
-```text
-BM25 Hard Negatives
-```
-
-Là các passage được BM25 đánh giá cao nhưng không chứa đáp án.
-
-Điều này giúp mô hình học được các trường hợp dễ gây nhầm lẫn.
-
----
-
-### Dense Vector Retrieval
-
-Sau khi encode toàn bộ corpus:
-
-```text
-Passage
-→ Dense Vector
-→ FAISS Index
-```
-
-Khi inference:
-
-```text
-Question
-→ Dense Vector
-→ FAISS Search
-→ Top-k Passages
-```
+* Context Usage.
+* Knowledge Integration.
+* Answer Correctness.
 
 ---
 
@@ -155,29 +142,46 @@ Question
 
 Bài báo dùng dữ liệu gì?
 
-Nguồn dữ liệu:
+Tác giả xây dựng:
 
-### Wikipedia Dump 2018
+# EduKDQA Dataset
 
-Sau khi xử lý:
+Gồm:
 
 ```text
-21,015,324 passages
+3,005 Questions
 ```
 
-được tạo từ Wikipedia.
+bao phủ:
+
+```text
+5 Subjects
+```
+
+trong môi trường giáo dục K-12.
 
 ---
 
-Các bộ dữ liệu QA được sử dụng:
+Dataset được thiết kế để mô phỏng:
 
-| Dataset | Mô tả |
-|----------|----------|
-| Natural Questions (NQ) | Google Search Questions |
-| TriviaQA | Trivia Question Answering |
-| WebQuestions | Freebase Questions |
-| CuratedTREC | Open-domain QA |
-| SQuAD v1.1 | Reading Comprehension |
+```text
+Knowledge Discrepancy Scenarios
+```
+
+bao gồm:
+
+* Updated Facts.
+* Modified Knowledge.
+* Context-dependent Questions.
+
+---
+
+Các câu hỏi yêu cầu:
+
+* Retrieval.
+* Reasoning.
+* Context Integration.
+* Knowledge Conflict Resolution.
 
 ---
 
@@ -185,21 +189,49 @@ Các bộ dữ liệu QA được sử dụng:
 
 Bài báo đánh giá bằng metric nào?
 
-### Retrieval Metrics
+### Question Answering Accuracy
 
-- Top-5 Retrieval Accuracy
-- Top-20 Retrieval Accuracy
-- Top-100 Retrieval Accuracy
+Đánh giá:
 
-### QA Metrics
+```text
+Answer Correctness
+```
 
-- Exact Match (EM)
+---
 
-### Efficiency Metrics
+### Retrieval Performance
 
-- Questions per Second
-- Retrieval Latency
-- Indexing Time
+Đánh giá:
+
+```text
+Retrieved Context Quality
+```
+
+---
+
+### Context Utilization
+
+Đánh giá:
+
+```text
+LLM
+```
+
+có thực sự sử dụng context retrieve được hay không.
+
+---
+
+### Knowledge Integration
+
+Đánh giá khả năng:
+
+```text
+Parametric Knowledge
++
+Retrieved Knowledge
+```
+
+được kết hợp như thế nào trong quá trình trả lời.
 
 ---
 
@@ -207,70 +239,59 @@ Bài báo đánh giá bằng metric nào?
 
 Kết quả chính là gì?
 
-### Retrieval Performance
+Nghiên cứu cho thấy:
 
-DPR vượt BM25 trên hầu hết dataset.
+### RAG vẫn gặp khó khăn với Knowledge Discrepancies
 
-Ví dụ:
-
-### Natural Questions
-
-| Method | Top-20 Accuracy |
-|----------|----------|
-| BM25 | 59.1% |
-| DPR | 79.4% |
-
-Tăng:
+Ngay cả khi:
 
 ```text
-+20.3%
+Retriever
+```
+
+lấy đúng tài liệu,
+
+LLM vẫn có xu hướng:
+
+```text
+Trust Internal Memory
+```
+
+thay vì sử dụng kiến thức mới từ textbook.
+
+---
+
+### Significant Performance Drop
+
+Các hệ thống RAG hiện tại bị giảm hiệu năng đáng kể khi:
+
+```text
+Retrieved Knowledge
+≠
+LLM Parametric Knowledge
 ```
 
 ---
 
-### End-to-End QA
+### Knowledge Integration Remains Difficult
 
-#### Natural Questions
+Những câu hỏi yêu cầu:
 
-| Method | Exact Match |
-|----------|----------|
-| ORQA | 33.3 |
-| DPR | 41.5 |
+```text
+Textbook Knowledge
++
+LLM Knowledge
+```
 
-#### TriviaQA
-
-| Method | Exact Match |
-|----------|----------|
-| BM25 | 52.4 |
-| DPR | 56.8 |
-
-DPR thiết lập State-of-the-Art trên nhiều benchmark Open-Domain QA tại thời điểm công bố.
+là nhóm khó nhất đối với các hệ thống hiện nay.
 
 ---
 
-### Efficiency
+### Main Conclusion
 
-DPR đạt:
+Tác giả kết luận rằng:
 
-```text
-995 questions/second
-```
-
-với:
-
-```text
-Top-100 Retrieval
-```
-
-sử dụng FAISS.
-
-Trong khi BM25 chỉ đạt:
-
-```text
-23.7 questions/second
-```
-
-trên cùng môi trường thử nghiệm.
+> Knowledge Discrepancy là một thách thức quan trọng nhưng chưa được nghiên cứu đầy đủ trong Educational RAG Systems.
 
 ---
 
@@ -278,63 +299,54 @@ trên cùng môi trường thử nghiệm.
 
 Hạn chế của bài báo là gì?
 
-### 1. Chi phí indexing cao
+### 1. Tập trung vào đánh giá
 
-Cần:
+Nghiên cứu chủ yếu:
 
 ```text
-Encode
-→ 21 triệu passages
-→ FAISS Index
+Evaluate
 ```
 
-mất nhiều giờ xử lý.
+chứ không đề xuất một kiến trúc RAG mới để giải quyết hoàn toàn vấn đề.
 
 ---
 
-### 2. Cần GPU để training
+### 2. Chỉ tập trung vào K-12 Education
 
-DPR sử dụng:
+Chưa kiểm chứng trên:
 
-- BERT Encoder
-- Dense Embedding
-- Large Batch Training
-
-tốn tài nguyên hơn BM25.
-
----
-
-### 3. Khó giải thích kết quả
-
-BM25 có thể giải thích bằng:
-
-```text
-Keyword Matching
-```
-
-Trong khi DPR dựa trên Dense Vector nên khó interpret hơn.
+* Đại học.
+* Tài liệu chuyên ngành.
+* Research Papers.
+* Higher Education Systems.
 
 ---
 
-### 4. Chưa xử lý Multi-hop Retrieval
+### 3. Chưa có Self-Correction Framework
 
-Pipeline DPR chủ yếu:
+Paper chỉ chỉ ra vấn đề:
 
 ```text
-Question
-→ Retrieve
-→ Reader
+Knowledge Discrepancy
 ```
 
-khó xử lý các câu hỏi cần nhiều bước suy luận.
+nhưng chưa đưa ra:
 
-Đây là điểm mà các paper sau như:
+```text
+Complete Solution
+```
 
-- DR-RAG
-- CRAG
-- Self-RAG
+như:
 
-tiếp tục cải tiến.
+* Self-RAG.
+* CRAG.
+* DR-RAG.
+
+---
+
+### 4. Chưa đánh giá đa ngôn ngữ
+
+Dataset chủ yếu tập trung vào môi trường tiếng Anh.
 
 ---
 
@@ -344,43 +356,71 @@ Bài báo liên quan gì đến đề tài của nhóm?
 
 Mức độ liên quan:
 
-# Cực kỳ cao (Core Technical Foundation)
+# Rất cao (Educational Reliability Paper)
 
 Đề tài:
 
 **AI Study Hub – Hệ thống hỏi đáp tài liệu học tập ứng dụng RAG**
 
-Hầu như toàn bộ hệ sinh thái RAG hiện đại đều kế thừa trực tiếp từ DPR.
+---
 
-Pipeline hiện tại của hệ thống:
+Một vấn đề thực tế trong AI Study Hub:
+
+Sinh viên upload:
 
 ```text
-Question
-↓
-Embedding
-↓
-Pinecone
-↓
-Top-k Retrieval
-↓
+MMA301 Syllabus 2026
+```
+
+Nhưng:
+
+```text
 LLM
 ```
 
-thực chất là phiên bản mở rộng của DPR.
+có thể đang mang kiến thức cũ hoặc kiến thức tổng quát.
 
 ---
 
-Paper này cung cấp nền tảng lý thuyết cho:
+Ví dụ:
 
-- Dense Retrieval
-- Embedding Search
-- Vector Database
-- Semantic Search
-- Retrieval Component trong RAG
+```text
+Question:
+Final Exam chiếm bao nhiêu phần trăm?
+```
 
-Đây là paper quan trọng để giải thích:
+Textbook:
 
-> Vì sao hệ thống sử dụng Embedding + Pinecone thay vì chỉ dùng Keyword Search.
+```text
+Final Exam = 50%
+```
+
+Nhưng LLM có thể:
+
+```text
+Generate
+40%
+```
+
+nếu dựa vào kiến thức khác đã học trước đó.
+
+---
+
+Paper này chứng minh rằng:
+
+```text
+Correct Retrieval
+≠
+Correct Answer
+```
+
+Đây là insight rất quan trọng cho AI Study Hub.
+
+---
+
+Paper giúp nhóm giải thích:
+
+> Tại sao chỉ xây dựng RAG thôi vẫn chưa đủ để đảm bảo độ chính xác trong môi trường giáo dục.
 
 ---
 
@@ -388,76 +428,65 @@ Paper này cung cấp nền tảng lý thuyết cho:
 
 Nhóm có thể cải tiến hoặc mở rộng điểm nào?
 
-### 1. Fine-tune Embedding cho dữ liệu học tập
+### 1. Retrieval Priority Mechanism
 
-Thay vì sử dụng embedding model tổng quát:
+Buộc hệ thống ưu tiên:
 
 ```text
-text-embedding-004
+Retrieved Educational Context
 ```
 
-có thể fine-tune trên:
+hơn:
 
-- Slide bài giảng
-- Syllabus
-- Lecture Notes
+```text
+LLM Internal Knowledge
+```
 
-để tăng chất lượng retrieval.
+khi trả lời.
 
 ---
 
-### 2. Hard Negative Training
+### 2. Self-RAG Integration
 
-Sử dụng:
+Sau khi generate:
 
 ```text
-Các chunk dễ gây nhầm lẫn
+Answer
+↓
+Self-Evaluation
+↓
+Faithfulness Check
 ```
 
-làm hard negatives.
-
-Ví dụ:
-
-- Chương 1 và Chương 2 có nội dung tương tự.
-- Hai môn học có thuật ngữ giống nhau.
-
-Giúp retriever phân biệt chính xác hơn.
+để kiểm tra xem câu trả lời có thực sự dựa trên tài liệu hay không.
 
 ---
 
-### 3. Kết hợp DPR với DR-RAG
+### 3. Citation-Based Answering
 
-Pipeline:
+Mỗi câu trả lời cần:
 
 ```text
-Question
-↓
-DPR Retrieval
-↓
-Dynamic Retrieval
-↓
-LLM
+Answer
++
+Source Chunk
 ```
 
-giúp xử lý các câu hỏi học thuật nhiều bước suy luận.
+để sinh viên kiểm chứng thông tin.
 
 ---
 
-### 4. Kết hợp DPR với CRAG
+### 4. Knowledge Conflict Detection
 
-Thêm Retrieval Evaluator:
+Thêm module:
 
 ```text
-Retrieve
-↓
-Evaluate
-↓
-Correct
-↓
-Generate
+Retrieved Knowledge
+vs
+LLM Memory
 ```
 
-để giảm retrieve sai chunk.
+để phát hiện mâu thuẫn tri thức.
 
 ---
 
@@ -466,20 +495,23 @@ Generate
 So sánh:
 
 ```text
-BM25
+Basic RAG
 vs
-DPR
+CRAG
 vs
-DR-RAG Inspired Retrieval
+Self-RAG
+vs
+Knowledge-Discrepancy-Aware RAG
 ```
 
 trên tập tài liệu học tập thực tế.
 
 Đánh giá:
 
-- Recall
-- Accuracy
-- Faithfulness
-- Response Time
+* Accuracy
+* Faithfulness
+* Hallucination Rate
+* Citation Accuracy
+* Knowledge Conflict Resolution
 
-để chứng minh Dense Retrieval phù hợp hơn với hệ thống hỏi đáp tài liệu học tập.
+để chứng minh khả năng xử lý sự khác biệt giữa tài liệu học tập và kiến thức sẵn có của LLM trong môi trường giáo dục.
