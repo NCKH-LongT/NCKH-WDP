@@ -2,536 +2,65 @@
 
 ## Citation
 
-Tên bài:  
-Retrieval-Augmented Generation Chatbots for Education: A Survey of Applications
-
-Tác giả:  
-Nhiều tác giả (Survey Paper)
-
-Năm:  
-2025
-
-Nguồn:  
-Applied Sciences (MDPI)
-
-DOI/Link:  
-https://www.mdpi.com/2076-3417/15/8/4234
-
----
+- **Tên bài:** Retrieval-Augmented Generation (RAG) Chatbots for Education: A Survey of Applications.
+- **Tác giả:** Jakub Swacha và Michał Gracel.
+- **Năm:** 2025.
+- **Nguồn:** Tạp chí Applied Sciences (MDPI).
+- **DOI/Link:** https://doi.org/10.3390/app15084234.
 
 ## Problem
 
-Bài báo giải quyết vấn đề gì?
-
-Trong những năm gần đây, Large Language Models (LLMs) như:
-
-- ChatGPT
-- Gemini
-- Claude
-- Llama
-
-được ứng dụng mạnh mẽ trong giáo dục.
-
-Tuy nhiên, các hệ thống này vẫn tồn tại nhiều vấn đề:
-
-### 1. Hallucination
-
-LLM có thể:
-
-- Bịa thông tin.
-- Trả lời sai kiến thức học thuật.
-- Không có nguồn tham chiếu rõ ràng.
-
-Điều này đặc biệt nguy hiểm trong môi trường giáo dục.
-
----
-
-### 2. Thiếu khả năng truy xuất tài liệu học tập
-
-LLM thường không được huấn luyện trên:
-
-- Giáo trình riêng.
-- Slide bài giảng.
-- Tài liệu môn học.
-- Nội dung nội bộ trường học.
-
-Do đó khó trả lời chính xác các câu hỏi học thuật chuyên biệt.
-
----
-
-### 3. Thiếu tổng quan nghiên cứu
-
-Mặc dù có rất nhiều nghiên cứu:
-
-```text
-RAG for Education
-```
-
-nhưng các công trình vẫn còn phân tán.
-
-Chưa có một nghiên cứu tổng hợp toàn diện về:
-
-- Educational Chatbots.
-- AI Tutors.
-- Academic Question Answering.
-- RAG Applications in Education.
-
----
-
-Bài báo hướng tới mục tiêu:
-
-> Tổng hợp và phân tích các nghiên cứu sử dụng Retrieval-Augmented Generation trong giáo dục nhằm xác định xu hướng phát triển, kiến trúc phổ biến, lợi ích, thách thức và khoảng trống nghiên cứu hiện nay.
-
-
-
----
+**Bài báo giải quyết vấn đề gì?**
+Bài báo giải quyết rào cản lớn nhất khi ứng dụng các mô hình ngôn ngữ lớn (LLMs) vào môi trường giáo dục: **hiện tượng ảo giác (hallucinations)**. Mặc dù phương pháp RAG đã được chứng minh là một giải pháp hiệu quả để khắc phục điểm yếu này, nhưng hiện tại vẫn chưa có một nghiên cứu tổng quan nào đánh giá tiến độ và thực trạng ứng dụng RAG trong lĩnh vực giáo dục. Bài báo lấp đầy khoảng trống này bằng cách tổng hợp và phân loại các chatbot RAG giáo dục theo mục đích, phạm vi chủ đề, mô hình LLM và phương pháp đánh giá.
 
 ## Method
 
-Bài báo dùng phương pháp/model/hệ thống nào?
-
-Bài báo sử dụng:
-
-# Systematic Literature Review (SLR)
-
-Tác giả thực hiện:
-
-### Literature Collection
-
-Thu thập các nghiên cứu từ:
-
-- Scopus
-- Web of Science
-- IEEE
-- ACM
-- Springer
-- Elsevier
-
----
-
-### Screening Process
-
-Lọc các nghiên cứu liên quan đến:
-
-```text
-RAG
-+
-Education
-+
-Chatbots
-+
-LLMs
-```
-
----
-
-### Categorization
-
-Các nghiên cứu được phân nhóm theo:
-
-### 1. Educational Chatbots
-
-Chatbot hỗ trợ học tập.
-
-### 2. AI Tutors
-
-Gia sư AI.
-
-### 3. Question Answering Systems
-
-Hệ thống hỏi đáp học thuật.
-
-### 4. Personalized Learning
-
-Học tập cá nhân hóa.
-
-### 5. Knowledge Retrieval Systems
-
-Hệ thống truy xuất tri thức học tập.
-
----
-
-### Survey Framework
-
-Bài báo phân tích:
-
-```text
-Educational Documents
-↓
-Retrieval
-↓
-LLM
-↓
-Answer Generation
-```
-
-và so sánh các kiến trúc RAG khác nhau trong giáo dục.
-
-
-
----
+**Bài báo dùng phương pháp/model/hệ thống nào?**
+Bài báo sử dụng phương pháp **Nghiên cứu khảo sát (Survey / Systematic Review)**. Nhóm tác giả thu thập tài liệu kết hợp phương pháp tìm kiếm chuỗi (string search) và phương pháp vết dầu loang (snowballing) để lọc ra các nghiên cứu liên quan đến chatbot RAG trong giáo dục, sau đó phân loại các hệ thống này thành các nhóm mục tiêu hỗ trợ khác nhau (như học tập, truy cập tri thức nguồn, hỗ trợ quản lý tổ chức...).
 
 ## Dataset
 
-Bài báo dùng dữ liệu gì?
-
-Đây là:
-
-# Survey Paper
-
-nên không sử dụng dataset riêng để huấn luyện.
-
-Thay vào đó nghiên cứu tổng hợp:
-
-```text
-47 Educational RAG Studies
-```
-
-bao gồm:
-
-- AI Tutor Systems
-- Educational QA Systems
-- Learning Assistants
-- Course-specific Chatbots
-- Academic Retrieval Systems
-
----
-
-Các nghiên cứu được khảo sát sử dụng nhiều loại dữ liệu:
-
-- PDF học tập
-- Lecture Notes
-- Syllabus
-- Textbooks
-- Course Materials
-- Learning Resources
-
-
-
----
+**Bài báo dùng dữ liệu gì?**
+Tập dữ liệu của nghiên cứu là **47 bài báo khoa học, preprint và luận văn** xuất bản từ năm 2022 đến đầu năm 2025. Các tài liệu này được thu thập từ 3 cơ sở dữ liệu thư mục lớn: Scopus, Web of Science và Google Scholar.
 
 ## Evaluation
 
-Bài báo đánh giá bằng metric nào?
+**Bài báo đánh giá bằng metric nào?**
+Do đây là bài khảo sát, tác giả tổng hợp lại toàn bộ các metric mà 47 nghiên cứu trước đó đã sử dụng, bao gồm:
 
-Vì là Survey Paper nên bài báo không đánh giá trực tiếp một mô hình cụ thể.
-
-Thay vào đó phân tích các metric phổ biến được sử dụng trong các nghiên cứu Educational RAG:
-
-### QA Metrics
-
-- Accuracy
-- Exact Match (EM)
-- F1 Score
-
----
-
-### Retrieval Metrics
-
-- Recall
-- Precision
-- Retrieval Relevance
-
----
-
-### Educational Metrics
-
-- Student Satisfaction
-- Learning Effectiveness
-- User Engagement
-
----
-
-### System Metrics
-
-- Response Time
-- Hallucination Rate
-- Citation Accuracy
-
-
-
----
+- Đánh giá truy xuất: Accuracy, Precision, Recall, F1 Score.
+- Chất lượng ngôn ngữ sinh ra: Coherence, Fluency, Relevance.
+- Đánh giá của hệ thống RAGAS: **Faithfulness (Độ trung thực), Answer Relevance (Độ liên quan của câu trả lời) và Context Relevance (Độ liên quan ngữ cảnh)**.
+- Đánh giá phần mềm: User Acceptance (Sự chấp nhận của người dùng), Response time (Thời gian phản hồi).
 
 ## Results
 
-Kết quả chính là gì?
+**Kết quả chính là gì?**
 
-Bài báo chỉ ra rằng:
-
-# RAG đang trở thành kiến trúc chủ đạo cho Educational AI Systems.
-
----
-
-### 1. Significant Reduction of Hallucination
-
-Các hệ thống:
-
-```text
-RAG-based Educational Chatbots
-```
-
-giảm đáng kể hallucination so với:
-
-```text
-LLM-only Systems
-```
-
----
-
-### 2. Better Academic Grounding
-
-RAG giúp:
-
-- Trả lời dựa trên tài liệu học tập.
-- Tăng độ tin cậy.
-- Cung cấp nguồn tham khảo.
-
----
-
-### 3. Support for Personalized Learning
-
-Nhiều nghiên cứu cho thấy RAG có thể hỗ trợ:
-
-- Adaptive Learning.
-- Personalized Recommendations.
-- Student-specific Guidance.
-
----
-
-### 4. Growing Research Trend
-
-Số lượng nghiên cứu:
-
-```text
-Educational RAG
-```
-
-tăng mạnh từ năm 2023 đến 2025.
-
----
-
-### Main Conclusion
-
-Tác giả kết luận:
-
-> Retrieval-Augmented Generation là một trong những hướng tiếp cận tiềm năng nhất để xây dựng các hệ thống hỗ trợ học tập thông minh trong tương lai.
-
-
-
----
+- Phần lớn chatbot RAG được phát triển để **truy cập nguồn tri thức (access to source knowledge)** và **hỗ trợ học tập (learning)**.
+- **OpenAI GPT** là kiến trúc lõi thống trị trong số các mô hình LLM được sử dụng (chiếm 36/47 hệ thống), bỏ xa mô hình đứng thứ hai là LLaMA (15 hệ thống).
+- Phát hiện quan trọng nhất là **chưa có một nghiên cứu nào** đo lường tác động thực tế của chatbot RAG đối với chính mục tiêu mà nó được tạo ra (ví dụ: chưa đo lường xem điểm số hay kết quả học tập của học sinh có thực sự tăng lên nhờ chatbot hay không).
 
 ## Limitations
 
-Hạn chế của bài báo là gì?
+**Hạn chế của bài báo là gì?**
 
-### 1. Chỉ là Survey Paper
-
-Bài báo:
-
-```text
-Không đề xuất mô hình mới
-```
-
-mà chủ yếu tổng hợp các nghiên cứu hiện có.
-
----
-
-### 2. Phụ thuộc vào chất lượng nghiên cứu được khảo sát
-
-Nếu các nghiên cứu nguồn có hạn chế:
-
-thì kết luận tổng hợp cũng bị ảnh hưởng.
-
----
-
-### 3. Chưa có Benchmark thống nhất
-
-Bài báo chỉ ra rằng:
-
-Các nghiên cứu Educational RAG hiện nay sử dụng:
-
-- Dataset khác nhau.
-- Metric khác nhau.
-- Kiến trúc khác nhau.
-
-nên khó so sánh trực tiếp.
-
----
-
-### 4. Chưa giải quyết hoàn toàn Hallucination
-
-Dù RAG giúp giảm hallucination nhưng:
-
-```text
-Bad Retrieval
-→ Bad Answer
-```
-
-vẫn là vấn đề lớn.
-
-
-
----
+- Chỉ tìm kiếm tài liệu từ 3 nền tảng (Scopus, Web of Science, Google Scholar) và bỏ qua các nghiên cứu không xuất bản bằng tiếng Anh, có thể dẫn đến việc bỏ sót các hệ thống RAG được phát triển cục bộ cho các ngôn ngữ khác.
+- Bài báo chịu ảnh hưởng của "publication bias" (thiên kiến công bố), vì các tác giả thường ngại công bố các dự án ứng dụng RAG thất bại.
 
 ## Relevance to our topic
 
-Bài báo liên quan gì đến đề tài của nhóm?
+**Bài báo liên quan gì đến đề tài của nhóm?**
+Bài báo khảo sát này thuộc nhóm **Domain ứng dụng** và liên kết mật thiết với bối cảnh dự án **AI Study Hub** trong file `REPORT.md`:
 
-Mức độ liên quan:
-
-# Cực kỳ cao (Literature Review Foundation Paper)
-
-Đề tài:
-
-**AI Study Hub – Hệ thống hỏi đáp tài liệu học tập ứng dụng RAG**
-
-Đây là paper gần như phù hợp nhất để viết:
-
-```text
-Chapter 2
-Literature Review
-```
-
-vì nó tổng hợp trực tiếp:
-
-```text
-Educational RAG Systems
-```
-
----
-
-Khác với:
-
-- DPR
-- RAG
-- DR-RAG
-- CRAG
-- Self-RAG
-
-là các paper kỹ thuật,
-
-paper này tập trung vào:
-
-```text
-Ứng dụng RAG trong giáo dục
-```
-
-chính là domain của AI Study Hub.
-
----
-
-Paper giúp chứng minh:
-
-> Việc áp dụng Retrieval-Augmented Generation trong môi trường học tập là xu hướng nghiên cứu mạnh và có giá trị thực tiễn cao.
-
----
-
-Ngoài ra paper còn cung cấp:
-
-- Research Trends
-- Research Gaps
-- Existing Educational Systems
-- Future Research Directions
-
-rất phù hợp để trích dẫn trong phần:
-
-```text
-Related Works
-```
-
-của AI Study Hub.
-
----
+1.  **Xác nhận mức độ phổ biến của hệ thống:** Báo cáo `REPORT.md` của nhóm mô tả AI Study Hub cung cấp "Document Library" nơi sinh viên tải tài liệu cá nhân lên để hỏi đáp. Bài báo khảo sát này chỉ ra rằng nhóm tính năng _cung cấp quyền truy cập vào kiến thức nguồn (access to source knowledge)_ là ứng dụng phổ biến và cốt lõi nhất của RAG trong giáo dục (với 20 bài nghiên cứu). Điều này chứng minh hướng đi của nhóm là rất chuẩn xác so với thực tiễn.
+2.  **Củng cố tính năng Benchmarking:** Module _RAG Evaluation and Benchmarking_ của AI Study Hub đang đo lường các chỉ số như _correctness, faithfulness, relevance, completeness_. Bài báo khảo sát làm nổi bật lên rằng việc đánh giá tổng hợp các mặt (từ khả năng truy xuất đến chất lượng sinh văn bản) là khâu cực kỳ quan trọng đối với RAG chatbot, đồng thời cũng chỉ ra sự thiếu hụt trầm trọng trong việc đánh giá hiệu quả RAG. Vì vậy, việc dự án của nhóm có sẵn mô-đun đánh giá sẽ là một điểm sáng lớn về mặt kiến trúc.
 
 ## Possible improvement
 
-Nhóm có thể cải tiến hoặc mở rộng điểm nào?
+**Nhóm có thể cải tiến hoặc mở rộng điểm nào?**
+Dựa trên kiến trúc hiện hành của AI Study Hub và đề xuất từ nhóm tác giả bài báo, nhóm có thể bổ sung các hướng sau:
 
-### 1. Vietnamese Educational RAG
-
-Phần lớn nghiên cứu khảo sát:
-
-```text
-English Educational Systems
-```
-
-AI Study Hub có thể mở rộng theo hướng:
-
-```text
-Vietnamese Academic RAG
-```
-
----
-
-### 2. Advanced Retrieval
-
-Kết hợp:
-
-```text
-DPR
-+
-DR-RAG
-+
-CRAG
-```
-
-để cải thiện Retrieval Quality.
-
----
-
-### 3. Self-Evaluation Layer
-
-Kết hợp:
-
-```text
-Self-RAG
-```
-
-giúp:
-
-- Kiểm tra câu trả lời.
-- Giảm hallucination.
-- Tăng citation accuracy.
-
----
-
-### 4. Personalized Learning Assistant
-
-Theo dõi:
-
-```text
-Student Learning History
-```
-
-để:
-
-- Gợi ý tài liệu.
-- Đề xuất quiz.
-- Xây dựng lộ trình học tập.
-
----
-
-### 5. Hướng nghiên cứu cho AI Study Hub
-
-So sánh:
-
-```text
-ChatGPT
-vs
-Basic RAG
-vs
-AI Study Hub
-```
-
-trên tập tài liệu học tập thực tế.
-
-Đánh giá:
-
-- Accuracy
-- Recall
-- Hallucination Rate
-- Citation Accuracy
-- Student Satisfaction
-- Response Time
-
-để chứng minh AI Study Hub phù hợp với môi trường giáo dục hơn các chatbot AI tổng quát.
+1.  **Bổ sung đánh giá tác động học tập (Learning Outcomes Evaluation):** Theo bài báo, hiện thiếu hụt các đánh giá đo lường tác động thực sự. Trên trang `Admin Dashboard` của hệ thống, thay vì chỉ đo độ chính xác của RAG mode (Correctness, Faithfulness), nhóm có thể làm thêm một bước đối chiếu (A/B testing): so sánh điểm số, hoặc thời gian hoàn thành bài tập của nhóm sinh viên dùng AI Study Hub so với nhóm không dùng.
+2.  **Mở rộng bộ dữ liệu sang "Institutional Knowledge" (Tri thức nội bộ nhà trường):** Trong danh mục phân loại lĩnh vực (Thematic Scope), bài báo đề cập "Institutional-domain knowledge" (hỗ trợ giải đáp quy chế nội bộ, tài nguyên sinh viên) chiếm tỉ trọng rất lớn. Hiện AI Study Hub đang chỉ tập trung vào tài liệu do người dùng tự tải (slide, bài tập). Nhóm có thể crawl thêm quy chế đào tạo, sổ tay sinh viên của trường tích hợp thẳng vào Pinecone vector database để chatbot giải đáp song song chuyện học thuật lẫn quy trình.
+3.  **Tích hợp chuẩn RAGAS vào Evaluation Routes:** Báo cáo hiện tại ghi nhận nhóm tự định nghĩa các score đánh giá cho các API `Evaluation routes`. Nhóm có thể chuẩn hóa bộ metric này bằng cách điều chỉnh prompt đánh giá của Groq SDK dựa theo quy tắc RAGAS (bao gồm Faithfulness, Answer Relevance và Context Relevance) – một chuẩn quốc tế đang rất được ủng hộ trong các bài luận được bài báo liệt kê.

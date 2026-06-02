@@ -2,554 +2,66 @@
 
 ## Citation
 
-Tên bài:  
-DR-RAG: Applying Dynamic Document Relevance to Retrieval-Augmented Generation for Question-Answering
-
-Tác giả:  
-Zijian Hei, Weiling Liu, Wenjie Ou, Juyi Qiao, Junming Jiao, Guowen Song, Ting Tian, Yi Lin
-
-Năm:  
-2024
-
-Nguồn:  
-arXiv
-
-DOI/Link:  
-https://arxiv.org/abs/2406.07348
-
----
+- **Tên bài:** DR-RAG: Applying Dynamic Document Relevance to Retrieval-Augmented Generation for Question-Answering.
+- **Tác giả:** Zijian Hei, Weiling Liu, Wenjie Ou, Juyi Qiao, Junming Jiao, Guowen Song, Ting Tian, Yi Lin.
+- **Năm:** 2024 (Ước tính dựa trên các tài liệu trích dẫn mới nhất trong bài như Llama 3 2024).
+- **Nguồn:** Li Auto Inc., Sun Yat-sen University, Northeastern University, Sichuan University.
+- **DOI/Link:** https://arxiv.org/abs/2406.07348
 
 ## Problem
 
-Bài báo giải quyết vấn đề gì?
-
-Các hệ thống Retrieval-Augmented Generation (RAG) truyền thống thường gặp khó khăn trong các bài toán Multi-hop Question Answering.
-
-Nguyên nhân là retriever chủ yếu tìm được các tài liệu có độ tương đồng cao với câu hỏi ban đầu (static-relevant documents), trong khi nhiều tài liệu cần thiết cho quá trình suy luận lại có độ tương đồng thấp nhưng vẫn đóng vai trò quan trọng (dynamic-relevant documents).
-
-Ví dụ:
-
-```text
-Question:
-Who is the spouse of the child of Peter Andreas Heiberg?
-```
-
-Retriever dễ tìm được:
-
-```text
-Peter Andreas Heiberg
-→ Son
-→ Johan Ludvig Heiberg
-```
-
-Nhưng khó tìm được:
-
-```text
-Johan Ludvig Heiberg
-→ Wife
-→ Johanne Luise Heiberg
-```
-
-vì tài liệu thứ hai không trực tiếp giống với query ban đầu.
-
-Điều này dẫn đến:
-
-- Recall thấp.
-- Thiếu thông tin trong context.
-- Hallucination từ LLM.
-- Trả lời sai trong các bài toán nhiều bước suy luận.
-
-Bài báo tập trung giải quyết vấn đề:
-
-> Làm thế nào để retrieve được các dynamic-relevant documents phục vụ Multi-hop Question Answering?
-
----
+**Bài báo giải quyết vấn đề gì?**
+Bài báo giải quyết hai vấn đề lớn của RAG trong các tác vụ hỏi đáp phức tạp (multi-hop QA). Thứ nhất, các hệ thống RAG thường chỉ truy xuất được các **tài liệu có liên quan tĩnh (static-relevant)** – tức là những tài liệu chứa từ khóa giống trực tiếp với câu hỏi, nhưng lại bỏ sót các **tài liệu liên quan động (dynamic-relevant)** – những tài liệu chỉ liên quan gián tiếp nhưng cực kỳ quan trọng để suy luận ra câu trả lời cuối cùng. Thứ hai, nếu tăng số lượng tài liệu truy xuất (top-k) để cố lấy được tài liệu động, hệ thống sẽ gom nhầm rất nhiều thông tin rác (redundant information), làm giảm chất lượng sinh văn bản của LLM.
 
 ## Method
 
-Bài báo dùng phương pháp/model/hệ thống nào?
+**Bài báo dùng phương pháp/model/hệ thống nào?**
+Bài báo đề xuất framework **DR-RAG (Dynamic-Relevant Retrieval-Augmented Generation)** hoạt động theo 2 giai đoạn:
 
-Tác giả đề xuất framework:
-
-# DR-RAG (Dynamic-Relevant Retrieval-Augmented Generation)
-
-Framework gồm hai thành phần chính:
-
----
-
-### 1. Two-stage Retrieval
-
-#### Stage 1
-
-Retrieve:
-
-```text
-Top-k1 Documents
-```
-
-giống RAG truyền thống.
-
----
-
-#### Stage 2
-
-Sử dụng:
-
-# Query Document Concatenation (QDC)
-
-Kết hợp:
-
-```text
-Question + Retrieved Document
-```
-
-để tạo truy vấn mở rộng.
-
-Ví dụ:
-
-```text
-Who is the spouse...
-+
-Johan Ludvig Heiberg is son of Peter...
-```
-
-↓
-
-```text
-Expanded Query
-```
-
-↓
-
-```text
-Second Retrieval
-```
-
-Mục tiêu:
-
-- Tìm các dynamic-relevant documents.
-- Tăng Recall.
-- Khai thác quan hệ giữa các tài liệu.
-
----
-
-### 2. Dynamic Relevance Classifier
-
-Sau khi retrieve được các tài liệu mới:
-
-Hệ thống sử dụng Binary Classifier để đánh giá:
-
-```text
-Document này có thực sự giúp trả lời câu hỏi không?
-```
-
-Output:
-
-```text
-Positive
-Negative
-```
-
----
-
-### Hai chiến lược lọc
-
-#### CIS (Classifier Inverse Selection)
-
-Loại bỏ các tài liệu dư thừa sau retrieval.
-
-#### CFS (Classifier Forward Selection)
-
-Chỉ giữ lại các tài liệu được classifier xác nhận là hữu ích.
-
-Trong thực nghiệm:
-
-```text
-CFS
-```
-
-cho kết quả tốt nhất.
-
----
+1.  **Truy xuất 2 bước (Query Document Concatenation - QDC):** Bước 1, dùng câu hỏi gốc để tìm các tài liệu tĩnh. Bước 2, **nối (concatenate)** câu hỏi gốc với tài liệu tĩnh vừa tìm được để tạo thành một truy vấn mới dài hơn, từ đó truy xuất ra các tài liệu động nằm sâu trong cơ sở dữ liệu.
+2.  **Bộ lọc phân loại (Classifier for Selection):** Sử dụng một mô hình phân loại cực nhỏ (như BigBird hoặc Longformer) để chấm điểm độc lập các tài liệu truy xuất được xem chúng có thực sự đóng góp cho câu trả lời hay không. Bài báo đề xuất 2 chiến lược lọc: _Classifier Inverse Selection (CIS)_ (loại bỏ tài liệu thừa ở cuối cùng) và _Classifier Forward Selection (CFS)_ (lọc ngay lập tức từng tài liệu trong quá trình truy xuất bước 2).
 
 ## Dataset
 
-Bài báo dùng dữ liệu gì?
+**Bài báo dùng dữ liệu gì?**
+Hệ thống được đánh giá trên 3 bộ dữ liệu hỏi đáp đa bước (multi-hop QA datasets) nổi tiếng:
 
-Tác giả đánh giá trên các bộ dữ liệu Multi-hop QA nổi tiếng:
-
-| Dataset | Mô tả |
-|----------|----------|
-| MuSiQue | Multi-hop Reasoning |
-| HotpotQA | Multi-document QA |
-| 2Wiki Multi-hop QA | Multi-hop QA từ Wikipedia |
-
-Đây đều là các benchmark yêu cầu:
-
-```text
-Multiple Documents
-+
-Reasoning Across Documents
-```
-
-để trả lời chính xác.
-
----
+1.  **HotpotQA**.
+2.  **2WikiMultiHopQA (2Wiki)**.
+3.  **MuSiQue**.
 
 ## Evaluation
 
-Bài báo đánh giá bằng metric nào?
+**Bài báo đánh giá bằng metric nào?**
 
-### QA Metrics
-
-- Accuracy (Acc)
-- Exact Match (EM)
-- F1 Score
-
----
-
-### Retrieval Metrics
-
-- Recall Rate
-
----
-
-### Efficiency Metrics
-
-- Number of LLM Calls
-- Query Processing Time
-
----
-
-Ngoài ra bài báo còn đánh giá:
-
-- Dynamic Document Discovery Ability
-- Multi-hop Retrieval Performance
-
----
+- **Chất lượng câu trả lời:** Exact Match (EM), F1 Score, và Accuracy (Acc).
+- **Hiệu suất hệ thống:** Recall rate (Tỷ lệ thu hồi tài liệu đúng), Actual numbers (Số lượng tài liệu thực tế đưa vào LLM), Number of steps (Số lần gọi LLM), và Time per Query (Thời gian xử lý mỗi câu hỏi).
 
 ## Results
 
-Kết quả chính là gì?
+**Kết quả chính là gì?**
 
-### Recall Improvement
-
-DR-RAG tăng Recall lên tới:
-
-```text
-86.75%
-```
-
-so với các retrieval strategy truyền thống.
-
----
-
-### QA Performance
-
-Cải thiện:
-
-| Metric | Improvement |
-|----------|----------|
-| Accuracy | +6.17% |
-| Exact Match | +7.34% |
-| F1 Score | +9.36% |
-
----
-
-### HotpotQA
-
-| Method | Accuracy |
-|----------|----------|
-| Adaptive-RAG | 44.40 |
-| DR-RAG | 55.68 |
-
----
-
-### Efficiency
-
-So với Adaptive-RAG:
-
-- Chỉ gọi LLM một lần.
-- Giảm khoảng 74.2% thời gian xử lý.
-- Retrieval hiệu quả hơn trong các bài toán Multi-hop QA.
-
----
-
-### Kết luận chính
-
-Tác giả chứng minh rằng:
-
-```text
-Dynamic-Relevant Documents
-```
-
-đóng vai trò rất quan trọng trong QA và việc khai thác các tài liệu này giúp cải thiện đáng kể chất lượng câu trả lời.
-
----
+- DR-RAG cải thiện đáng kể cả 3 chỉ số EM, F1 và Acc trên mọi bộ dữ liệu so với các framework tiên tiến như Self-RAG hay Adaptive-RAG.
+- Phương pháp lọc CFS giúp **tăng tỷ lệ recall lên đến 86.75%** trong khi vẫn **giảm được số lượng tài liệu rác** thực tế đưa vào LLM.
+- **Tốc độ cực nhanh:** Khác với các hệ thống suy luận đa bước phải gọi API LLM nhiều lần, DR-RAG chỉ mất 1 bước gọi LLM duy nhất (Single-step LLM call). Nhờ dùng classifier nhỏ để lọc tài liệu, thời gian phản hồi (Time per Query) của DR-RAG giảm trung bình **74.2%** so với Adaptive-RAG.
 
 ## Limitations
 
-Hạn chế của bài báo là gì?
+**Hạn chế của bài báo là gì?**
 
-### 1. Cần huấn luyện classifier riêng
-
-Framework không hoạt động theo kiểu:
-
-```text
-Plug-and-Play
-```
-
-Cần:
-
-- Tạo dữ liệu huấn luyện.
-- Fine-tune classifier.
-- Bảo trì classifier riêng.
-
----
-
-### 2. Chưa đánh giá trên domain đặc thù
-
-Các thí nghiệm chủ yếu thực hiện trên:
-
-```text
-Wikipedia QA Benchmarks
-```
-
-Chưa kiểm chứng trên:
-
-- Giáo dục.
-- Y tế.
-- Pháp luật.
-- Doanh nghiệp.
-
----
-
-### 3. Tăng độ phức tạp hệ thống
-
-RAG:
-
-```text
-Question
-→ Retrieve
-→ Generate
-```
-
-DR-RAG:
-
-```text
-Question
-→ Retrieve
-→ QDC
-→ Retrieve Again
-→ Classifier
-→ Generate
-```
-
-Khó triển khai và bảo trì hơn.
-
----
-
-### 4. Chưa xử lý Self-Reflection
-
-Framework vẫn phụ thuộc vào:
-
-```text
-Retriever
-+
-Classifier
-```
-
-Chưa có cơ chế:
-
-- Self-Correction.
-- Self-Evaluation.
-
-như các paper mới hơn như:
-
-- CRAG
-- Self-RAG
-
----
+- Đòi hỏi phải huấn luyện (train) trước một mô hình classifier (bộ phân loại) riêng biệt. Điều này có thể gặp khó khăn nếu áp dụng vào các lĩnh vực quá ngách (niche domains) vì thiếu dữ liệu để huấn luyện.
+- Hệ thống chưa có cơ chế kiểm duyệt nội dung đầu vào, có thể bị ảnh hưởng bởi các câu hỏi chứa nội dung độc hại hoặc khi truy xuất trúng các tài liệu có thông tin không phù hợp.
 
 ## Relevance to our topic
 
-Bài báo liên quan gì đến đề tài của nhóm?
-
-Mức độ liên quan:
-
-# Rất cao (Core Retrieval Improvement Paper)
-
-Đề tài:
-
-**AI Study Hub – Hệ thống hỏi đáp tài liệu học tập ứng dụng RAG**
-
-Hiện tại hệ thống đang sử dụng:
-
-```text
-Question
-↓
-Embedding
-↓
-Pinecone
-↓
-Top-k Retrieval
-↓
-LLM
-```
-
-Đây là:
-
-```text
-Basic RAG
-```
-
----
-
-Bài báo chỉ ra rằng:
-
-Top-k Retrieval có thể bỏ sót các chunk quan trọng nếu thông tin nằm phân tán ở nhiều phần khác nhau của tài liệu.
-
-Điều này rất giống môi trường học tập.
-
-Ví dụ:
-
-```text
-MMA301 gồm những thành phần điểm nào
-và Final Exam chiếm bao nhiêu phần trăm?
-```
-
-Thông tin có thể nằm ở:
-
-```text
-Chunk A
-→ Course Structure
-
-Chunk B
-→ Grading Policy
-```
-
-Basic RAG có thể chỉ retrieve được một chunk.
-
-DR-RAG giúp retrieve được cả hai.
-
----
-
-Paper này đặc biệt phù hợp với:
-
-- Lecture Notes.
-- PDF môn học.
-- Syllabus.
-- Slide bài giảng.
-
-vì kiến thức thường phân tán ở nhiều chương khác nhau.
-
----
+**Bài báo liên quan gì đến đề tài của nhóm?**
+Bài báo này cung cấp giải pháp tối ưu trực tiếp cho tính năng **Corrective RAG** và **luồng Question Answering** trong kiến trúc của dự án AI Study Hub.
+Trong tài liệu báo cáo `REPORT.md`, nhóm ghi rõ Corrective RAG của AI Study Hub có tính năng _"filters chunks by relevance"_ (lọc các đoạn văn bản theo độ liên quan) và dùng _"Groq SDK"_ để sinh cũng như đánh giá câu trả lời. Tuy nhiên, nếu dùng Groq (một LLM lớn) để chấm điểm từng đoạn văn bản (chunk), thời gian chờ của người dùng sẽ bị kéo dài và chi phí API sẽ tăng cao. DR-RAG chứng minh rằng việc dùng một mô hình phân loại cực nhẹ (125M tham số) để làm bộ lọc không chỉ tăng tốc độ hệ thống lên gấp nhiều lần mà còn giúp LLM trả lời chính xác hơn các câu hỏi mang tính tổng hợp (ví dụ: sinh viên hỏi một câu cần kết nối kiến thức từ slide chương 1 và chương 3).
 
 ## Possible improvement
 
-Nhóm có thể cải tiến hoặc mở rộng điểm nào?
+**Nhóm có thể cải tiến hoặc mở rộng điểm nào?**
 
-### 1. Multi-hop Retrieval cho tài liệu học tập
-
-Thay vì:
-
-```text
-Question
-→ Retrieve Once
-→ LLM
-```
-
-Sử dụng:
-
-```text
-Question
-→ Retrieve
-→ Expanded Query
-→ Retrieve Again
-→ LLM
-```
-
-Giúp tăng khả năng tìm đủ thông tin từ nhiều chương.
-
----
-
-### 2. Thay Classifier bằng LLM Judge
-
-Thay vì huấn luyện classifier riêng:
-
-```text
-Question
-Document A
-Document B
-
-Document B có hữu ích không?
-```
-
-LLM sẽ đánh giá trực tiếp.
-
-Ưu điểm:
-
-- Dễ triển khai hơn.
-- Phù hợp với đồ án sinh viên.
-
----
-
-### 3. Kết hợp DPR + DR-RAG
-
-Pipeline:
-
-```text
-Question
-↓
-DPR Retrieval
-↓
-Dynamic Retrieval
-↓
-LLM
-```
-
-Giúp vừa có:
-
-- Semantic Search mạnh.
-- Multi-hop Retrieval.
-
----
-
-### 4. Kết hợp CRAG
-
-Thêm bước:
-
-```text
-Retrieve
-↓
-Evaluate
-↓
-Correct
-↓
-Generate
-```
-
-để giảm retrieve sai chunk.
-
----
-
-### 5. Hướng nghiên cứu cho AI Study Hub
-
-So sánh:
-
-```text
-Basic RAG
-vs
-DR-RAG Inspired RAG
-```
-
-trên tập tài liệu học tập thực tế.
-
-Đánh giá:
-
-- Recall
-- Accuracy
-- Faithfulness
-- Response Time
-
-để chứng minh Dynamic Retrieval giúp cải thiện chất lượng hỏi đáp học tập.
+1.  **Tích hợp QDC (Query Document Concatenation) cho Luồng Truy xuất đa bước:** Hiện tại AI Study Hub chỉ nhúng (embed) câu hỏi gốc để tìm trên Pinecone. Nếu sinh viên hỏi câu phức tạp, Backend có thể triển khai chiến lược QDC: Lấy ra đoạn văn bản (chunk) liên quan nhất ở lần tìm đầu tiên, nối chunk đó vào đuôi câu hỏi của sinh viên, rồi gọi Jina Embeddings để query Pinecone thêm một lần nữa. Cách này giúp hệ thống tìm được các khái niệm liên đới mà cách tìm thông thường bị bỏ sót.
+2.  **Xây dựng Service Bộ lọc nhẹ (Lightweight Classifier Microservice):** Để tránh phụ thuộc hoàn toàn vào Groq SDK cho khâu _"filters chunks by relevance"_, nhóm có thể sử dụng một mô hình mã nguồn mở cực nhỏ (ví dụ: mô hình classify tiếng Việt dựa trên PhoBERT hoặc ONNX-based model) chạy trực tiếp trên Node.js Backend. Mô hình này đóng vai trò thực thi luồng CFS (Classifier Forward Selection), tự động loại bỏ các slide rác trước khi nhồi (inject) vào prompt cho Groq. Việc này giúp giảm số lượng token gửi đi và tăng tốc `response_time`.
+3.  **Bổ sung "Redundancy Ratio" vào Evaluation Dashboard:** Module `RAG Evaluation and Benchmarking` của nhóm đã rất chi tiết với các trường như `retrieved_chunk_count` và `relevant_chunk_count`. Lấy cảm hứng từ phép đo của bài báo, nhóm có thể bổ sung thêm một metric là **Redundancy Ratio** (Tỷ lệ nhiễu = 1 - (relevant_chunks / retrieved_chunks)) hiển thị trực quan lên trang `/admin/activity` để admin đánh giá xem Pinecone có đang trả về quá nhiều tài liệu vô ích hay không.
