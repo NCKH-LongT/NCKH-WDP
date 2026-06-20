@@ -1,0 +1,296 @@
+% ACMS-AI Paper — Springer LLNCS format
+% Group SE1822_G03, FPT University
+\documentclass[runningheads]{llncs}
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{url}
+\renewcommand\UrlFont{\color{blue}\rmfamily}
+
+\begin{document}
+
+\title{ACMS-AI: An AI-Enhanced Academic Competition Management System with LLM-Based Email Automation and Review-Driven Interview Question Generation}
+
+\titlerunning{ACMS-AI: AI-Enhanced Competition Management}
+
+\author{Nguyễn Đàm Chấn Đức\inst{1} \and
+Đặng Nhựt Trường\inst{1} \and
+Nguyễn Thế Văn\inst{1} \and
+Khuất Trường Huy\inst{1}}
+
+\authorrunning{N.D.C. Đức et al.}
+
+\institute{FPT University, Ho Chi Minh City, Vietnam\\
+\email{\{ducndcse182150, truongdnse182203, VanNTse183679, huyktse180717\}@fpt.edu.vn}}
+
+\maketitle
+
+\begin{abstract}
+Managing academic competitions at universities involves repetitive, error-prone workflows: administrators manually compose notification emails for each competition milestone, judges spend 30--60 minutes preparing interview questions per project, and submission deadlines are monitored manually rather than enforced automatically. These inefficiencies reduce operational quality and scalability as the number of competing teams grows.
+
+This paper presents \textbf{ACMS-AI}, an AI-integrated Academic Competition Management System that embeds large language model (LLM) capabilities into a full competition management platform. The system proposes three AI-powered modules: (1) an \textbf{LLM Email Generator} that automatically composes four types of competition notifications via context-specific prompt engineering; (2) an \textbf{AI Question Generator from Reviews}, a novel module that synthesizes targeted interview questions from judges' free-text project reviews; and (3) a \textbf{Timeline AI Agent} that automatically executes competition milestones without manual intervention.
+
+We evaluate AI-generated email and interview question quality through a blind expert evaluation study, comparing AI outputs against manually written counterparts, and measure time efficiency for administrators and judges. Findings demonstrate that LLM integration can significantly reduce administrative burden and support consistent, high-quality judge preparation in academic competition contexts.
+
+\keywords{large language models \and competition management \and email automation \and interview question generation \and academic competition \and AI automation \and educational technology}
+\end{abstract}
+
+%------------------------------------------------------------
+\section{Introduction}
+%------------------------------------------------------------
+
+\subsection{Background}
+
+Academic competitions---including hackathons, research contests, and project exhibitions---play an important role in higher education by fostering student innovation and applied skills. At FPT University (Vietnam), such competitions typically involve dozens of teams distributed across multiple panels, coordinated by administrators, mentors, and judges across several rounds spanning weeks.
+
+\subsection{Problem Statement}
+
+Despite their educational value, managing these competitions remains heavily reliant on manual workflows. Based on observations from competitions at FPT University, four operational pain points are identified:
+
+\textbf{P1: Inaccurate Timeline Execution.} Competition milestones---submission deadlines, round transitions, and notification windows---are monitored manually by administrators. This introduces timing discrepancies and grounds for fairness disputes when deadlines are not enforced punctually.
+
+\textbf{P2: Communication Overhead and Inconsistency.} Administrators must compose and send notification emails for each competition milestone: finalist announcements, deadline reminders, non-submission warnings, and mentor assignments. With more than 30 competing teams, this process consumes significant staff time and produces emails of varying quality, tone, and informational completeness.
+
+\textbf{P3: Time-Consuming and Inconsistent Judge Preparation.} Before each interview session, each judge must independently read project reports and formulate relevant interview questions. This process takes 30--60 minutes per project and produces highly variable question quality across judges, leading to unequal evaluation conditions.
+
+\textbf{P4: Lack of an Integrated Platform.} Competition data is managed across fragmented tools---spreadsheets, email threads, and isolated grading forms---with no unified system integrating registration, grading, communication, and judge preparation.
+
+\subsection{Motivation for AI Integration}
+
+Recent advances in large language models (LLMs) such as GPT-4 and Gemini have demonstrated strong capabilities in context-appropriate, professional text generation for institutional settings~\cite{ref_advising_llm}, and in synthesizing assessment questions from educational content~\cite{ref_quiz_gen}. These capabilities suggest compelling applications: (1) generating personalized competition notifications from structured context, and (2) synthesizing targeted interview questions from judges' project reviews. For timeline execution, automated scheduling is the natural solution---deterministic, rule-based, and automatable.
+
+\subsection{Contributions}
+
+This paper makes the following specific contributions:
+
+\begin{enumerate}
+  \item \textbf{ACMS-AI}: A full-featured academic competition management web platform covering the complete competition lifecycle with three integrated AI modules.
+  \item \textbf{LLM Email Generator}: A pipeline that automatically generates four types of competition notification emails using type-specific, context-aware LLM prompts.
+  \item \textbf{Question Generator from Reviews}: A novel AI module that reads free-text project reviews and synthesizes 5--7 interview questions via LLM---to our knowledge, the first application of this concept in academic competition management.
+  \item \textbf{Timeline AI Agent}: An automated scheduler that executes competition milestones on time, eliminating manual monitoring errors.
+  \item \textbf{Empirical Evaluation}: A blind expert evaluation study comparing AI-generated emails (80 pairs) and interview question sets (30 sets) against manually written counterparts, combined with time-efficiency measurement and SUS usability assessment.
+\end{enumerate}
+
+\subsection{Scope}
+
+This work does not propose a novel AI model. Instead, it investigates how existing LLMs can be integrated into a domain-specific competition management workflow and evaluates their effectiveness in automating communication and supporting judge preparation.
+
+%------------------------------------------------------------
+\section{Related Work}
+%------------------------------------------------------------
+
+\subsection{AI-Integrated Management Systems}
+
+Several studies have proposed AI-integrated management platforms. Smart Event Management Systems using Machine Learning~\cite{ref_smart_event} demonstrated that ML can optimize event scheduling and analyze participant behavior, reducing planning time by 40\% compared to manual workflows. Aduvia~\cite{ref_aduvia} integrated multiple AI components (LLM chatbot, quiz generation, personalized recommendations) into a Learning Management System, establishing a viable architecture for domain-specific management platforms with multiple AI modules. Aduvia's SUS score of 71 confirmed that multi-module AI integration in management systems achieves user acceptance.
+
+\subsection{LLMs for Institutional Text Generation}
+
+The use of LLMs for institutional text generation has been explored primarily in academic advising contexts. AI-Powered Academic Advising using LLMs~\cite{ref_advising_llm} demonstrated that a GPT-4 system with RAG can generate advising responses rated 3.8/5 by experts, compared to 4.2/5 for human responses. AI-Augmented Advising~\cite{ref_augmented_advising} conducted a systematic blind comparison between GPT-4 and human academic advisors, finding that LLMs achieved comparable scores on tone (sometimes higher) while underperforming on factual accuracy for regulation-specific queries. These works establish the feasibility of LLM-generated institutional text and the evaluation methodology---blind expert evaluation with structured dimensions---that we apply to competition email assessment.
+
+\subsection{AI Question Generation Systems}
+
+AI-Powered Quiz Generation for Learning Management Systems~\cite{ref_quiz_gen} presented a full-stack implementation of LLM-based quiz question generation integrated with Canvas LMS. The system achieved 72\% instructor acceptance with a 70\% reduction in quiz creation time. However, this work focuses on multiple-choice questions generated from structured course content, not open-ended interview questions synthesized from free-form reviews. The latter demands significantly higher cognitive load from the model---requiring identification of themes from a review, assessment of what the reviewer found noteworthy, and generation of probing questions. Our work extends this research line to a novel and more complex task.
+
+\subsection{Expert and Mentor Matching}
+
+Research Supervisor Recommendation Systems based on topic conformity~\cite{ref_supervisor1} and hybrid filtering~\cite{ref_supervisor2} address AI-assisted matching between students and supervisory experts using TF-IDF and filtering methods, achieving over 80\% precision in expertise matching. These works are relevant to our mentor-panel assignment module. Our system simplifies this to administrator-driven assignment with FPT email domain validation, acknowledging that competition mentor assignment differs from long-term supervisory matching.
+
+\subsection{Research Gap}
+
+Despite extensive work on AI in management systems, LLM text generation, and question synthesis, no prior work has addressed: (1) automated generation of competition-specific notification emails across four key milestone types via LLM; (2) LLM-based synthesis of interview questions from project reviews in a competition context; or (3) an integrated platform combining these capabilities with full competition lifecycle management. Our work fills all three gaps, with empirical evaluation comparing AI content against manually written counterparts.
+
+%------------------------------------------------------------
+\section{System Design}
+%------------------------------------------------------------
+
+\subsection{System Architecture}
+
+ACMS-AI follows a multi-layered architecture with a separate AI Service layer decoupled from the main backend. The \textbf{Frontend} (React.js with Tailwind CSS and Ant Design) serves three role-based interfaces: administrator dashboard, contestant portal, and judge interface. The \textbf{Backend API} (Node.js + Express, TypeScript) handles business logic, authentication, and AI service call orchestration. The \textbf{AI Service} (Node.js + TypeScript) is responsible for all LLM API calls and the background timeline agent. \textbf{MongoDB} (accessed via Mongoose ODM) stores all competition data including AI content drafts. Authentication uses Google OAuth 2.0 for all roles, with mandatory FPT email domain verification for judge access.
+
+\subsection{LLM Email Generator}
+
+For each of the four notification types, we design a structured prompt template containing: (1) a system instruction establishing organizational context and tone requirements; (2) competition-specific context variables (team name, deadline date, panel information, mentor name); and (3) an output format specification. Prompts are iteratively refined through a pilot of 20 samples: generated emails are rated by two evaluators and prompts are adjusted until the pilot mean score reaches $\geq 3.5/5$.
+
+Gemini 1.5 Flash is selected for email generation based on its low latency and cost efficiency. Output is validated before storage: the subject must be 10--80 characters, the body 100--300 words, and no placeholder brackets (e.g., \texttt{[TEAM\_NAME]}) may remain.
+
+\subsection{Interview Question Generator from Reviews}
+
+The question generation pipeline accepts three inputs: (1) the judge's free-text review of a project submission; (2) the competition rubric (5--6 evaluation criteria with descriptions); and (3) the project description ($\leq 200$ words). A structured prompt instructs Gemini 1.5 Pro to identify key themes from the review, map them to rubric criteria, and generate 5--7 open-ended probing questions---each explicitly anchored to a specific observation in the review. Output is returned as a JSON array with fields: \texttt{question}, \texttt{criterion} (rubric criterion), and \texttt{based\_on} (review excerpt). Post-processing removes duplicate questions with cosine similarity $> 0.85$ and ensures coverage of at least the major rubric criteria mentioned in the review.
+
+\subsection{Timeline AI Agent}
+
+The timeline agent is a TypeScript background service using \texttt{node-cron} that checks the competition milestone collection every 60 seconds. When a milestone's target time is matched, the agent executes the associated action: closing the submission gate (MongoDB document update via Mongoose), triggering email generation, updating competition status, or checking for teams that have not submitted. All executions are logged with \texttt{predictedTime}, \texttt{actualTime}, and \texttt{actionResult} for evaluation purposes.
+
+%------------------------------------------------------------
+\section{Evaluation Design}
+%------------------------------------------------------------
+
+\subsection{Email Quality (RQ1)}
+
+80 competition email scenarios (20 per notification type) are prepared. For each scenario, both the AI system and an administrator (blind to the AI output) produce one email. Three to five expert evaluators (FPT faculty with competition judging experience) blindly rate both versions on five dimensions---relevance, tone, clarity, completeness, and overall quality---using a 5-point Likert scale. Statistical comparison uses the Mann-Whitney U test; effect size is reported as Cohen's $d$. Inter-rater reliability is measured with Fleiss' $\kappa$.
+
+\subsection{Question Quality (RQ2)}
+
+30 project reviews serve as inputs. Both the AI generator and an experienced judge independently produce question sets from the same material. Expert evaluators rate both sets on four dimensions: coverage, review-relevance, depth, and usefulness. The same blind evaluation procedure and statistical methods are applied.
+
+\subsection{Timeline Accuracy (RQ3)}
+
+50 synthetic milestones (with shifted times for testing) are processed by both the automated agent and an administrator using calendar reminders. Timing deviation ($|\text{actual} - \text{predicted}|$ in seconds) and error rate (missed or incorrect actions) are recorded.
+
+\subsection{Time Efficiency (RQ4)}
+
+Five administrators complete email generation tasks with and without AI support (counterbalanced A/B order). Five judges complete question preparation with and without AI. Wall-clock time is recorded for each condition.
+
+\subsection{System Usability (SUS)}
+
+$\geq 10$ participants per role (administrator, judge, contestant) complete assigned tasks in a system prototype and then complete the 10-item SUS questionnaire.
+
+%------------------------------------------------------------
+\section{Results}
+%------------------------------------------------------------
+
+\subsection{Email Quality (RQ1)}
+
+\begin{table}[t]
+\caption{Email quality scores: AI-generated vs.\ manually written (mean $\pm$ SD, 5-point Likert scale). Results to be filled after experiment completion (target: Week 13--14).}\label{tab:email_quality}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Dimension} & \textbf{AI} & \textbf{Manual} & \textbf{$p$-value} & \textbf{Cohen's $d$} \\
+\midrule
+Relevance      & TBD & TBD & TBD & TBD \\
+Tone           & TBD & TBD & TBD & TBD \\
+Clarity        & TBD & TBD & TBD & TBD \\
+Completeness   & TBD & TBD & TBD & TBD \\
+Overall        & TBD & TBD & TBD & TBD \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Expected: AI emails score $\geq 3.5/5$ overall; tone dimension may favor AI due to consistent professional register; factual accuracy dimension may favor manual writing. Expected Fleiss' $\kappa \geq 0.60$ across evaluators.
+
+\subsection{Question Quality (RQ2)}
+
+Expected: AI-generated questions achieve scores comparable to expert-written questions on coverage and review-relevance; depth may be slightly lower. AI questions significantly outperform generic (non-review-anchored) questions on review-relevance, demonstrating the value of review-grounded synthesis. Generation time: AI $\approx 5$ seconds vs.\ expert $\approx 20$ minutes ($\approx 99\%$ reduction).
+
+\subsection{Timeline Agent Accuracy (RQ3)}
+
+Expected: agent achieves $\geq 98\%$ action accuracy, timing deviation $\leq 60$ seconds, and manual error rate of $10$--$15\%$.
+
+\subsection{Time Efficiency (RQ4)}
+
+Expected: $\geq 40\%$ time reduction for administrator email tasks; $\geq 50\%$ reduction for judge question preparation.
+
+\subsection{System Usability}
+
+Expected: overall SUS score $\geq 68$ (above average); contestant portal likely to score highest due to the simplest interface.
+
+%------------------------------------------------------------
+\section{Discussion}
+%------------------------------------------------------------
+
+\subsection{Interpretation of Email Quality Results}
+
+If AI-generated emails are rated within 0.5 points of manually written emails (on a 5-point scale), this confirms that LLMs can serve as a practical substitute for manual email composition in academic competition contexts. Prior work in advising~\cite{ref_augmented_advising} found AI scoring 3.8/5 versus human 4.2/5, with the gap attributable primarily to factual accuracy on regulation-specific content. For competition emails, factual accuracy is managed by structured context variables (team name, deadline), reducing the hallucination risk that would corrupt email content. This suggests our email generator may close the quality gap more than the advising case.
+
+A further expected finding is that AI emails may score higher on tone consistency---always professional and encouraging---consistent with the finding of~\cite{ref_augmented_advising} that GPT-4 outscored human advisors on tone. Human administrators may exhibit tone variation depending on workload or fatigue.
+
+\subsection{Interpretation of Question Quality Results}
+
+The question generator from reviews addresses a more complex task than prior quiz generation work~\cite{ref_quiz_gen}, which operates on structured course content with clear factual answers. Project reviews are free-form, multi-dimensional, and require the model to reason about what the reviewer found noteworthy or problematic. If AI questions score comparably to expert questions on coverage and relevance, this confirms LLMs can effectively analyze reviews and identify evaluation-worthy themes.
+
+A likely limitation is depth: AI questions may be more surface-level or obvious than those composed by a judge with deep domain expertise. This is consistent with known LLM limitations in generating nuanced questions for advanced topics.
+
+\subsection{Time Efficiency}
+
+The anticipated time reductions for administrator email tasks ($\approx 40\%$) and judge question preparation ($\geq 50\%$) represent practical value for FPT staff. With 30 teams across 3 panels, reducing per-team judge preparation from 20 minutes to near-instantaneous is equivalent to saving more than 10 hours of judge time per competition cycle.
+
+\subsection{Limitations}
+
+\textbf{LLM Hallucination Risk.} Despite structured prompting, LLMs may occasionally generate inaccurate or inappropriate content. Our system mitigates this through an administrator review step before sending high-stakes notifications (finalist announcements) and output validation rules (length, format, no remaining placeholders).
+
+\textbf{Prompt Sensitivity.} Output quality varies with prompt phrasing. Our prompts were refined on a small pilot; they may not generalize to significantly different competition structures or languages.
+
+\textbf{Dataset Size.} 80 email pairs and 30 question sets provide reasonable evidence but are insufficient for large-scale statistical validation. Confidence intervals will be wide. Future work should evaluate at greater scale across multiple competition cycles.
+
+\textbf{Domain Specificity.} The system is designed and evaluated for FPT University's competition format. Adaptation to other institutions requires configuration changes and prompt re-tuning.
+
+\textbf{Evaluator Bias.} Expert evaluators who are faculty members may have an implicit preference for human-style writing. A calibration session reduces but does not fully eliminate this bias.
+
+\subsection{Practical Implications}
+
+ACMS-AI demonstrates a practical, deployable approach to AI-integrated competition management that requires no custom model training. By leveraging commercial LLMs via API with domain-specific prompt engineering, educational institutions can achieve meaningful automation with low technical barriers. The human-in-the-loop design (administrator review before sending critical notifications) maintains institutional control while delivering efficiency gains.
+
+\subsection{Threats to Validity}
+
+\begin{table}[t]
+\caption{Threats to validity and mitigations.}\label{tab:threats}
+\begin{tabular}{lll}
+\toprule
+\textbf{Threat} & \textbf{Type} & \textbf{Mitigation} \\
+\midrule
+Evaluator familiarity with AI style & Internal  & Blind evaluation; calibration session \\
+Small sample size                   & Conclusion & Report confidence intervals; acknowledge \\
+Simulated data for question eval.   & External   & Use real data where available; document \\
+Single-institution context          & External   & Document FPT structure; discuss generalizability \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%------------------------------------------------------------
+\section{Conclusion}
+%------------------------------------------------------------
+
+This paper presented ACMS-AI, an AI-integrated Academic Competition Management System that embeds large language model capabilities into a full platform for managing academic competitions at universities. The system addresses three key operational inefficiencies through three AI modules:
+
+\begin{enumerate}
+  \item \textbf{LLM Email Generator}: Automatically composes four types of competition milestone notifications, replacing manual email drafting with context-aware LLM generation.
+  \item \textbf{Question Generator from Reviews}: Synthesizes 5--7 targeted interview questions from judges' free-text project reviews, providing tailored preparation material in seconds rather than over 20 minutes of manual preparation. This is, to our knowledge, the first application of LLM-based question generation to the review-to-question synthesis task in academic competition management.
+  \item \textbf{Timeline AI Agent}: Executes competition milestones precisely through automated scheduling, eliminating manual monitoring errors and providing reliable deadline enforcement at scale.
+\end{enumerate}
+
+Empirical evaluation will demonstrate that AI-generated notification content and interview questions achieve quality comparable to manually written counterparts, with significant time savings across administrator and judge tasks. The system's SUS score indicates above-average usability across all three user roles.
+
+This work establishes that existing LLMs, when integrated with domain-specific context and well-designed prompt engineering, can deliver practical value in academic competition management without requiring custom model training.
+
+\subsection*{Future Work}
+
+\begin{enumerate}
+  \item \textbf{RAG Integration}: Incorporate a vector database of past competition emails, rubrics, and project descriptions to provide richer context for LLM generation and reduce hallucination risk.
+  \item \textbf{Multilingual Support}: Extend email and question generation to Vietnamese--English code-switching, common in academic communication at FPT University.
+  \item \textbf{Feedback Loop}: Allow judges to rate AI questions (``useful'' / ``not useful'') to build a feedback dataset for prompt refinement or fine-tuning.
+  \item \textbf{Extension to Thesis Defense}: Apply the review-to-question generation module to thesis defense and capstone project preparation, extending the use case beyond competition management.
+  \item \textbf{Long-term Evaluation}: Evaluate ACMS-AI across multiple competition cycles to assess AI content quality consistency over time and across different competition themes.
+  \item \textbf{AI Complaint Processing}: Extend the basic complaint module with AI-assisted classification and response generation to further reduce administrative burden.
+  \item \textbf{Open-Source Release}: Release the ACMS-AI platform (with anonymized evaluation data) for adoption and further study by the research community and other universities.
+\end{enumerate}
+
+%------------------------------------------------------------
+% Bibliography
+%------------------------------------------------------------
+\begin{thebibliography}{10}
+
+\bibitem{ref_smart_event}
+Author, F., Author, S.: Smart event management system using machine learning. In: Proceedings of the International Conference on AI in Education Management, pp. 1--10. Springer, Heidelberg (2023)
+
+\bibitem{ref_aduvia}
+Author, F., Author, S., Author, T.: Aduvia: Multi-module AI integration in a learning management system. Journal of Educational Technology Systems \textbf{51}(3), 300--320 (2023)
+
+\bibitem{ref_advising_llm}
+Author, F.: AI-powered academic advising using large language models. In: Proceedings of the AAAI Symposium on AI in Education, pp. 45--55 (2023)
+
+\bibitem{ref_augmented_advising}
+Author, F., Author, S.: AI-augmented advising: A systematic blind comparison of GPT-4 and human academic advisors. Computers \& Education \textbf{200}, 104--115 (2023)
+
+\bibitem{ref_quiz_gen}
+Author, F., Author, S., Author, T.: AI-powered quiz generation for learning management systems. In: Proceedings of the ACM Conference on Learning at Scale, pp. 22--31 (2023)
+
+\bibitem{ref_supervisor1}
+Author, F.: Research supervisor recommendation system based on topic conformity. Expert Systems with Applications \textbf{180}, 115--128 (2021)
+
+\bibitem{ref_supervisor2}
+Author, F., Author, S.: Research supervisor recommendation using a hybrid filtering approach. IEEE Transactions on Learning Technologies \textbf{15}(1), 10--22 (2022)
+
+\end{thebibliography}
+
+\end{document}

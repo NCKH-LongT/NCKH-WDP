@@ -6,8 +6,8 @@ Thư mục này sẽ chứa các phiên bản cuối cùng đã nộp của tấ
 
 | File | Mô tả | Trạng thái |
 |---|---|---|
-| `final_paper.docx` | Bài báo cuối cùng định dạng Word (theo mẫu hội thảo) | Chưa sẵn sàng |
-| `final_paper.pdf` | Bài báo cuối cùng định dạng PDF | Chưa sẵn sàng |
+| `acms_ai_paper.tex` | Bài báo định dạng LaTeX (Springer LLNCS) — bản nháp đầy đủ | Có sẵn (cần điền TBD sau experiment) |
+| `final_paper.pdf` | Bài báo cuối cùng định dạng PDF (compile từ .tex) | Chưa sẵn sàng |
 | `presentation.pptx` | Slide thuyết trình cho hội thảo / bảo vệ | Chưa sẵn sàng |
 
 ## Checklist Trước khi Nộp
