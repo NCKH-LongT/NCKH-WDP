@@ -23,11 +23,11 @@ Thư mục này chứa các sơ đồ kiến trúc và luồng công việc củ
 
 ```mermaid
 graph TD
-    A[Frontend React.js] -->|REST API| B[Backend Node.js]
-    B --> C[(PostgreSQL DB)]
-    B --> D[AI Service Python/FastAPI]
+    A[Frontend React.js + Tailwind + AntD] -->|REST API| B[Backend Node.js TypeScript]
+    B --> C[(MongoDB / Mongoose)]
+    B --> D[AI Service Node.js TypeScript]
     B --> E[Email Service SendGrid]
     D -->|LLM API| F[Gemini / GPT API]
-    D --> G[Timeline Agent Cron]
+    D --> G[Timeline Agent node-cron]
     A -->|Google OAuth| H[Google Auth]
 ```

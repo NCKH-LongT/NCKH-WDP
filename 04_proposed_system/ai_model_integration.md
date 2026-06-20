@@ -4,9 +4,9 @@
 
 | Thành phần | Model | Nguồn | Phương thức Tích hợp |
 |---|---|---|---|
-| Bộ sinh Email | Gemini 1.5 Flash / GPT-4o-mini | Google AI Studio / OpenAI API | REST API call từ AI Service (Python) |
-| Bộ sinh Câu hỏi | Gemini 1.5 Pro / GPT-4 | Google AI Studio / OpenAI API | REST API call từ AI Service (Python) |
-| Timeline Agent | Cron scheduler rule-based | Built-in (Python APScheduler) | Tiến trình nền, không gọi LLM ngoài |
+| Bộ sinh Email | Gemini 1.5 Flash / GPT-4o-mini | Google AI Studio / OpenAI API | REST API call từ AI Service (TypeScript) |
+| Bộ sinh Câu hỏi | Gemini 1.5 Pro / GPT-4 | Google AI Studio / OpenAI API | REST API call từ AI Service (TypeScript) |
+| Timeline Agent | Cron scheduler rule-based | Built-in (node-cron / TypeScript) | Tiến trình nền, không gọi LLM ngoài |
 
 ## 2. Lý do Chọn Model
 
@@ -112,27 +112,32 @@ Trả về dưới dạng JSON array:
 
 ## 5. Timeline Agent — Đặc tả
 
-```python
-# Chạy mỗi 60 giây (APScheduler)
-def kiem_tra_moc():
-    cac_moc = db.lay_moc_cho_xu_ly(thoi_gian_hien_tai)
-    for moc in cac_moc:
-        if moc.loai == "DONG_CONG_NOP_BAI":
-            dong_cong_nop_bai(moc.id_cuoc_thi)
-            danh_dau_hoan_thanh(moc.id)
-        elif moc.loai == "THONG_BAO_CHUNG_KET":
-            tong_hop_diem(moc.id_cuoc_thi)
-            kich_hoat_sinh_email("CHUNG_KET", moc.id_cuoc_thi)
-            danh_dau_hoan_thanh(moc.id)
-        elif moc.loai == "NHAC_DEADLINE":
-            kich_hoat_sinh_email("NHAC", moc.id_cuoc_thi)
-            danh_dau_hoan_thanh(moc.id)
-        elif moc.loai == "CANH_BAO_CHUA_NOP":
-            cac_doi = lay_doi_chua_nop(moc.id_cuoc_thi)
-            for doi in cac_doi:
-                kich_hoat_sinh_email("CHUA_NOP", moc.id_cuoc_thi, doi.id)
-            danh_dau_hoan_thanh(moc.id)
-        ghi_log(moc.id, "da_thuc_hien", thoi_gian_hien_tai)
+```typescript
+// Chạy mỗi 60 giây (node-cron)
+cron.schedule('* * * * *', async () => {
+  const cacMoc = await Milestone.find({ targetTime: { $lte: new Date() }, status: 'pending' });
+  for (const moc of cacMoc) {
+    if (moc.type === 'DONG_CONG_NOP_BAI') {
+      await dongCongNopBai(moc.competitionId);
+      moc.status = 'done';
+    } else if (moc.type === 'THONG_BAO_CHUNG_KET') {
+      await tongHopDiem(moc.competitionId);
+      await kichHoatSinhEmail('CHUNG_KET', moc.competitionId);
+      moc.status = 'done';
+    } else if (moc.type === 'NHAC_DEADLINE') {
+      await kichHoatSinhEmail('NHAC', moc.competitionId);
+      moc.status = 'done';
+    } else if (moc.type === 'CANH_BAO_CHUA_NOP') {
+      const cacDoi = await layChuaNop(moc.competitionId);
+      for (const doi of cacDoi) {
+        await kichHoatSinhEmail('CHUA_NOP', moc.competitionId, doi._id);
+      }
+      moc.status = 'done';
+    }
+    moc.actualTime = new Date();
+    await moc.save();
+  }
+});
 ```
 
 ## 6. So sánh với Baseline

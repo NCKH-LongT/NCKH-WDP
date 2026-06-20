@@ -8,30 +8,30 @@ ACMS-AI theo kiến trúc đa tầng với một lớp AI Service riêng biệt,
 [Trình duyệt: Thí sinh / Quản trị viên / Giám khảo]
               |
       [Tầng Frontend]
-     (React.js / Next.js)
+  (React.js + Tailwind CSS + Ant Design)
               |
       [Tầng Backend API]
-    (Node.js + Express / Spring Boot)
+    (Node.js + Express — TypeScript)
          |         |         |
-  [PostgreSQL]  [AI Service]  [Email Service]
-   (DB chính)  (Python/FastAPI) (SendGrid/SMTP)
+   [MongoDB]   [AI Service]  [Email Service]
+  (Mongoose)  (Node.js/TS)  (SendGrid/SMTP)
                      |
             [LLM API: Gemini / GPT]
-            [Timeline Agent (Cron)]
+            [Timeline Agent (node-cron)]
 ```
 
 ## 2. Các Thành phần Chính
 
 | Thành phần | Công nghệ | Mô tả |
 |---|---|---|
-| **Frontend** | React.js / Next.js | Giao diện web phân quyền cho 3 vai trò: quản trị viên, thí sinh, giám khảo |
-| **Backend API** | Node.js + Express (hoặc Spring Boot) | Xử lý nghiệp vụ: đăng ký, chia bảng, chấm điểm, điều phối gọi AI |
-| **Database** | PostgreSQL | Lưu trữ: cuộc thi, đội, bảng, điểm, bài review, nội dung AI tạo ra, log kiểm toán |
-| **AI Service** | Python + FastAPI | Microservice gọi LLM API; xử lý sinh email, sinh câu hỏi, chạy timeline agent |
+| **Frontend** | React.js + Tailwind CSS + Ant Design + CSS | Giao diện web phân quyền cho 3 vai trò: quản trị viên, thí sinh, giám khảo |
+| **Backend API** | Node.js + Express (TypeScript) | Xử lý nghiệp vụ: đăng ký, chia bảng, chấm điểm, điều phối gọi AI |
+| **Database** | MongoDB + Mongoose | Lưu trữ: cuộc thi, đội, bảng, điểm, bài review, nội dung AI tạo ra, log kiểm toán |
+| **AI Service** | Node.js + TypeScript | Module gọi LLM API; xử lý sinh email, sinh câu hỏi, chạy timeline agent |
 | **Xác thực** | Google OAuth 2.0 | Gmail SSO cho tất cả vai trò; kiểm tra domain email FPT cho mentor/giám khảo |
 | **Email Service** | SendGrid API / SMTP | Gửi email do AI tạo và thông báo hệ thống |
 | **LLM API** | Gemini API (Google) hoặc OpenAI API | Sinh nội dung email và câu hỏi phỏng vấn |
-| **Timeline Agent** | Python APScheduler / Cron | Scheduler nền; kiểm tra mốc, kích hoạt hành động, ghi log |
+| **Timeline Agent** | node-cron (TypeScript) | Scheduler nền; kiểm tra mốc, kích hoạt hành động, ghi log |
 
 ## 3. Sơ đồ Kiến trúc
 
@@ -41,18 +41,18 @@ Sơ đồ logic:
 
 ```
 ┌───────────────────────────────────────────────────────┐
-│              FRONTEND (React.js/Next.js)               │
+│     FRONTEND (React.js + Tailwind CSS + Ant Design)    │
 │  Trang admin | Cổng thí sinh | Giao diện giám khảo    │
 └───────────────────────────┬───────────────────────────┘
                             │ REST API / WebSocket
 ┌───────────────────────────▼───────────────────────────┐
-│                  BACKEND API (Node.js)                 │
+│            BACKEND API (Node.js + Express / TS)        │
 │  Auth | Cuộc thi | Đội thi | Điểm | Khiếu nại | Email │
 └──────────┬─────────────────────┬─────────────────────┘
            │                     │
     ┌──────▼──────┐     ┌────────▼────────┐
-    │  PostgreSQL  │     │   AI Service    │
-    │  (dữ liệu)  │     │ (Python/FastAPI) │
+    │    MongoDB   │     │   AI Service    │
+    │  (Mongoose) │     │  (Node.js / TS) │
     └─────────────┘     │ ┌─────────────┐ │
                         │ │ Sinh Email  │ │
                         │ ├─────────────┤ │
