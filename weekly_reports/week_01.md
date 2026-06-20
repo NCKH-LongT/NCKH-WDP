@@ -4,25 +4,30 @@
 
 - Lớp: SE1822
 - Nhóm: G03
-- Trưởng nhóm: [TBD — trưởng nhóm điền vào]
-- Thành viên: [TBD — liệt kê tên và mã số sinh viên tất cả thành viên]
+- Trưởng nhóm: Nguyễn Đàm Chấn Đức
+- Thành viên:
+  - Nguyễn Đàm Chấn Đức — SE182150 (Trưởng nhóm)
+  - Đặng Nhựt Trường — SE182203
+  - Nguyễn Thế Văn — SE183679
+  - Khuất Trường Huy — SE180717
 
 ## Công việc Đã hoàn thành Tuần này
 
 | Thành viên | Công việc | Kết quả |
 |---|---|---|
-| [Trưởng nhóm] | Tạo nhánh nhóm SE1822_G03 trên Git repository | Hoàn thành |
-| [Trưởng nhóm] | Đọc README.md và nắm toàn bộ yêu cầu | Hoàn thành |
-| [Thành viên 1] | Nghiên cứu lĩnh vực quản lý cuộc thi và các trường hợp ứng dụng AI | Xác định 3 tính năng AI: sinh email, sinh câu hỏi, timeline agent |
-| [Thành viên 2] | Đọc các file hiện có: ai_management_system_conference_paper_ideas.md và similar_conference_papers_ai_management_system.md | Trích xuất tài liệu tham khảo và hướng đề tài |
-| [Cả nhóm] | Thống nhất chủ đề và phạm vi đề tài | Chọn ACMS-AI làm đề tài |
-| [Cả nhóm] | Tạo cấu trúc thư mục đầy đủ theo yêu cầu README | Tất cả thư mục và file cần thiết đã tạo xong |
-| [Cả nhóm] | Viết nội dung ban đầu: topic_proposal, problem_statement, research_gap, research_questions | Hoàn thành (bản nháp v1) |
-| [Cả nhóm] | Viết tóm tắt 6 bài báo liên quan | paper_01 đến paper_06 hoàn thành |
-| [Cả nhóm] | Điền literature review matrix | 8 bài báo được thêm vào |
-| [Cả nhóm] | Viết tài liệu kiến trúc hệ thống, luồng dữ liệu, tích hợp AI | Hoàn thành (bản nháp v1) |
-| [Cả nhóm] | Viết methodology, dataset, baseline, evaluation metrics | Hoàn thành (bản nháp v1) |
-| [Cả nhóm] | Viết 07_paper_draft: tất cả các phần dạng bản nháp | Abstract, Giới thiệu, Tổng quan tài liệu, Phương pháp, Thảo luận, Kết luận — bản nháp v1 |
+| Nguyễn Đàm Chấn Đức | Tạo nhánh nhóm SE1822_G03 trên Git repository | Hoàn thành |
+| Nguyễn Đàm Chấn Đức | Đọc README.md, nắm toàn bộ yêu cầu và phân công nhiệm vụ cho nhóm | Hoàn thành |
+| Nguyễn Đàm Chấn Đức | Viết tài liệu kiến trúc hệ thống, luồng dữ liệu, tích hợp AI model | Hoàn thành (bản nháp v1) |
+| Đặng Nhựt Trường | Nghiên cứu lĩnh vực quản lý cuộc thi và các trường hợp ứng dụng AI | Xác định 3 tính năng AI: sinh email, sinh câu hỏi, timeline agent |
+| Đặng Nhựt Trường | Viết tóm tắt 6 bài báo liên quan (paper_01 đến paper_06) | Hoàn thành |
+| Đặng Nhựt Trường | Điền literature review matrix | 8 bài báo được thêm vào |
+| Nguyễn Thế Văn | Đọc các file hiện có: ai_management_system_conference_paper_ideas.md và similar_conference_papers_ai_management_system.md | Trích xuất tài liệu tham khảo và hướng đề tài |
+| Nguyễn Thế Văn | Viết nội dung ban đầu: topic_proposal, problem_statement, research_gap, research_questions | Hoàn thành (bản nháp v1) |
+| Nguyễn Thế Văn | Viết methodology, dataset, baseline, evaluation metrics | Hoàn thành (bản nháp v1) |
+| Khuất Trường Huy | Viết 07_paper_draft: abstract, introduction, related_work | Hoàn thành (bản nháp v1) |
+| Khuất Trường Huy | Viết 07_paper_draft: discussion, conclusion | Hoàn thành (bản nháp v1) |
+| Cả nhóm | Thống nhất chủ đề và phạm vi đề tài | Chọn ACMS-AI làm đề tài |
+| Cả nhóm | Tạo cấu trúc thư mục đầy đủ theo yêu cầu README | Tất cả thư mục và file cần thiết đã tạo xong |
 
 ## Commit Git
 
