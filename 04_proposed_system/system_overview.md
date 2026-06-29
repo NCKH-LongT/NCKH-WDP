@@ -17,7 +17,8 @@ Hệ thống được thiết kế phục vụ 4 nhóm người dùng chính:
 * **Đặt chỗ trước (Booking):** Cho phép Driver đặt chỗ trước thông qua Mobile App.
 * **Thanh toán trực tuyến (Payment):** Tích hợp cổng thanh toán VNPay để tự động tính và thu phí gửi xe.
 * **Báo cáo & Thống kê (Report Service):** Xuất các báo cáo doanh thu, biểu đồ lưu lượng xe cho Manager.
-* **Trợ lý thông minh (AI Integration):** Tích hợp AI (Gemini) để hỗ trợ phân tích dữ liệu, gợi ý hệ thống hoặc hỗ trợ người dùng.
+* **Nhận diện biển số tự động (AI-LPR):** Tích hợp pipeline **YOLOv8 + CRNN-OCR** tại cổng vào/ra để tự động nhận diện biển số xe, check-in/check-out không cần nhập tay, và kích hoạt tính phí tự động. Đây là **AI chính** của hệ thống.
+* **Trợ lý thông minh (LLM Assistant):** Tích hợp **Google Gemini** (Function Calling + RAG) để hỗ trợ Driver tìm chỗ bằng ngôn ngữ tự nhiên và cung cấp báo cáo phân tích vận hành cho Manager.
 
 ## 4. Dữ liệu đầu vào
 * **Thông tin định danh:** Biển số xe, mã QR vé xe.
