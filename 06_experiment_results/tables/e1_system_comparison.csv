@@ -1,0 +1,4 @@
+system,avg_response_time_s,avg_usefulness,accuracy_pct,escalation_ok_pct
+S1 (Proposed RAG),0.828,4.06,86.0,100.0
+B1 (Rule-based),0.0,3.04,68.0,78.0
+B2 (TF-IDF),0.0,3.12,64.0,78.0

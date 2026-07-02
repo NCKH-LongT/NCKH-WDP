@@ -1,0 +1,4 @@
+system,escalate,faq,loyalty,personal
+S1 (Proposed RAG),100.0,93.3,76.9,72.7
+B1 (Rule-based),45.5,93.3,76.9,45.5
+B2 (TF-IDF),0.0,93.3,76.9,72.7
