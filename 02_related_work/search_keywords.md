@@ -1,266 +1,25 @@
-# Search Keywords
+# Academic Search Keywords Matrix
 
-## Overview
+Bảng dưới đây liệt kê các từ khóa tìm kiếm học thuật (Search Queries) được rút ra từ 10 bài báo nghiên cứu nền tảng để phát triển dự án **Horse Racing Tournament Management System**.
 
-This document contains the academic search keywords used to identify and collect research papers related to the project:
-
-**AI-powered Horse Racing Tournament Management System**
-
-The keywords are organized into research themes corresponding to the major system modules and literature review categories.
-
----
-
-# 1. Horse Racing Prediction
-
-## Purpose
-
-Identify studies related to predicting race outcomes, horse rankings, and horse performance using Artificial Intelligence and Machine Learning techniques.
-
-### Search Queries
-
-```text
-"horse racing prediction"
-"horse race outcome prediction"
-"horse race ranking prediction"
-"horse racing machine learning"
-"horse racing artificial intelligence"
-"horse racing neural network"
-"horse racing deep learning"
-"horse racing prediction model"
-"horse race forecasting"
-"horse racing analytics"
-```
-
-### Related System Module
-
-* Prediction Management
-* Ranking Management
-* Spectator Prediction Assistant
+| STT | Từ khóa tìm kiếm học thuật (Search Queries) | Mô-đun ứng dụng tương ứng (Target Module) |
+|:---|:---|:---|
+| 01 | `"Genetic Algorithm" "POX-Heuristic" "Tournament Scheduling" "Sport scheduling constraints"` | **Tournament-Scheduling:** Tự động hóa lập lịch giải đấu và tối ưu hóa thời gian nghỉ cho ngựa. |
+| 02 | `"Horse racing prediction" "Artificial Neural Networks" "non-linear prediction model"` | **Prediction-Model:** Xây dựng module dự đoán kết quả dựa trên dữ liệu phi tuyến. |
+| 03 | `"Learning-to-Rank" "LambdaRank" "Horse race prediction" "Top-k prediction"` | **Ranking-Management:** Module xếp hạng thứ bậc ngựa tham gia (Top-k). |
+| 04 | `"Machine Learning pipeline" "XGBoost for tabular data" "data preprocessing in racing"` | **AI-Service-ETL:** Pipeline xử lý dữ liệu thô (ETL) và trích xuất đặc trưng (Feature Engineering). |
+| 05 | `"Thoroughbred performance" "Horse demographics influence" "feature engineering in animal science"` | **Database-Schema:** Xác định các trường dữ liệu thực thể Ngựa/Nài ngựa. |
+| 06 | `"Wireless Sensor Networks" "intelligent sports management system" "real-time data acquisition"` | **IoT-Data-Layer:** Thiết kế tầng thu thập dữ liệu cảm biến thời gian thực. |
+| 07 | `"Pari-mutuel wagering" "true odds vs public odds" "betting market efficiency"` | **Betting-Strategy:** Tích hợp dữ liệu thị trường (Live Odds) vào module dự đoán. |
+| 08 | `"Constraint programming" "sports scheduling bibliography" "hard and soft constraints"` | **Backend-Logic:** Thiết lập bộ quy tắc Validation logic cho giải đấu (Rule-based). |
+| 09 | `"Horse Herd Optimization" "cloud task scheduling" "Multi-Objective optimization"` | **Backend-Infrastructure:** Tối ưu hóa phân bổ tài nguyên Cloud cho hệ thống. |
+| 10 | `"Association Rules" "Decision support system" "sports event management system"` | **Admin-Dashboard:** Kiến trúc hỗ trợ ra quyết định và quản lý vận hành B/S. |
 
 ---
 
-# 2. Learning-to-Rank and Ranking Prediction
+## Search Strategy
 
-## Purpose
-
-Find studies that predict the ranking order of horses rather than simply predicting winners.
-
-### Search Queries
-
-```text
-"learning to rank horse racing"
-"horse ranking prediction"
-"LambdaRank horse racing"
-"CatBoost ranking"
-"LightGBM ranking"
-"ranking prediction in sports"
-"sports ranking machine learning"
-```
-
-### Related System Module
-
-* Ranking Management
-* Prediction Management
-
----
-
-# 3. Tournament Scheduling
-
-## Purpose
-
-Identify optimization techniques for automatically generating tournament schedules under various constraints.
-
-### Search Queries
-
-```text
-"tournament scheduling optimization"
-"sports scheduling optimization"
-"genetic algorithm tournament scheduling"
-"sports scheduling genetic algorithm"
-"constraint programming sports scheduling"
-"heuristic tournament scheduling"
-"competition scheduling optimization"
-```
-
-### Related System Module
-
-* Tournament Management
-* Race Scheduling
-
----
-
-# 4. Sports Scheduling and Referee Assignment
-
-## Purpose
-
-Find studies focusing on sports scheduling and referee allocation.
-
-### Search Queries
-
-```text
-"referee assignment optimization"
-"sports referee scheduling"
-"sports tournament scheduling"
-"constraint satisfaction sports scheduling"
-"round robin scheduling optimization"
-"traveling tournament problem"
-```
-
-### Related System Module
-
-* Referee Management
-* Tournament Management
-
----
-
-# 5. Horse Racing Decision Support Systems
-
-## Purpose
-
-Identify AI systems that support management decisions, recommendations, and race planning.
-
-### Search Queries
-
-```text
-"horse racing decision support system"
-"sports decision support system"
-"AI decision support in sports"
-"horse racing management system"
-"race management decision making"
-"sports analytics decision support"
-```
-
-### Related System Module
-
-* Decision Support
-* Admin Dashboard
-* Prediction Management
-
----
-
-# 6. Sports Management Systems
-
-## Purpose
-
-Find intelligent management systems used in sports organizations and competitions.
-
-### Search Queries
-
-```text
-"intelligent sports management system"
-"AI sports management"
-"sports event management system"
-"sports competition management"
-"smart sports platform"
-"AI-powered sports system"
-```
-
-### Related System Module
-
-* Tournament Management
-* Horse Management
-* Jockey Management
-
----
-
-# 7. Recommendation Systems
-
-## Purpose
-
-Explore recommendation approaches applicable to jockey assignment and race preparation.
-
-### Search Queries
-
-```text
-"sports recommendation system"
-"athlete recommendation system"
-"participant recommendation system"
-"jockey recommendation"
-"AI recommendation in sports"
-"sports matching algorithm"
-```
-
-### Related System Module
-
-* Jockey Recommendation
-* Decision Support
-
----
-
-# 8. Feature Engineering for Horse Racing
-
-## Purpose
-
-Identify important factors influencing race outcomes.
-
-### Search Queries
-
-```text
-"horse age race performance"
-"horse demographics performance"
-"race distance effect horse racing"
-"horse racing feature importance"
-"jockey influence on race outcome"
-"horse racing performance factors"
-```
-
-### Related System Module
-
-* Prediction Management
-* Data Analytics
-
----
-
-# 9. Optimization Algorithms
-
-## Purpose
-
-Explore optimization techniques applicable to scheduling and resource allocation.
-
-### Search Queries
-
-```text
-"genetic algorithm scheduling"
-"multi objective optimization scheduling"
-"horse herd optimization"
-"metaheuristic scheduling"
-"resource allocation optimization"
-"evolutionary computation scheduling"
-```
-
-### Related System Module
-
-* Race Scheduling
-* Tournament Management
-
----
-
-# 10. Research Gap Identification
-
-## Purpose
-
-Find studies that combine management systems with prediction and decision support.
-
-### Search Queries
-
-```text
-"AI-powered tournament management"
-"sports management with machine learning"
-"sports prediction and scheduling"
-"horse racing management automation"
-"AI scheduling and prediction integration"
-"decision support tournament management"
-```
-
-### Related System Module
-
-* Entire System
-
----
-
-# Search Strategy
-
-The literature search was conducted using the following academic databases:
+Việc tìm kiếm tài liệu được thực hiện trên các cơ sở dữ liệu học thuật sau:
 
 * Google Scholar
 * IEEE Xplore
@@ -274,79 +33,28 @@ The literature search was conducted using the following academic databases:
 
 ---
 
-# Literature Review Categories
+## Literature Review Categories
 
-The selected papers were grouped into three categories:
+### Category 1: Horse Racing Prediction (6 bài)
+* P01 (Davoodi — ANN), P03 (So — Learning-to-Rank), P04 (NYC — Pipeline)
+* P05 (Sobotková — Domain), P07 (Benter — Logit), P10 (Zhang — Decision)
 
-## Category 1: Horse Racing Prediction
+### Category 2: Tournament Scheduling and Optimization (3 bài)
+* P01 (Su — POX-GA), P08 (Kendall — Constraints), P09 (Karim — HHO)
 
-Focus:
-
-* Race outcome prediction
-* Ranking prediction
-* Feature analysis
-* Decision support
-
-Representative Papers:
-
-* P01
-* P02
-* P03
-* P04
-* P05
-* P10
+### Category 3: Sports Management Systems (1 bài)
+* P06 (Zhu — ISMS/IoT)
 
 ---
 
-## Category 2: Tournament Scheduling and Optimization
+## Expected Research Gap
 
-Focus:
+Các nghiên cứu hiện tại chủ yếu tập trung vào từng khía cạnh riêng lẻ:
+* Dự đoán kết quả đua ngựa
+* Tối ưu hóa lập lịch thể thao
+* Hệ thống quản lý thể thao
 
-* Tournament scheduling
-* Referee assignment
-* Constraint optimization
-* Resource allocation
+Rất ít nghiên cứu tích hợp tất cả các thành phần trên vào một hệ thống duy nhất:
+**AI-powered Horse Racing Tournament Management System**.
 
-Representative Papers:
-
-* P06
-* P07
-* P09
-
----
-
-## Category 3: Sports Management Systems
-
-Focus:
-
-* Intelligent management systems
-* AI integration
-* Sports analytics
-* System architecture
-
-Representative Papers:
-
-* P08
-
----
-
-# Expected Research Gap
-
-Current studies mainly focus on either:
-
-* Horse race prediction
-* Sports scheduling optimization
-* Sports management systems
-
-Few studies integrate:
-
-* Horse Management
-* Jockey Management
-* Tournament Scheduling
-* Prediction Management
-* Ranking Management
-* Decision Support
-
-into a single AI-powered Horse Racing Tournament Management System.
-
-This gap forms the foundation of the proposed research.
+Khoảng trống này là nền tảng cho nghiên cứu được đề xuất.

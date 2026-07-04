@@ -1,218 +1,41 @@
-# Paper List
+# Academic Reference Paper List
 
-## Overview
+Dưới đây là danh sách 10 bài báo khoa học nghiên cứu được trích xuất từ báo cáo nghiên cứu và được phân loại chi tiết, đóng góp trực tiếp vào thiết kế và tính năng cho dự án **Horse Racing Tournament Management System** (Hệ thống quản lý giải đua ngựa).
 
-This document summarizes the ten research papers selected for the literature review of the project:
+## 1. Danh sách các bài báo nghiên cứu (Reference List)
 
-**AI-powered Horse Racing Tournament Management System**
-
-The papers are categorized into three major research areas:
-
-1. Horse Racing Prediction
-2. Tournament Scheduling and Optimization
-3. Sports Management Systems
-
----
-
-# Category 1: Horse Racing Prediction
-
-## P01
-
-**Title:** Horse Racing Prediction Using Artificial Neural Networks
-
-**Authors:** Elnaz Davoodi, Ali Reza Khanteymoori
-
-**Year:** 2010
-
-**Venue:** Recent Advances in Neural Networks, Fuzzy Systems & Evolutionary Computing
-
-**Research Area:** Horse Racing Prediction
-
-**Main Contribution:**
-Introduces an ANN-based model for predicting horse finishing times and race rankings.
+|   STT |Tên bài báo (Paper Title)                                                                                                        |Tác giả (Authors)                              |   Năm | Nguồn (Source)    | Loại tài liệu (Category)               | Vai trò / Đóng góp cho dự án                                                                                                                                                                                                               |
+|------:|:-------------------------------------------------------------------------------------------------------------------|:-------------------------------------|------:|:------------------|:---------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    01 | Smart Tournament Scheduling Using a POX-Heuristic Genetic Algorithm                                                | Mu-Chun Su, et al.                   |  2025 | IJITDM            | Core / Scheduling Optimization         | Cung cấp thuật toán di truyền nâng cao (GA) với toán tử lai ghép POX và đột biến Heuristic để tự động lập lịch thi đấu, tối ưu hóa thời gian hồi sức của ngựa và nài ngựa.                                                                 |
+|    02 | Horse Racing Prediction Using Artificial Neural Networks                                                           | Elnaz Davoodi, Ali Reza Khanteymoori |  2010 | WSEAS             | AI Modeling / Neural Networks          | Ứng dụng mạng nơ-ron đa lớp truyền thẳng (MLFF) và thuật toán Levenberg-Marquardt làm lõi tính toán thời gian về đích dự kiến của ngựa để cập nhật Live Tracker.                                                                           |
+|    03 | Machine Learning-based Learning-to-Rank Approach for Horse Race Prediction and Web Service Development             | Yubin So, Eunbi Woo, Hanjun Lee      |  2025 | JKSCI             | AI Ranking / Learning-to-Rank          | Nền tảng phát triển mô hình xếp hạng Top 3/Top 5 chiến mã bằng thuật toán CatBoost/XGBoost Ranker (Listwise LambdaRank) và thiết kế giao diện trực quan hóa kết quả cho Spectator.                                                         |
+|    04 | Predicting Horse Racing Outcomes                                                                                   | NYC Data Science Academy             |  2023 | NYCDSA Blog       | Data Pipeline / Ensemble Learning      | Hướng dẫn xây dựng pipeline trích xuất dữ liệu, kỹ nghệ đặc trưng và tích hợp mô hình học máy thực tế (Random Forest, XGBoost) để dự đoán xác suất chiến thắng của ngựa.                                                                   |
+|    05 | Influence of Horse Demographics, Country of Training and Race Distance on the Performance of Thoroughbred Horses   | Eva Sobotková, et al.                |  2023 | Acta Agriculturae | Domain Analytics / Feature Engineering | Cơ sở khoa học chứng minh tầm ảnh hưởng của tuổi, giới tính, dòng giống (sire), quốc gia huấn luyện và cự ly đua lên thành tích của ngựa; làm căn cứ thiết kế DB Schema cho Horse Management.                                              |
+|    06 | Design and implementation of an intelligent sports management system (ISMS) using wireless sensor networks         | ZhiGuo Zhu                           |  2025 | PeerJ Comp Sci    | Architectural Framework / IoT          | Bản thiết kế kiến trúc hệ thống 7 lớp (từ IoT thu thập dữ liệu sinh học, tầng xử lý Big Data đến tầng ứng dụng). Hỗ trợ định hình luồng xử lý dữ liệu thời gian thực cho hệ thống.                                                         |
+|    07 | Computer Based Horse Race Handicapping and Wagering Systems: A Report                                              | William Benter                       |  1994 | World Scientific  | Mathematical Model / Strategy          | Ứng dụng mô hình toán học Multinomial Logit phối hợp giữa dự đoán của mô hình (Fundamental Model) và tỷ lệ cược đám đông (Public Odds) để tạo ra tính năng 'AI + Crowd Prediction Matrix'.                                                 |
+|    08 | Scheduling in sports: An annotated bibliography                                                                    | Graham Kendall, et al.               |  2010 | Computers & OR    | Theoretical / Constraints Reference    | Cung cấp khung lý thuyết về phân loại ràng buộc cứng (Hard constraints) và ràng buộc mềm (Soft constraints). Ứng dụng để thiết kế luật phân công trọng tài và xếp lịch đua không trùng lặp.                                                |
+|    09 | Modelling of Horse Herd Optimization Based Multi Objective Task Scheduling Approach in Cloud Computing Environment | Faten K. Karim, et al.               |  2025 | Thermal Science   | Algorithmic / Infrastructure           | Mô hình hóa toán học các hành vi tự nhiên của loài ngựa. Ngoài ra, thuật toán HHO-MOTSA được ứng dụng để tối ưu hóa việc phân bổ tài nguyên đám mây đám mây, giảm độ trễ phản hồi trang Web khi có lượng lớn Spectator truy cập đồng thời. |
+|    10 | Optimal Model of Horse Racing Competition Decision Management Based on Association Rules and Neural Network        | Shuang Zhang                         |  2022 | Sci Programming   | Decision Support / Web System          | Cung cấp mô hình kiến trúc B/S đa nền tảng (Web/Android/iOS) kết hợp Luật kết hợp (Association Rules) và Mạng nơ-ron BP nhằm tối ưu hóa công tác quản lý quyết định, lập lịch và duyệt đăng ký giải đua.                                   |
 
 ---
 
-## P02
-
-**Title:** Machine Learning-based Learning-to-Rank Approach for Horse Race Prediction and Web Service Development
-
-**Authors:** Yubin So, Eunbi Woo, Hanjun Lee
-
-**Year:** 2025
-
-**Venue:** Journal of The Korea Society of Computer and Information
-
-**Research Area:** Horse Racing Prediction
-
-**Main Contribution:**
-Applies LambdaRank with CatBoost, XGBoost, and LightGBM to predict horse rankings and develops a web prediction service.
-
----
-
-## P03
-
-**Title:** Optimal Model of Horse Racing Competition Decision Management Based on Association Rules and Neural Network
-
-**Authors:** Shuang Zhang
-
-**Year:** 2022
-
-**Venue:** Scientific Programming
-
-**Research Area:** Horse Racing Decision Support
-
-**Main Contribution:**
-Combines Association Rules and BP Neural Networks for horse racing decision management and prediction.
-
----
-
-## P04
-
-**Title:** Influence of Horse Demographics, Country of Training and Race Distance on the Performance of Thoroughbred Horses in the Czech Republic
-
-**Authors:** Eva Sobotková et al.
-
-**Year:** 2023
-
-**Venue:** Archives of Animal Breeding
-
-**Research Area:** Horse Racing Analytics
-
-**Main Contribution:**
-Identifies key factors affecting horse performance such as age, sex, training country, and race distance.
-
----
-
-## P05
-
-**Title:** Computer Based Horse Race Handicapping and Wagering Systems: A Report
-
-**Authors:** William Benter
-
-**Year:** 1994
-
-**Venue:** Efficiency of Racetrack Betting Markets
-
-**Research Area:** Horse Racing Analytics
-
-**Main Contribution:**
-Develops a computerized probability-based horse race prediction and decision support system.
-
----
-
-## P10
-
-**Title:** Predicting Horse Racing Outcomes
-
-**Authors:** NYC Data Science Capstone Team
-
-**Year:** 2018
-
-**Venue:** NYC Data Science Blog
-
-**Research Area:** Horse Racing Prediction
-
-**Main Contribution:**
-Demonstrates practical machine learning approaches for horse race outcome prediction.
-
----
-
-# Category 2: Tournament Scheduling and Optimization
-
-## P06
-
-**Title:** Smart Tournament Scheduling Using a POX-Heuristic Genetic Algorithm
-
-**Authors:** Mu-Chun Su et al.
-
-**Year:** 2025
-
-**Venue:** International Journal of Information Technology & Decision Making
-
-**Research Area:** Tournament Scheduling
-
-**Main Contribution:**
-Uses Genetic Algorithms with POX crossover and heuristic mutation to optimize tournament schedules.
-
----
-
-## P07
-
-**Title:** Scheduling in Sports: An Annotated Bibliography
-
-**Authors:** Graham Kendall, Sigrid Knust, Celso C. Ribeiro, Sebastián Urrutia
-
-**Year:** 2010
-
-**Venue:** Computers & Operations Research
-
-**Research Area:** Sports Scheduling
-
-**Main Contribution:**
-Provides a comprehensive review of sports scheduling methods and optimization techniques.
-
----
-
-## P09
-
-**Title:** Modelling of Horse Herd Optimization Based Multi Objective Task Scheduling Approach in Cloud Computing Environment
-
-**Authors:** Faten K. Karim et al.
-
-**Year:** 2025
-
-**Venue:** Thermal Science
-
-**Research Area:** Scheduling Optimization
-
-**Main Contribution:**
-Proposes a Horse Herd Optimization algorithm for multi-objective scheduling problems.
-
----
-
-# Category 3: Sports Management Systems
-
-## P08
-
-**Title:** Design and Implementation of an Intelligent Sports Management System Using Wireless Sensor Networks
-
-**Authors:** ZhiGuo Zhu
-
-**Year:** 2025
-
-**Venue:** PeerJ Computer Science
-
-**Research Area:** Intelligent Sports Management
-
-**Main Contribution:**
-Introduces an AI-enabled sports management architecture integrating IoT, sensor networks, and neural networks.
-
----
-
-# Paper Distribution Summary
-
-| Category                               | Number of Papers |
-| -------------------------------------- | ---------------- |
-| Horse Racing Prediction                | 6                |
-| Tournament Scheduling and Optimization | 3                |
-| Sports Management Systems              | 1                |
-| Total                                  | 10               |
-
----
-
-# Research Focus
-
-The selected papers indicate that existing studies primarily focus on:
-
-* Horse race prediction models
-* Ranking prediction systems
-* Decision support systems
-* Sports scheduling optimization
-* Intelligent sports management architectures
-
-However, there is limited research integrating all these components into a unified:
-
-**AI-powered Horse Racing Tournament Management System**
-
-This gap motivates the development of the proposed research project.
+## 2. Phân loại bài báo theo yêu cầu (Required Grouping)
+
+Để phục vụ cho việc định hình nghiên cứu và phân chia vai trò học thuật, 10 tài liệu trên được chia thành 3 nhóm lớn:
+
+### Nhóm 1: Các bài báo liên quan trực tiếp đến đề tài dự án (Directly Related Papers)
+- **Bài 01 (Su et al., 2025) — [Core / Scheduling Optimization]:** Giải quyết trực tiếp thuật toán cốt lõi cho phân hệ lập lịch thi đấu tự động của Admin, đảm bảo thời gian nghỉ cho ngựa và nài ngựa.
+- **Bài 04 (NYC Data Science Academy, 2023) — [Data Pipeline / Ensemble Learning]:** Định hình quy trình xử lý dữ liệu và thiết kế pipeline dự đoán kết quả cuộc đua cho phân hệ phân tích.
+- **Bài 06 (Zhu, 2025) — [Architectural Framework / IoT]:** Trực tiếp cung cấp cấu trúc phân tầng hệ thống quản lý thể thao, đồng bộ dữ liệu giám sát giữa các tác nhân.
+- **Bài 08 (Kendall et al., 2010) — [Theoretical / Constraints Reference]:** Định hình các tập ràng buộc logic (cứng/mềm) cho việc phân công trọng tài và tổ chức các vòng đua.
+- **Bài 10 (Zhang, 2022) — [Decision Support / Web System]:** Mô hình chuẩn về kiến trúc Web App đa nền tảng cho việc quản lý quyết định giải đua và công bố kết quả thi đấu.
+
+### Nhóm 2: Các bài báo về Model AI hoặc Phương pháp AI (AI/Model/Method Papers)
+- **Bài 02 (Davoodi & Khanteymoori, 2010) — [AI Modeling / Neural Networks]:** Cung cấp phương pháp Mạng nơ-ron truyền thẳng đa lớp kết hợp thuật toán tối ưu hóa LM để học các mối quan hệ phi tuyến, dự đoán thời gian hoàn thành chặng đua.
+- **Bài 03 (So et al., 2025) — [AI Ranking / Learning-to-Rank]:** Đề xuất phương pháp tiếp cận LambdaRank thông qua GBDT để xếp hạng thứ tự tương đối thay vì phân loại nhị phân thắng/thua.
+- **Bài 07 (Benter, 1994) — [Mathematical Model / Strategy]:** Đóng góp mô hình xác suất toán học Multinomial Logit và chiến lược xử lý tích hợp dữ liệu quá khứ với tỷ lệ cược thực tế của đám đông.
+- **Bài 09 (Karim et al., 2025) — [Algorithmic / Infrastructure]:** Đề xuất thuật toán tối ưu hóa bầy ngựa đa mục tiêu dựa trên các hành vi sinh học tự nhiên, hỗ trợ thuật toán hóa hồ sơ AI cho ngựa.
+
+### Nhóm 3: Các bài báo về Domain ứng dụng (Domain/Application Papers)
+- **Bài 05 (Sobotková et al., 2023) — [Domain Analytics / Feature Engineering]:** Nghiên cứu thực nghiệm chuyên sâu về giống ngựa Thoroughbred; đóng góp trực tiếp vào cấu trúc thực thể Horse và bộ lọc thuộc tính đầu vào của hệ thống.
+- **Bài 10 (Zhang, 2022) — [Decision Support / Web System]:** Phân tích thực tế dữ liệu thi đấu qua các mùa giải, xếp hạng 13 biến số ảnh hưởng lớn nhất đến kết quả của một trường đua chuyên nghiệp.
